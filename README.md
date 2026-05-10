@@ -1,56 +1,43 @@
-# Promtagram Landing
+# Promtagram Landing (GitHub Pages)
 
-Публичный статический лендинг Promtagram для GitHub Pages.
+Публичный лендинг Promtagram для конверсии заявок в CRM через Google Form.
 
-## Версия
+## Продакшн URL
 
-Текущая версия дизайна:
+https://pdrvstv.github.io/promtagram-landing/
 
-`PUBLISHED_UNTESTED_STATIC_V0_2`
+## Целевой домен
 
-Статус `READY` ставится только после тестовой заявки через сайт и подтверждения появления лида в CRM.
+https://promtagram.ru
 
-## Файлы
+## Позиционирование
 
+Promtagram — Лаборатория господдержки с ИИ.
+
+Предварительный скоринг мер господдержки, карта возможных программ, маршрут документов и проверка рисков для бизнеса.
+
+## Текущая версия
+
+`PUBLISHED_UNTESTED_STATIC_V0_3_LOVABLE_BASED`
+
+Переход в `READY` — только после подтверждённой тестовой заявки в CRM.
+
+## Технический стек
+
+- Статический GitHub Pages
 - `index.html`
 - `styles.css`
 - `script.js`
-- `assets/README.md`
-- `docs/DESIGN_BRIEF_V02.md`
+- Без backend / без Apps Script / без фреймворков / без CDN
 
-## Воронка
+## Интеграция формы
 
-Сайт ведёт пользователя в Google Form:
+Public:
+https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform
 
-- встроенная форма: `?embedded=true`
-- fallback-ссылка: открыть форму отдельно
+Embed:
+https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true
 
-Форма связана с CRM-таблицей Promtagram.
+## Дисклеймер
 
-## GitHub Pages
-
-Публикация:
-
-1. Repository → Settings → Pages
-2. Source: Deploy from a branch
-3. Branch: `main`
-4. Folder: `/root`
-5. Save
-
-Публичный URL:
-
-`https://pdrvstv.github.io/promtagram-landing/`
-
-## Дизайн-логика v0.2
-
-- Scene-based структура вместо набора одинаковых карточек.
-- Тёмный бренд-контур и премиальный hero.
-- Dashboard-блок `ИИ-скан поддержки`.
-- Карта маршрутов поддержки.
-- Операционная последовательность: скоринг → карта мер → маршрут документов → проверка рисков → результат.
-- Доказательный контур Promtagram.
-- Интегрированный lead-блок с Google Form.
-
-## Комплаенс
-
-Сайт не обещает получение господдержки, субсидии, займа, гранта, лизинга или финансирования. Все формулировки используются в режиме предварительной оценки и сопровождения без гарантии одобрения.
+Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.
