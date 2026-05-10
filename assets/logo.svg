@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Promtagram">
+  <defs>
+    <linearGradient id="g" x1="12" y1="8" x2="84" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2f5edb"/>
+      <stop offset="1" stop-color="#0f1e33"/>
+    </linearGradient>
+    <linearGradient id="s" x1="28" y1="20" x2="70" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#93c5fd"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="80" height="80" rx="22" fill="url(#g)"/>
+  <path d="M24 30.5h21.5c14 0 23.5 8.4 23.5 20.4 0 12.2-9.4 20.6-23.5 20.6H37.8V58.8h7.7c6.3 0 10.7-3 10.7-7.9 0-4.8-4.4-7.7-10.7-7.7H37.8V71.5H24v-41z" fill="url(#s)"/>
+  <path d="M20 24h56M20 78h56M18 31l60 0M18 65h60" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
+  <path d="M72 26v44" stroke="#93c5fd" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+</svg>
