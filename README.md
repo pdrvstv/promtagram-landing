@@ -4,11 +4,11 @@
 
 ## Продакшн URL
 
-https://pdrvstv.github.io/promtagram-landing/
-
-## Целевой домен
-
 https://promtagram.ru
+
+## Резервный GitHub Pages URL
+
+https://pdrvstv.github.io/promtagram-landing/
 
 ## Позиционирование
 
@@ -18,7 +18,7 @@ Promtagram — Лаборатория господдержки с ИИ.
 
 ## Текущая версия
 
-`PUBLISHED_UNTESTED_STATIC_V0_3_LOVABLE_BASED`
+`PUBLISHED_HTTPS_STATIC_V0_3`
 
 Переход в `READY` — только после подтверждённой тестовой заявки в CRM.
 
@@ -29,6 +29,28 @@ Promtagram — Лаборатория господдержки с ИИ.
 - `styles.css`
 - `script.js`
 - Без backend / без Apps Script / без фреймворков / без CDN
+
+## SEO baseline
+
+Статус:
+
+`SEO_BASELINE_APPLIED_STATIC_V0_3`
+
+Добавлено:
+
+- canonical: `https://promtagram.ru/`
+- `robots.txt`
+- `sitemap.xml`
+- Open Graph / Twitter Card metadata
+- `assets/og-cover.svg`
+- JSON-LD structured data: `Organization`, `WebSite`, `Service`
+- runbook: `docs/SEO_RUNBOOK.md`
+
+Проверочные URL:
+
+- https://promtagram.ru/robots.txt
+- https://promtagram.ru/sitemap.xml
+- https://promtagram.ru/assets/og-cover.svg
 
 ## Интеграция формы
 
