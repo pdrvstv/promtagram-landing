@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://promtagram.ru/sitemap.xml
