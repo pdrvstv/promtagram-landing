@@ -6,52 +6,292 @@
   <title>Promtagram — господдержка бизнеса с ИИ</title>
   <meta name="description" content="Предварительный скоринг мер господдержки, карта возможных программ, маршрут документов и проверка рисков для бизнеса." />
   <meta property="og:title" content="Promtagram — господдержка бизнеса с ИИ" />
-  <meta property="og:description" content="Предварительный скоринг, карта мер, маршрут документов и проверка рисков." />
+  <meta property="og:description" content="Предварительный скоринг, карта мер, маршрут документов и проверка рисков для бизнеса." />
   <meta name="theme-color" content="#0b1525" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body id="top">
-<header class="topbar">
-  <div class="container topbar-inner">
-    <a class="brand" href="#top" data-scroll="top">
-      <img id="brandLogo" src="https://drive.google.com/uc?export=view&id=18dxhcc_PQ4YQaCDSY9Kgrv7hdsqCL2Kx" alt="Promtagram" class="brand-logo" />
-      <span id="brandFallback" class="brand-fallback" aria-hidden="true"><span></span></span>
-      <span><strong>Promtagram</strong><small>Лаборатория господдержки с ИИ</small></span>
-    </a>
-    <nav class="nav">
-      <button data-scroll="platform">Платформа</button><button data-scroll="routes">Маршруты</button><button data-scroll="industries">Отрасли</button><button data-scroll="process">Процесс</button><button data-scroll="result">Результат</button><button data-scroll="lead">Заявка</button>
-    </nav>
-    <button class="btn btn-primary" data-scroll="lead">Получить скоринг</button>
-  </div>
-</header>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" data-scroll="top" aria-label="Promtagram">
+        <img id="brandLogo" src="assets/logo.svg" alt="Promtagram" class="brand-logo" />
+        <span id="brandFallback" class="brand-fallback" aria-hidden="true">
+          <span class="mark-grid"></span>
+          <span class="mark-p"></span>
+        </span>
+        <span class="brand-text">
+          <strong>Promtagram</strong>
+          <small>Лаборатория господдержки с ИИ</small>
+        </span>
+      </a>
 
-<main>
-<section class="hero scene-dark" id="platform"><div class="container hero-grid"><div><p class="eyebrow">Операционная система предварительного скоринга господдержки для бизнеса</p><h1>Государственная поддержка бизнеса на основе ИИ</h1><p class="sub">Promtagram помогает предварительно оценить меры поддержки, льготное финансирование, субсидии, лизинг и компенсации — с картой документов, рисков и следующего действия.</p><div class="hero-actions"><button class="btn btn-light" data-scroll="lead">Получить предварительный скоринг</button><button class="btn btn-outline" data-scroll="process">Посмотреть маршрут</button><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform">Открыть форму отдельно</a></div><p class="trust-line">Без обещаний одобрения. Только проверяемые маршруты, документы и риски.</p></div>
-<aside class="dashboard"><h3>ИИ-скан поддержки</h3><div class="score">82 <span>/ 100</span></div><p class="status">Статус: требуется проверка документов</p><ul><li><span>ФРП</span><b>проверить</b></li><li><span>МСП</span><b>возможно</b></li><li><span>РЭЦ</span><b>возможно</b></li><li><span>Лизинг</span><b>применимо</b></li><li><span>Субсидии</span><b>зависит от региона</b></li></ul><div class="risk-row"><span>Риски:</span><em>инвестплан</em><em>ОКВЭД</em><em>выручка</em><em>сроки</em></div><p class="next">Следующий шаг: сформировать маршрут документов</p><small>Демо-структура предварительного анализа, не кейс клиента.</small></aside></div></section>
+      <nav class="nav" aria-label="Навигация">
+        <button data-scroll="platform">Платформа</button>
+        <button data-scroll="routes">Маршруты</button>
+        <button data-scroll="industries">Отрасли</button>
+        <button data-scroll="process">Процесс</button>
+        <button data-scroll="result">Результат</button>
+        <button data-scroll="lead">Заявка</button>
+      </nav>
 
-<section class="trust-strip"><div class="container"><p>Работаем с ключевыми контурами поддержки</p><div class="badge-grid"><span>ФРП</span><span>МСП</span><span>МСП Банк</span><span>РЭЦ</span><span>ГИСП</span><span>Лизинг</span><span>Субсидии</span><span>Компенсации</span><span>Документооборот</span><span>Проверка рисков</span><span>CRM</span></div></div></section>
+      <button class="btn btn-primary" data-scroll="lead">Получить скоринг</button>
+    </div>
+  </header>
 
-<section class="scene-light"><div class="container"><h2>От ручного поиска мер — к управляемому маршруту</h2><div class="chaos-grid"><article class="panel danger"><h3>До Promtagram</h3><ul><li>десятки источников</li><li>разные критерии</li><li>риск устаревших условий</li><li>нет единого маршрута</li><li>заявки теряются в переписках</li></ul></article><div class="diagram-plus"><div class="cluster"></div><div class="hub">P</div><div class="route a"></div><div class="route b"></div><div class="route c"></div></div><article class="panel success"><h3>После Promtagram</h3><ul><li>один вход</li><li>карта мер</li><li>маршрут документов</li><li>проверка рисков</li><li>CRM-статус и следующий шаг</li></ul></article></div></div></section>
+  <main>
+    <section class="scene scene-hero scene-dark" id="platform">
+      <div class="hero-bg-lines" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Операционная система предварительного скоринга господдержки</p>
+          <h1>Господдержка бизнеса с ИИ — от идеи до маршрута документов</h1>
+          <p class="sub">
+            Promtagram помогает бизнесу определить возможные меры поддержки, собрать карту документов,
+            проверить риски и выбрать следующий шаг — без обещаний одобрения.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-light" data-scroll="lead">Получить предварительный скоринг</button>
+            <button class="btn btn-outline" data-scroll="process">Посмотреть маршрут</button>
+            <a class="btn btn-ghost" target="_blank" rel="noopener"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform">
+              Открыть форму отдельно
+            </a>
+          </div>
+          <p class="trust-line">
+            Предварительная оценка не является гарантией одобрения. Решение принимает оператор программы.
+          </p>
+        </div>
 
-<section id="modules" class="scene-white"><div class="container"><p class="eyebrow">Платформа предварительного скоринга</p><h2>Promtagram связывает заявку, меры поддержки, документы и риск-контроль в единый процесс</h2><div class="grid6 modules"><article><i></i><h3>Приём заявки</h3><p>Единая точка входа</p><span>Вход</span></article><article><i></i><h3>ИИ-оценка применимости</h3><p>Балл и профиль релевантности</p><span>Анализ</span></article><article><i></i><h3>Карта мер</h3><p>2–5 приоритетных направлений</p><span>Карта</span></article><article><i></i><h3>Маршрут документов</h3><p>Порядок и зависимости</p><span>Документы</span></article><article><i></i><h3>Проверка рисков</h3><p>Ограничения до подачи</p><span>Риски</span></article><article><i></i><h3>CRM-сопровождение</h3><p>Статус и follow-up</p><span>Follow-up</span></article></div></div></section>
+        <aside class="dashboard" aria-label="ИИ-скан поддержки">
+          <div class="dash-head">
+            <h3>ИИ-скан поддержки</h3>
+            <span class="dash-badge">Скоринг</span>
+          </div>
+          <div class="score">82 <span>/ 100</span></div>
+          <p class="status">Статус: требуется проверка документов</p>
 
-<section id="routes" class="scene-map"><div class="container"><h2>Маршруты поддержки</h2><div class="route-map"><article><h3>Прямая поддержка</h3><p class="tags">деньги · документы · компенсации</p><p>Субсидии, займы, льготное финансирование, лизинг, компенсации, гранты где применимо.</p></article><article><h3>Косвенная поддержка</h3><p class="tags">инфраструктура · партнёры · сбыт · риски</p><p>Экспорт, сертификация, каналы сбыта, индустриальные площадки, обучение, партнёрские решения.</p></article></div><div class="route-line"><span>деньги</span><span>документы</span><span>сбыт</span><span>инфраструктура</span><span>партнёры</span><span>риски</span></div></div></section>
+          <ul class="dash-list">
+            <li><span>ФРП</span><b>проверить</b></li>
+            <li><span>МСП</span><b>возможно</b></li>
+            <li><span>РЭЦ</span><b>возможно</b></li>
+            <li><span>Лизинг</span><b>применимо</b></li>
+            <li><span>Субсидии</span><b>зависит от региона</b></li>
+          </ul>
 
-<section id="industries" class="scene-light"><div class="container"><h2>Отраслевые сценарии</h2><div class="industry-grid compact"><article><h3>Производство</h3><p>Запрос: модернизация</p><p>Маршрут: ФРП + лизинг</p><p>Вопрос: есть инвестплан?</p></article><article><h3>АПК</h3><p>Запрос: переработка</p><p>Маршрут: субсидии + займы</p><p>Вопрос: объём сырья подтверждён?</p></article><article><h3>Экспорт</h3><p>Запрос: новые рынки</p><p>Маршрут: РЭЦ + сертификация</p><p>Вопрос: определены страны?</p></article><article><h3>Лизинг</h3><p>Запрос: оборудование</p><p>Маршрут: лизинг + компенсации</p><p>Вопрос: есть техзадание?</p></article><article><h3>Автоматизация</h3><p>Запрос: роботизация</p><p>Маршрут: ФРП + регион</p><p>Вопрос: рассчитан эффект?</p></article><article><h3>ИТ</h3><p>Запрос: цифровизация</p><p>Маршрут: гранты + льготы</p><p>Вопрос: есть roadmap?</p></article><article><h3>Маркетплейсы</h3><p>Запрос: масштабирование</p><p>Маршрут: экспорт + логистика</p><p>Вопрос: подтвержден сбыт?</p></article><article><h3>Инвестпроекты</h3><p>Запрос: новая площадка</p><p>Маршрут: займы + инфраструктура</p><p>Вопрос: есть финмодель?</p></article></div></div></section>
+          <div class="risk-row">
+            <span>Риски:</span>
+            <em>инвестплан</em>
+            <em>ОКВЭД</em>
+            <em>выручка</em>
+            <em>сроки</em>
+          </div>
 
-<section id="process" class="scene-white"><div class="container"><h2>Как работает Promtagram</h2><ol class="pipeline"><li><b>1</b><span>Заявка</span><small>фиксируем входные данные</small></li><li><b>2</b><span>Квалификация</span><small>проверяем полноту</small></li><li><b>3</b><span>Скоринг</span><small>оцениваем применимость</small></li><li><b>4</b><span>Карта мер</span><small>формируем направления</small></li><li><b>5</b><span>Маршрут документов</span><small>готовим перечень</small></li><li><b>6</b><span>Проверка рисков</span><small>фиксируем ограничения</small></li><li><b>7</b><span>Следующий шаг</span><small>консультация/маршрут</small></li></ol></div></section>
+          <p class="next">Следующий шаг: сформировать маршрут документов</p>
+          <small>Демо-структура предварительного анализа, не кейс клиента.</small>
+        </aside>
+      </div>
+    </section>
 
-<section id="result" class="scene-light"><div class="container result-grid"><div><h2>Что получает заявитель</h2><div class="grid4"><article>карта возможных мер</article><article>список приоритетных направлений</article><article>чек-лист документов</article><article>риски и ограничения</article><article>следующий управленческий шаг</article><article>CRM follow-up</article></div></div><aside class="demo"><h3>Демо-отчёт скоринга</h3><ul><li>Балл применимости: 82 / 100</li><li>Приоритет: высокий</li><li>Направления: ФРП / МСП / лизинг</li><li>Риски: инвестплан / ОКВЭД / выручка</li><li>Следующий шаг: консультация + сбор документов</li></ul><small>Демо-структура результата, не кейс клиента.</small></aside></div></section>
+    <section class="scene trust-strip">
+      <div class="container">
+        <h2 class="strip-title">Работаем с ключевыми контурами поддержки</h2>
+        <div class="contour-grid">
+          <article>
+            <h3>Институты</h3>
+            <p>ФРП · МСП · МСП Банк · РЭЦ · ГИСП</p>
+          </article>
+          <article>
+            <h3>Инструменты</h3>
+            <p>займы · субсидии · лизинг · компенсации · экспорт</p>
+          </article>
+          <article>
+            <h3>Операционный контур</h3>
+            <p>CRM · документооборот · проверка рисков · доказательный контур</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="scene-trust"><div class="container"><h2>Доказательный контур Promtagram</h2><p>Мы не выдаём реконструкции за собственные кейсы. Каждый материал должен иметь статус, источник и уровень проверки.</p><div class="badge-grid evidence"><span>Собственный кейс</span><span>Публичный источник</span><span>Реконструкция</span><span>Демо</span><span>Гипотеза</span><span>Требует проверки</span></div></div></section>
+    <section class="scene scene-light" id="value">
+      <div class="container">
+        <p class="eyebrow dark">Продуктовая система</p>
+        <h2>Что делает Promtagram</h2>
+        <div class="value-bands">
+          <article><b>Предварительный скоринг применимости</b><span>оценка релевантности мер по профилю компании</span></article>
+          <article><b>Карта возможных мер</b><span>структурирование направлений и институтов поддержки</span></article>
+          <article><b>Маршрут документов</b><span>порядок подготовки, зависимости и контроль полноты</span></article>
+          <article><b>Проверка рисков</b><span>ограничения и условия до подачи заявки</span></article>
+          <article><b>CRM-сопровождение</b><span>статус, follow-up и управленческий контур</span></article>
+          <article><b>Партнёрский маршрут</b><span>передача в профильные контуры при необходимости</span></article>
+        </div>
+      </div>
+    </section>
 
-<section id="formats" class="scene-white"><div class="container"><h2>Форматы работы</h2><div class="pack-grid"><article><h3>Предварительный скоринг</h3><ul><li>базовая оценка применимости</li><li>топ направлений</li><li>риски первого уровня</li><li>следующий шаг</li></ul><p>После первичной квалификации</p><button class="btn btn-primary" data-scroll="lead">Получить скоринг</button></article><article><h3>Карта мер и документов</h3><ul><li>карта программ</li><li>документный маршрут</li><li>чек-лист</li><li>Проверка рисков</li></ul><p>По запросу</p><button class="btn btn-primary" data-scroll="lead">Получить карту</button></article><article><h3>Сопровождение / партнёрский маршрут</h3><ul><li>контроль шагов</li><li>подготовка материалов</li><li>партнёрские контуры</li><li>CRM follow-up</li></ul><p>После первичной квалификации</p><button class="btn btn-primary" data-scroll="lead">Обсудить маршрут</button></article></div></div></section>
+    <section class="scene scene-map" id="routes">
+      <div class="container">
+        <h2>Карта маршрутов поддержки</h2>
+        <div class="route-map">
+          <article class="route-card">
+            <h3>Прямая поддержка</h3>
+            <p class="tags">деньги · документы · компенсации</p>
+            <p>субсидии · займы · льготное финансирование · лизинг · компенсации · гранты (где применимо)</p>
+          </article>
+          <article class="route-card">
+            <h3>Косвенная поддержка</h3>
+            <p class="tags">инфраструктура · партнёры · сбыт · риски</p>
+            <p>экспорт · сертификация · каналы сбыта · индустриальные площадки · обучение · партнёрские решения</p>
+          </article>
+        </div>
+        <div class="route-line" aria-label="Маршрутные направления">
+          <span>деньги</span><span>документы</span><span>сбыт</span><span>инфраструктура</span><span>партнёры</span><span>риски</span>
+        </div>
+      </div>
+    </section>
 
-<section id="lead" class="lead-dark"><div class="container lead-layout"><div><h2>Проверьте меры поддержки для вашего бизнеса</h2><p>Оставьте заявку — мы проведём предварительную оценку и покажем возможный маршрут.</p><ul class="trust-bullets"><li>проверим отрасль, регион и тип запроса;</li><li>определим 2–5 потенциальных направлений;</li><li>покажем риски и следующий шаг.</li></ul><p class="note">Внутренний целевой ориентир: первичный разбор до 24 часов.</p><p class="disc">Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.</p></div><div class="lead-card"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true" title="Форма заявки"></iframe><a class="btn btn-light" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform">Открыть форму в отдельном окне</a></div></div></section>
-</main>
+    <section class="scene scene-white" id="industries">
+      <div class="container">
+        <h2>Кому подойдёт</h2>
+        <div class="industry-grid compact">
+          <article><h3>Производство</h3><p>Запрос: модернизация</p><p>Маршрут: ФРП + лизинг</p><p>Вопрос: есть инвестплан?</p></article>
+          <article><h3>АПК</h3><p>Запрос: переработка</p><p>Маршрут: субсидии + займы</p><p>Вопрос: объём сырья подтверждён?</p></article>
+          <article><h3>Экспорт</h3><p>Запрос: новые рынки</p><p>Маршрут: РЭЦ + сертификация</p><p>Вопрос: определены страны?</p></article>
+          <article><h3>Лизинг</h3><p>Запрос: оборудование</p><p>Маршрут: лизинг + компенсации</p><p>Вопрос: есть техзадание?</p></article>
+          <article><h3>Автоматизация</h3><p>Запрос: роботизация</p><p>Маршрут: ФРП + регион</p><p>Вопрос: рассчитан эффект?</p></article>
+          <article><h3>ИТ</h3><p>Запрос: цифровизация</p><p>Маршрут: гранты + льготы</p><p>Вопрос: есть roadmap?</p></article>
+          <article><h3>Маркетплейсы</h3><p>Запрос: масштабирование</p><p>Маршрут: экспорт + логистика</p><p>Вопрос: подтвержден сбыт?</p></article>
+          <article><h3>Инвестпроекты</h3><p>Запрос: новая площадка</p><p>Маршрут: займы + инфраструктура</p><p>Вопрос: есть финмодель?</p></article>
+        </div>
+      </div>
+    </section>
 
-<footer><div class="container foot-grid"><div><strong>Promtagram</strong><p>Лаборатория господдержки с ИИ</p></div><div>Платформа<br>Маршруты<br>Отрасли</div><div>Документы<br>Контакты</div></div><p class="disc">Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.</p></footer>
-<button class="mobile-cta" data-scroll="lead">Получить скоринг</button>
-<script src="script.js"></script>
+    <section class="scene scene-light" id="process">
+      <div class="container process-result-grid">
+        <div>
+          <h2>Как работает Promtagram</h2>
+          <ol class="pipeline">
+            <li><b>1</b><span>Заявка</span><small>фиксируем входные данные</small></li>
+            <li><b>2</b><span>Квалификация</span><small>проверяем полноту</small></li>
+            <li><b>3</b><span>Скоринг</span><small>оцениваем применимость</small></li>
+            <li><b>4</b><span>Карта мер</span><small>формируем направления</small></li>
+            <li><b>5</b><span>Маршрут документов</span><small>готовим перечень</small></li>
+            <li><b>6</b><span>Проверка рисков</span><small>фиксируем ограничения</small></li>
+            <li><b>7</b><span>Следующий шаг</span><small>консультация/маршрут</small></li>
+          </ol>
+        </div>
+
+        <aside class="demo" id="result">
+          <h3>Демо-отчёт скоринга</h3>
+          <ul>
+            <li>Балл применимости: 82 / 100</li>
+            <li>Приоритет: высокий</li>
+            <li>Направления: ФРП / МСП / лизинг</li>
+            <li>Риски: инвестплан / ОКВЭД / выручка</li>
+            <li>Следующий шаг: консультация + сбор документов</li>
+          </ul>
+          <small>Демо-структура результата, не кейс клиента.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="scene scene-trust">
+      <div class="container">
+        <h2>Доказательный контур Promtagram</h2>
+        <p>
+          Мы разделяем собственные кейсы, публичные источники, реконструкции, демо-кейсы и гипотезы.
+          Реконструкции не выдаются за собственные кейсы. Материалы маркируются по источнику и уровню проверки.
+        </p>
+        <div class="badge-grid evidence">
+          <span>Собственный кейс</span>
+          <span>Публичный источник</span>
+          <span>Реконструкция</span>
+          <span>Демо</span>
+          <span>Гипотеза</span>
+          <span>Требует проверки</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-white" id="formats">
+      <div class="container">
+        <h2>Форматы работы</h2>
+        <div class="pack-grid">
+          <article>
+            <h3>Предварительный скоринг</h3>
+            <ul>
+              <li>первичная оценка</li>
+              <li>2–5 направлений</li>
+              <li>риски первого уровня</li>
+              <li>следующий шаг</li>
+            </ul>
+            <p>После первичной квалификации</p>
+            <button class="btn btn-primary" data-scroll="lead">Получить скоринг</button>
+          </article>
+
+          <article>
+            <h3>Карта мер и документов</h3>
+            <ul>
+              <li>карта программ</li>
+              <li>чек-лист документов</li>
+              <li>маршрут подачи</li>
+              <li>Проверка рисков</li>
+            </ul>
+            <p>По запросу</p>
+            <button class="btn btn-primary" data-scroll="lead">Получить карту</button>
+          </article>
+
+          <article>
+            <h3>Сопровождение / партнёрский маршрут</h3>
+            <ul>
+              <li>контроль шагов</li>
+              <li>подготовка материалов</li>
+              <li>партнёрские контуры</li>
+              <li>CRM follow-up</li>
+            </ul>
+            <p>Без гарантии одобрения</p>
+            <button class="btn btn-primary" data-scroll="lead">Обсудить маршрут</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lead" class="scene lead-dark">
+      <div class="container lead-layout">
+        <div>
+          <h2>Проверьте меры поддержки для вашего бизнеса</h2>
+          <p>Оставьте заявку — мы проведём предварительную оценку и покажем возможный маршрут.</p>
+          <ul class="trust-bullets">
+            <li>проверим отрасль, регион и тип запроса;</li>
+            <li>определим потенциальные направления поддержки;</li>
+            <li>покажем риски и документный маршрут.</li>
+          </ul>
+          <p class="note">Если форма не загрузилась, откройте её в отдельной вкладке.</p>
+          <p class="disc">Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.</p>
+        </div>
+        <div class="lead-card">
+          <a class="btn btn-light" target="_blank" rel="noopener"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform">
+             Открыть форму в отдельном окне
+          </a>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true" title="Форма заявки"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <strong>Promtagram</strong>
+        <p>Лаборатория господдержки с ИИ</p>
+      </div>
+      <div>Платформа<br>Маршруты<br>Отрасли</div>
+      <div>Документы<br>Контакты<br>Landing v0.3 · GitHub Pages · форма связана с CRM</div>
+    </div>
+    <p class="disc">Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.</p>
+  </footer>
+
+  <button class="mobile-cta" data-scroll="lead">Получить скоринг</button>
+  <script src="script.js"></script>
 </body>
 </html>
