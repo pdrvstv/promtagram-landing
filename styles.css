@@ -187,6 +187,8 @@ h2{font-size:clamp(28px,3.2vw,38px);line-height:1.15;margin:0 0 16px}
   background:#eff4fd;border:1px solid #ccd8ea;border-radius:999px;padding:5px 9px
 }
 
+.support-intro{max-width:780px;color:#4f6382;line-height:1.6;margin:0 0 18px}.support-links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.support-links-grid a{display:flex;flex-direction:column;gap:6px;min-height:140px;background:linear-gradient(180deg,#ffffff,#f7faff);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);box-shadow:0 12px 28px rgba(15,27,42,.05);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.support-links-grid a:hover{transform:translateY(-2px);border-color:#9cb6dd;box-shadow:0 18px 34px rgba(15,27,42,.08)}.support-links-grid span{width:max-content;background:#eaf2ff;color:#1f4d98;border:1px solid #c8d8ef;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:700}.support-links-grid strong{font-size:17px;line-height:1.25}.support-links-grid small{color:#5f728e;line-height:1.45}
+
 .grid6,.industry-grid,.pack-grid,.grid4{display:grid;gap:12px}
 .grid6{grid-template-columns:repeat(3,1fr)}
 .modules article{
@@ -285,6 +287,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #9b
 @media(max-width:1040px){
   .nav{display:none}
   .hero-grid,.chaos-grid,.route-map,.result-grid,.lead-layout,.foot-grid,.process-result-grid,.faq-layout{grid-template-columns:1fr}
+  .support-links-grid{grid-template-columns:1fr 1fr}
   .grid6{grid-template-columns:1fr 1fr}
   .industry-grid.compact{grid-template-columns:1fr 1fr}
   .pipeline{grid-template-columns:1fr 1fr 1fr}
@@ -295,6 +298,6 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #9b
   iframe{min-height:980px}
 }
 @media(max-width:640px){
-  .grid6,.industry-grid.compact,.pipeline,.grid4,.value-bands{grid-template-columns:1fr}
+  .grid6,.industry-grid.compact,.pipeline,.grid4,.value-bands,.support-links-grid{grid-template-columns:1fr}
   .hero-actions .btn{width:100%}
 }
