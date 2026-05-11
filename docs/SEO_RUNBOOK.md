@@ -2,7 +2,7 @@
 
 ## Статус
 
-`GOOGLE_SEARCH_CONSOLE_OWNERSHIP_VERIFIED / SITEMAP_SUBMISSION_REQUIRED`
+`GOOGLE_SEARCH_CONSOLE_VERIFIED / GOOGLE_SITEMAP_SUBMITTED_SUCCESS / URL_INSPECTION_REQUIRED`
 
 ## Основной URL
 
@@ -42,22 +42,31 @@ https://promtagram.ru/
 
 ## Google Search Console
 
-Статус: право собственности подтверждено через провайдера доменных имён / DNS.
+Статус:
+
+- право собственности подтверждено через провайдера доменных имён / DNS;
+- sitemap отправлен в Google Search Console;
+- sitemap обработан успешно;
+- выявлено страниц: `8`;
+- выявлено видео: `0`.
 
 Важно: не удалять DNS TXT-запись, иначе подтверждение может перестать действовать.
 
 Следующие шаги:
 
 1. Открыть Google Search Console.
-2. Перейти в ресурс `promtagram.ru`.
-3. Открыть раздел `Sitemaps` / `Файлы Sitemap`.
-4. Отправить sitemap:
-   - `https://promtagram.ru/sitemap.xml`
-5. В URL Inspection проверить:
+2. Перейти в `Проверка URL` / `URL Inspection`.
+3. Проверить и запросить индексирование главной страницы:
    - `https://promtagram.ru/`
+4. Затем проверить и запросить индексирование приоритетных SEO-страниц:
    - `https://promtagram.ru/frp/`
    - `https://promtagram.ru/subsidies/`
-6. Нажать `Request indexing` / `Запросить индексирование` для главной страницы и приоритетных SEO-страниц.
+   - `https://promtagram.ru/msp/`
+   - `https://promtagram.ru/automation/`
+5. Остальные страницы отправлять после приоритетных:
+   - `https://promtagram.ru/apk/`
+   - `https://promtagram.ru/export/`
+   - `https://promtagram.ru/leasing/`
 
 ## Яндекс Вебмастер
 
@@ -114,15 +123,19 @@ https://promtagram.ru/
 
 ## READY gate
 
-SEO-контур считается отправленным в индексацию после:
+SEO-контур считается отправленным в Google после:
 
 - открытия `https://promtagram.ru/` с HTTPS;
 - доступности `https://promtagram.ru/robots.txt`;
 - доступности `https://promtagram.ru/sitemap.xml`;
 - подтверждения сайта в Google Search Console;
-- отправки sitemap в Google Search Console;
-- запроса индексирования главной страницы;
-- подтверждения сайта в Яндекс Вебмастере;
-- отправки sitemap в Яндекс Вебмастер.
+- успешной отправки sitemap в Google Search Console;
+- выявления 8 страниц в sitemap;
+- запроса индексирования главной страницы.
+
+Следующий внешний контур:
+
+- подтверждение сайта в Яндекс Вебмастере;
+- отправка sitemap в Яндекс Вебмастер.
 
 Общий статус лендинга `READY_PUBLIC_LANDING` возможен только после тестовой заявки в CRM.
