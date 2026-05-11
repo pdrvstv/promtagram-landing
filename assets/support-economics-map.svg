@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+  <title id="title">Инфографика: рыночное финансирование и господдержка</title>
+  <desc id="desc">Сравнение траектории бизнеса без господдержки и с предварительно подобранными мерами поддержки.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0f1e33"/>
+      <stop offset="1" stop-color="#173663"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7bb7ff"/>
+      <stop offset="1" stop-color="#2f5edb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1440" height="520" rx="36" fill="url(#bg)"/>
+  <rect width="1440" height="520" rx="36" fill="url(#grid)"/>
+  <circle cx="1190" cy="90" r="260" fill="#2f5edb" opacity="0.12"/>
+  <circle cx="210" cy="445" r="220" fill="#7bb7ff" opacity="0.08"/>
+
+  <text x="72" y="82" font-family="Arial, sans-serif" font-size="22" fill="#9fb6d6" letter-spacing="2">PROMTAGRAM · ФИНАНСОВЫЙ МАРШРУТ</text>
+  <text x="72" y="132" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#f1f6ff">Господдержка меняет экономику проекта</text>
+  <text x="72" y="170" font-family="Arial, sans-serif" font-size="20" fill="#c6d8f2">Когда рыночное финансирование становится дорогим, карта мер поддержки помогает искать более устойчивый маршрут.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="220" width="380" height="210" rx="26" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="104" y="270" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#ffffff">Без маршрута поддержки</text>
+    <text x="104" y="314" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#ffb4c1">18–30%+</text>
+    <text x="104" y="350" font-family="Arial, sans-serif" font-size="18" fill="#c6d8f2">стоимость денег может съедать</text>
+    <text x="104" y="378" font-family="Arial, sans-serif" font-size="18" fill="#c6d8f2">маржу, CAPEX и темп роста</text>
+    <path d="M106 404 C170 350, 270 452, 420 325" fill="none" stroke="#ff7d96" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="530" y="210" width="380" height="230" rx="26" fill="#0f2038" stroke="#6d88b3" stroke-opacity="0.55"/>
+    <text x="562" y="260" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#ffffff">Promtagram</text>
+    <text x="562" y="294" font-family="Arial, sans-serif" font-size="18" fill="#c6d8f2">предварительный скоринг</text>
+    <rect x="562" y="324" width="286" height="22" rx="11" fill="#213b60"/>
+    <rect x="562" y="324" width="226" height="22" rx="11" fill="url(#accent)"/>
+    <text x="562" y="374" font-family="Arial, sans-serif" font-size="17" fill="#dceaff">1. проверка профиля</text>
+    <text x="562" y="404" font-family="Arial, sans-serif" font-size="17" fill="#dceaff">2. карта мер</text>
+    <text x="562" y="434" font-family="Arial, sans-serif" font-size="17" fill="#dceaff">3. документный маршрут</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="990" y="220" width="378" height="210" rx="26" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="1022" y="270" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#ffffff">С маршрутом поддержки</text>
+    <text x="1022" y="314" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#a7f3d0">0%+</text>
+    <text x="1134" y="313" font-family="Arial, sans-serif" font-size="24" fill="#dceaff">и компенсации</text>
+    <text x="1022" y="350" font-family="Arial, sans-serif" font-size="18" fill="#c6d8f2">отдельные программы могут снижать</text>
+    <text x="1022" y="378" font-family="Arial, sans-serif" font-size="18" fill="#c6d8f2">ставку или возвращать часть затрат</text>
+    <path d="M1024 405 C1100 385, 1190 360, 1340 275" fill="none" stroke="#75e0b2" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  </g>
+
+  <path d="M455 322H522" stroke="#7bb7ff" stroke-width="3" stroke-dasharray="10 9" opacity="0.75"/>
+  <path d="M912 322H980" stroke="#7bb7ff" stroke-width="3" stroke-dasharray="10 9" opacity="0.75"/>
+  <path d="M510 322l18-10v20z" fill="#7bb7ff" opacity="0.85"/>
+  <path d="M968 322l18-10v20z" fill="#7bb7ff" opacity="0.85"/>
+
+  <text x="72" y="480" font-family="Arial, sans-serif" font-size="15" fill="#9fb6d6">Демо-инфографика. Конкретная ставка, субсидия или компенсация зависит от программы, региона, компании, документов и решения оператора меры.</text>
+</svg>
