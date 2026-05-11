@@ -86,11 +86,48 @@
     hero.parentNode.insertBefore(section, hero.nextSibling);
   }
 
+  function enhanceSupportContour(){
+    var trust=document.querySelector('.trust-strip .container');
+    if(!trust || trust.querySelector('.institution-logos')) return;
+
+    var grid=trust.querySelector('.contour-grid');
+    var title=trust.querySelector('.strip-title');
+    if(!grid) return;
+
+    var articles=grid.querySelectorAll('article');
+    articles.forEach(function(article){
+      var heading=article.querySelector('h3');
+      if(heading && heading.textContent.trim().toLowerCase().indexOf('институт')!==-1){
+        article.remove();
+      }
+    });
+
+    var logos=document.createElement('div');
+    logos.className='institution-logos';
+    logos.setAttribute('aria-label','Ключевые институты и контуры поддержки');
+    logos.innerHTML=''+
+      '<span>Минпромторг</span>'+
+      '<span>ФРП</span>'+
+      '<span>Корпорация МСП</span>'+
+      '<span>МСП Банк</span>'+
+      '<span>РЭЦ</span>'+
+      '<span>ГИСП</span>'+
+      '<span>Минэкономразвития</span>'+
+      '<span>Минсельхоз</span>';
+
+    if(title && title.nextSibling){
+      trust.insertBefore(logos,title.nextSibling);
+    } else {
+      trust.insertBefore(logos,grid);
+    }
+  }
+
   function init(){
     bindScroll();
     bindLogoFallback();
     enhanceHeroLeadForm();
     insertEconomicsInfographic();
+    enhanceSupportContour();
   }
 
   if(document.readyState==='loading'){
