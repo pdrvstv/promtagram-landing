@@ -1,0 +1,5 @@
+Contact: https://promtagram.ru/#lead
+Preferred-Languages: ru
+Canonical: https://promtagram.ru/.well-known/security.txt
+Policy: https://promtagram.ru/SECURITY.md
+Expires: 2027-05-12T00:00:00Z
