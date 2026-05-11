@@ -1,6 +1,5 @@
 (function(){
   var FORM_PUBLIC_URL='https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform';
-  var FORM_EMBED_URL='https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true';
 
   function scrollToId(id){
     var el=document.getElementById(id);
@@ -45,16 +44,18 @@
     card.innerHTML=''+
       '<div class="hero-audit-head">'+
         '<span class="audit-badge">Бесплатный первичный аудит</span>'+
-        '<h2>Оставьте контакты — проверим, какие меры поддержки могут подойти</h2>'+
-        '<p>Заполните короткую форму. Мы используем данные только для связи, первичной квалификации запроса и подготовки предварительного маршрута.</p>'+
+        '<h2>Проверьте меры поддержки за 1 минуту</h2>'+
+        '<p>Оставьте контакты и кратко опишите запрос. Для отправки используется защищённая форма Promtagram, связанная с CRM.</p>'+
       '</div>'+
-      '<div class="hero-form-frame">'+
-        '<iframe src="'+FORM_EMBED_URL+'" title="Форма бесплатного аудита Promtagram" loading="lazy"></iframe>'+
-      '</div>'+
-      '<div class="hero-consent-note">'+
-        '<span>Нажимая кнопку отправки в форме, вы подтверждаете согласие на обработку контактных данных для связи и предварительного разбора запроса. Предварительная оценка не является гарантией одобрения поддержки.</span>'+
-        '<a target="_blank" rel="noopener" href="'+FORM_PUBLIC_URL+'">Открыть форму отдельно</a>'+
-      '</div>';
+      '<form class="hero-mini-form" action="'+FORM_PUBLIC_URL+'" method="get" target="_blank">'+
+        '<label><span>Имя</span><input name="name" autocomplete="name" placeholder="Иван" required></label>'+
+        '<label><span>Телефон</span><input name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>'+
+        '<label><span>Компания</span><input name="company" autocomplete="organization" placeholder="ООО / ИП"></label>'+
+        '<label><span>Запрос</span><select name="support_interest"><option>Льготное финансирование</option><option>Субсидии и компенсации</option><option>ФРП / производство</option><option>Лизинг оборудования</option><option>АПК / переработка</option><option>Экспорт / РЭЦ</option><option>Автоматизация / роботизация</option></select></label>'+
+        '<button class="btn btn-primary hero-submit" type="submit">Оставить заявку на аудит</button>'+
+        '<a class="hero-form-link" target="_blank" rel="noopener" href="'+FORM_PUBLIC_URL+'">Открыть полную форму</a>'+
+      '</form>'+
+      '<p class="hero-consent-note">Нажимая кнопку, вы переходите к форме отправки заявки и подтверждаете согласие на обработку контактных данных для связи и предварительного разбора запроса. Предварительная оценка не является гарантией одобрения поддержки.</p>';
 
     heroCopy.appendChild(card);
   }
@@ -71,12 +72,15 @@
       '<div class="container economics-wrap">'+
         '<div class="economics-copy">'+
           '<p class="eyebrow dark">Экономика поддержки</p>'+
-          '<h2>Когда стоимость денег растёт, господдержка становится управленческим маршрутом</h2>'+
-          '<p>Для инвестиционных проектов важны не только продажи, но и цена финансирования, компенсации, субсидии, лизинг и документная готовность. Promtagram помогает предварительно увидеть, где может быть более рациональный путь.</p>'+
+          '<h2>Стоимость капитала определяет траекторию бизнеса</h2>'+
+          '<p>Когда рыночное финансирование становится дорогим, бизнесу нужен не набор случайных программ, а понятный маршрут: ставка, субсидия, компенсация, лизинг, документы и риск-контроль.</p>'+
         '</div>'+
-        '<div class="economics-image-card">'+
-          '<img src="assets/support-economics-map.svg" alt="Инфографика: рыночное финансирование и господдержка" loading="lazy">'+
+        '<div class="economics-board" aria-label="Сравнение рыночного финансирования и господдержки">'+
+          '<article><span>Рыночный контур</span><strong>18–30%+</strong><p>дорогие деньги, давление на маржу, отложенные инвестиции</p></article>'+
+          '<div class="economics-route"><b>Promtagram</b><small>скоринг → карта мер → документы → риски</small></div>'+
+          '<article><span>Контур поддержки</span><strong>до 0%</strong><p>по отдельным программам, плюс возможные компенсации и лизинговые механики</p></article>'+
         '</div>'+
+        '<p class="economics-disclaimer">Демо-сравнение. Конкретная ставка, субсидия или компенсация зависит от программы, региона, компании, документов и решения оператора меры.</p>'+
       '</div>';
 
     hero.parentNode.insertBefore(section, hero.nextSibling);
