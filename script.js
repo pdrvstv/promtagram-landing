@@ -1,67 +1,22 @@
-/*
- * Promtagram landing v0.6 script
- *
- * The JavaScript on this page intentionally does not manipulate layout
- * or content: it merely adds small behavioural enhancements, such as
- * smooth scrolling to anchors, logo fallbacks and form wiring.  Avoid
- * injecting primary UI via JS – all structure is in the HTML.
- */
+/* Promtagram 2.0 script: minimal JS for navigation, smooth scroll and form handling. */
 
-(function(){
-  // Public URL for the embedded Google form.  Do not modify.
-  var FORM_PUBLIC_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform';
-
-  function scrollToId(id) {
-    var el = document.getElementById(id);
-    if(el) {
-      el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  }
-
-  function bindScroll() {
-    document.querySelectorAll('[data-scroll]').forEach(function(el){
-      el.addEventListener('click', function(e){
-        e.preventDefault();
-        var target = el.getAttribute('data-scroll');
-        if(target) scrollToId(target);
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function (e) {
+      const href = anchor.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     });
-  }
+  });
 
-  // If logo cannot be loaded (e.g. network error), show fallback mark
-  function bindLogoFallback() {
-    var img = document.getElementById('brandLogo');
-    var fallback = document.getElementById('brandFallback');
-    if(!img || !fallback) return;
-    function showFallback(){
-      img.style.display = 'none';
-      fallback.style.display = 'inline-flex';
-    }
-    img.addEventListener('error', showFallback);
-    if(img.complete && img.naturalWidth === 0) showFallback();
-  }
-
-  // Wire the mini form and full form links to the Google form URL
-  function bindHeroForm() {
-    var form = document.querySelector('.hero-mini-form');
-    if(form) {
-      form.action = FORM_PUBLIC_URL;
-    }
-    var link = document.querySelector('.hero-full-link');
-    if(link) {
-      link.href = FORM_PUBLIC_URL;
-    }
-  }
-
-  function init() {
-    bindScroll();
-    bindLogoFallback();
-    bindHeroForm();
-  }
-
-  if(document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+  // Function called on mini form submit to open the full Google Form
+  window.openFullForm = function() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform', '_blank');
+  };
+});
