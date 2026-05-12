@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" fill="none">
+  <rect x="1" y="1" width="318" height="94" rx="14" stroke="#9fb0cc" stroke-opacity="0.45"/>
+  <rect x="20" y="24" width="40" height="40" rx="10" fill="#dfe7f6" fill-opacity="0.15"/>
+  <path d="M30 50h20" stroke="#dfe7f6" stroke-width="2"/>
+  <text x="74" y="43" fill="#e9eef8" font-size="18" font-family="Arial" font-weight="700">FRP</text>
+  <text x="74" y="66" fill="#c7d2e8" font-size="14" font-family="Arial">ФРП</text>
+</svg>
