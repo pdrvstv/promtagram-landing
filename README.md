@@ -1,65 +1,48 @@
-# Promtagram Landing (GitHub Pages)
+# Promtagram Landing
 
-Публичный лендинг Promtagram для конверсии заявок в CRM через Google Form.
+## Production
+- Production URL: https://promtagram.ru
+- Backup GitHub Pages URL: https://pdrvstv.github.io/promtagram-landing/
+- Positioning: Promtagram — Лаборатория господдержки с ИИ.
+- Current version: `PUBLISHED_PR_V0_5_REVIEW`
 
-## Продакшн URL
-
-https://promtagram.ru
-
-## Резервный GitHub Pages URL
-
-https://pdrvstv.github.io/promtagram-landing/
-
-## Позиционирование
-
-Promtagram — Лаборатория господдержки с ИИ.
-
+## Product focus
 Предварительный скоринг мер господдержки, карта возможных программ, маршрут документов и проверка рисков для бизнеса.
 
-## Текущая версия
+## Stack
+- static `index.html`
+- static `styles.css`
+- minimal `script.js` (smooth scroll + minor enhancement only)
+- GitHub Pages deploy from repository root
 
-`PUBLISHED_HTTPS_STATIC_V0_3`
-
-Переход в `READY` — только после подтверждённой тестовой заявки в CRM.
-
-## Технический стек
-
-- Статический GitHub Pages
-- `index.html`
-- `styles.css`
-- `script.js`
-- Без backend / без Apps Script / без фреймворков / без CDN
+## Form URLs (must stay unchanged)
+- Public: https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform
+- Embedded: https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true
 
 ## SEO baseline
+- Keep canonical, robots meta, Open Graph, Twitter Card.
+- Keep JSON-LD blocks: Organization, WebSite, Service, FAQPage.
+- Keep homepage links to SEO clusters: `/frp/`, `/msp/`, `/subsidies/`, `/export/`, `/leasing/`, `/apk/`, `/automation/`.
+- Preserve sitemap compatibility and static routing.
 
-Статус:
-
-`SEO_BASELINE_APPLIED_STATIC_V0_3`
-
-Добавлено:
-
-- canonical: `https://promtagram.ru/`
+## Verification/static files: do not remove
 - `robots.txt`
 - `sitemap.xml`
-- Open Graph / Twitter Card metadata
-- `assets/og-cover.svg`
-- JSON-LD structured data: `Organization`, `WebSite`, `Service`
-- runbook: `docs/SEO_RUNBOOK.md`
+- `404.html`
+- `site.webmanifest`
+- `CNAME`
+- `yandex_a15fea0a8c8d9b7c.html`
 
-Проверочные URL:
+## QA checklist before merge
+1. Hero has full-width headline and two equal-height cards.
+2. No big form iframe in hero.
+3. Bottom lead section contains embedded form and fallback open button.
+4. Google Form URLs unchanged.
+5. FAQ section has 5 questions and matches FAQPage JSON-LD.
+6. No forbidden claims about guaranteed approvals.
+7. SEO cluster links present and working.
+8. No horizontal scroll on mobile.
+9. script.js does not inject primary layout.
 
-- https://promtagram.ru/robots.txt
-- https://promtagram.ru/sitemap.xml
-- https://promtagram.ru/assets/og-cover.svg
-
-## Интеграция формы
-
-Public:
-https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform
-
-Embed:
-https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true
-
-## Дисклеймер
-
-Предварительная оценка не является гарантией получения поддержки. Решение принимает оператор программы.
+## Status rule
+Status can be `READY` only after visual QA and CRM test lead confirmation.
