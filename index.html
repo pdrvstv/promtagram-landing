@@ -1,473 +1,453 @@
 <!doctype html>
 <!--
-  Landing page v0.6 for Promtagram
-
-  This page is rebuilt from the last stable baseline (commit 93183c40) with a new
-  premium layout inspired by the Lovable/Apple aesthetic.  The HTML is kept
-  strictly static: there is no dynamic injection of primary layout in
-  JavaScript.  Structure and content are placed directly in the markup.  Only
-  smooth scrolling and simple form behaviour are handled via script.js.
-
-  All meta tags, structured data and SEO links are preserved from the
-  baseline.  See docs/DESIGN_BRIEF_V06.md and AGENTS.md for more context.
+  Landing page v2.0 white premium UI for Promtagram
+  This page is rebuilt from scratch from the baseline version to match an Apple-like aesthetic with a white background.
+  The HTML is static; layout is defined in markup. See docs/DESIGN_BRIEF_V20.md for guidance.
 -->
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Promtagram — господдержка бизнеса с&nbsp;ИИ</title>
-  <meta name="description" content="Предварительный скоринг мер господдержки, карта возможных программ, маршрут документов и проверка рисков для бизнеса." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#0b1525" />
-  <link rel="canonical" href="https://promtagram.ru/" />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promtagram — ИИ‑поддержка вашего бизнеса</title>
+  <meta name="description" content="Promtagram — ИИ‑лаборатория господдержки. Получите предварительную оценку, AI‑скан возможностей, карту мер, маршрут документов и сопровождение бизнеса.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://promtagram.ru/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Promtagram">
+  <meta property="og:url" content="https://promtagram.ru/">
+  <meta property="og:title" content="Promtagram — ИИ‑поддержка вашего бизнеса">
+  <meta property="og:description" content="AI‑скан возможностей, маршрут господдержки, документы и сопровождение. Предварительная оценка без гарантии одобрения.">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 
-  <!-- OpenGraph and Twitter cards -->
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:site_name" content="Promtagram" />
-  <meta property="og:url" content="https://promtagram.ru/" />
-  <meta property="og:title" content="Promtagram — господдержка бизнеса с&nbsp;ИИ" />
-  <meta property="og:description" content="Предварительный скоринг, карта мер, маршрут документов и проверка рисков для бизнеса." />
-  <meta property="og:image" content="https://promtagram.ru/assets/og-cover.svg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Promtagram — господдержка бизнеса с&nbsp;ИИ" />
-  <meta name="twitter:description" content="Предварительный скоринг мер господдержки, карта документов и проверка рисков для бизнеса." />
-  <meta name="twitter:image" content="https://promtagram.ru/assets/og-cover.svg" />
-
-  <!-- Structured data (Organization, WebSite, Service and FAQPage) -->
+  <!-- Structured data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "Organization",
+    "name": "Promtagram",
+    "url": "https://promtagram.ru",
+    "logo": "https://promtagram.ru/assets/logo.svg",
+    "description": "ИИ‑лаборатория господдержки. Предварительная оценка, карта мер, маршрут документов и сопровождение.",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+7",
+      "contactType": "customer service",
+      "areaServed": "RU"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://promtagram.ru",
+    "name": "Promtagram"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Предварительная оценка мер господдержки",
+    "provider": {
+      "@type": "Organization",
+      "name": "Promtagram"
+    },
+    "description": "AI‑скан применимости, карта мер, маршрут документов и проверка рисков. Решение принимает оператор программы."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "Organization",
-        "@id": "https://promtagram.ru/#organization",
-        "name": "Promtagram",
-        "alternateName": "Лаборатория господдержки с ИИ",
-        "url": "https://promtagram.ru/",
-        "logo": "https://promtagram.ru/assets/logo.svg",
-        "description": "Promtagram — лаборатория господдержки с ИИ: предварительный скоринг мер поддержки, карта возможных программ, маршрут документов и проверка рисков для бизнеса."
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://promtagram.ru/#website",
-        "url": "https://promtagram.ru/",
-        "name": "Promtagram",
-        "inLanguage": "ru-RU",
-        "publisher": {
-          "@id": "https://promtagram.ru/#organization"
+        "@type": "Question",
+        "name": "Как формируется предварительная оценка?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Мы анализируем ваш запрос, применяем AI‑алгоритмы для оценки применимости мер поддержки и формируем балл и карту возможных мер. Это предварительная оценка и не гарантирует одобрения."
         }
       },
       {
-        "@type": "Service",
-        "@id": "https://promtagram.ru/#service",
-        "name": "Предварительный скоринг мер господдержки для бизнеса",
-        "serviceType": "Предварительная оценка применимости мер государственной поддержки, карта документов и проверка рисков",
-        "provider": {
-          "@id": "https://promtagram.ru/#organization"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Россия"
-        },
-        "audience": {
-          "@type": "BusinessAudience",
-          "name": "Компании, предприниматели и проекты, рассматривающие меры господдержки, льготное финансирование, субсидии, лизинг или компенсации"
+        "@type": "Question",
+        "name": "Какие меры поддержки анализирует сервис?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Мы рассматриваем займы, субсидии, льготное финансирование, лизинг, компенсации, гранты, экспорт, сертификацию, рынки сбыта, индустриальные площадки и другие косвенные меры поддержки."
         }
       },
       {
-        "@type": "FAQPage",
-        "@id": "https://promtagram.ru/#faq",
-        "inLanguage": "ru-RU",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Что такое предварительный скоринг господдержки?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Это первичная оценка применимости мер поддержки к профилю компании: отрасли, региону, запросу, документам, ограничениям и рискам. Скоринг помогает выбрать следующий шаг, но не является гарантией одобрения."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Какие меры поддержки анализирует Promtagram?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Promtagram рассматривает возможные направления: субсидии, займы, льготное финансирование, лизинг, компенсации, экспортные меры, инфраструктурные и партнёрские контуры, где они применимы к запросу бизнеса."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Гарантирует ли Promtagram получение субсидии, займа или льготного финансирования?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Нет. Promtagram проводит предварительную оценку, готовит карту возможных мер, маршрут документов и проверку рисков. Решение принимает оператор конкретной программы поддержки."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Что получает заявитель после обращения?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Заявитель получает первичную квалификацию запроса, потенциальные направления поддержки, перечень документных вопросов, риски первого уровня и следующий управленческий шаг."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Для каких компаний подходит Promtagram?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Promtagram подходит производственным компаниям, АПК, экспортёрам, проектам по лизингу, автоматизации, ИТ, маркетплейсам и инвестиционным проектам, если им нужно предварительно оценить меры поддержки и документный маршрут."
-            }
-          }
-        ]
+        "@type": "Question",
+        "name": "Предоставляете ли вы гарантии получения поддержки?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет. Promtagram проводит предварительную оценку и готовит маршрут. Решение о предоставлении поддержки принимает оператор программы."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что получает клиент по итогам работы сервиса?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Вы получаете оценку применимости, карту мер, маршрут документов, список рисков и рекомендации по следующему шагу."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Кому подходит сервис?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Сервис подходит для промышленных и инфраструктурных компаний, инновационных проектов, региональных предприятий и любых бизнесов, ищущих государственную поддержку."
+        }
       }
     ]
   }
   </script>
 </head>
-<body id="top">
-  <a class="skip-link" href="#lead">Перейти к заявке</a>
-  <!-- Header / Topbar -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#top" data-scroll="top" aria-label="Promtagram">
-        <img id="brandLogo" src="assets/logo.svg" alt="Promtagram" class="brand-logo" />
-        <span id="brandFallback" class="brand-fallback" aria-hidden="true">
-          <span class="mark-grid"></span>
-          <span class="mark-p"></span>
-        </span>
-        <span class="brand-text">
-          <strong>Promtagram</strong>
-          <small>Лаборатория господдержки с&nbsp;ИИ</small>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Навигация">
-        <button data-scroll="hero">Главная</button>
-        <button data-scroll="economics">Экономика</button>
-        <button data-scroll="contour">Контуры</button>
-        <button data-scroll="platform">Платформа</button>
-        <button data-scroll="route">Маршруты</button>
-        <button data-scroll="industries">Отрасли</button>
-        <button data-scroll="process">Процесс</button>
-        <button data-scroll="faq">FAQ</button>
-        <button data-scroll="lead">Заявка</button>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="#top" class="logo">Promtagram</a>
+      <nav class="navigation">
+        <a href="#solutions">Решения</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#route">Маршрут</a>
+        <a href="#resources">Ресурсы</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#about">О&nbsp;нас</a>
       </nav>
+      <div class="header-actions">
+        <a href="#" class="btn-link">Войти</a>
+        <a href="#lead" class="btn btn-primary">Получить поддержку</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero section -->
-    <section id="hero" class="scene scene-dark hero-section">
+    <!-- Hero -->
+    <section id="hero" class="hero">
       <div class="container hero-grid">
-        <!-- Hero text -->
         <div class="hero-text">
-          <p class="eyebrow">Операционная система предварительного скоринга господдержки</p>
-          <h1>Господдержка бизнеса с&nbsp;ИИ — от идеи до маршрута документов</h1>
-          <p class="subheadline">Promtagram помогает бизнесу определить возможные меры поддержки, собрать карту документов, проверить риски и выбрать следующий шаг&nbsp;— без обещаний одобрения.</p>
-        </div>
-        <!-- Hero cards container -->
-        <div class="hero-cards">
-          <!-- Audit card -->
-          <div class="card audit-card">
-            <span class="card-badge">Бесплатный первичный аудит</span>
-            <h2>Проверьте меры поддержки за&nbsp;1&nbsp;минуту</h2>
-            <p>Оставьте контакты и кратко опишите запрос. Для отправки используется защищённая форма Promtagram.</p>
-            <form class="hero-mini-form" method="get" target="_blank">
-              <label><span>Имя</span><input name="name" autocomplete="name" placeholder="Иван" required></label>
-              <label><span>Телефон</span><input name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
-              <label><span>Компания</span><input name="company" autocomplete="organization" placeholder="ООО / ИП"></label>
-              <label><span>Запрос</span>
-                <select name="support_interest">
-                  <option>Льготное финансирование</option>
-                  <option>Субсидии и компенсации</option>
-                  <option>ФРП / производство</option>
-                  <option>Лизинг оборудования</option>
-                  <option>АПК / переработка</option>
-                  <option>Экспорт / РЭЦ</option>
-                  <option>Автоматизация / роботизация</option>
-                </select>
-              </label>
-              <button class="btn btn-primary hero-submit" type="submit">Оставить заявку на аудит</button>
-              <a class="hero-full-link" target="_blank" rel="noopener">Открыть полную форму</a>
-              <p class="consent-note">Нажимая кнопку, вы переходите к форме отправки заявки и подтверждаете согласие на обработку контактных данных для связи и предварительного разбора запроса. Предварительная оценка не является гарантией одобрения поддержки.</p>
+          <p class="eyebrow">Операционная система господдержки</p>
+          <h1 class="hero-title">ИИ‑поддержка вашего бизнеса<br><span class="hero-sub">Маршрут и оценка господдержки</span></h1>
+          <p class="hero-desc">AI‑скан возможностей, персональный маршрут и сопровождение на каждом этапе — от подбора мер до подготовки документов.</p>
+          <div class="hero-form">
+            <h2 class="form-heading">Получите поддержку для вашего бизнеса</h2>
+            <form id="miniForm" action="javascript:void(0);" onsubmit="openFullForm()">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+              </div>
+              <div class="form-group">
+                <input type="text" name="company" placeholder="Компания">
+                <input type="text" name="region" placeholder="Регион реализации проекта">
+              </div>
+              <div class="form-group">
+                <textarea name="query" rows="2" placeholder="Опишите ваш запрос"></textarea>
+              </div>
+              <div class="form-consent">
+                <label>
+                  <input type="checkbox" required>
+                  Я согласен на обработку персональных данных
+                </label>
+              </div>
+                <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+              <p class="form-note"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform" target="_blank" rel="noopener">Открыть полную форму</a></p>
             </form>
           </div>
-          <!-- AI Scan card -->
-          <div class="card scan-card">
-            <span class="card-badge">ИИ‑скан поддержки</span>
-                        <div class="scan-progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress" style="width:82%"></div>
-            </div>
-            <div class="scan-score"><span class="score">82</span><span class="total">/ 100</span></div>
-            <p class="scan-status">Статус: требуется проверка документов</p>
-            <ul class="scan-list">
-              <li><b>ФРП</b> — проверить</li>
-              <li><b>МСП</b> — возможно</li>
-              <li><b>РЭЦ</b> — возможно</li>
-              <li><b>Лизинг</b> — применимо</li>
-              <li><b>Субсидии</b> — зависит от региона</li>
-            </ul>
-            <p class="risk-title">Риски:</p>
-            <ul class="risk-list">
-              <li>инвестплан</li>
-              <li>ОКВЭД</li>
-              <li>выручка</li>
-              <li>сроки</li>
-            </ul>
-            <p class="next-step">Следующий шаг: сформировать маршрут документов</p>
-            <small class="scan-disclaimer">Демо‑структура предварительного анализа, не кейс клиента.</small>
+        </div>
+        <div class="hero-card">
+          <h3>AI‑скан возможностей</h3>
+          <div class="scan-score">
+            <span class="score-number">78</span>
+            <span class="score-total">/100</span>
           </div>
+          <div class="scan-progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress" style="width:78%"></div>
+          </div>
+          <p class="scan-label">Потенциал поддержки: высокий</p>
+          <ul class="scan-list">
+            <li>Региональные программы</li>
+            <li>Гранты и&nbsp;субсидии</li>
+            <li>Льготное финансирование</li>
+            <li>Лизинг</li>
+          </ul>
+          <p class="scan-disclaimer">Предварительная оценка не является гарантией одобрения.</p>
         </div>
       </div>
     </section>
 
-    <!-- Support economics -->
-    <section id="economics" class="scene scene-light economics-section">
-      <div class="container">
-        <p class="eyebrow dark">Экономика поддержки</p>
-        <h2>Стоимость капитала определяет траекторию бизнеса</h2>
-        <p class="section-intro">Когда рыночное финансирование становится дорогим, бизнесу нужен не набор случайных программ, а понятный маршрут: ставка, субсидия, компенсация, лизинг, документы и риск‑контроль.</p>
-        <div class="economics-board">
-          <article class="economics-item">
-            <span>Рыночный контур</span>
-            <strong>18–30%+</strong>
-            <p>дорогие деньги, давление на маржу, отложенные инвестиции</p>
-          </article>
-          <div class="economics-route">
-            <b>Promtagram</b>
-            <small>скоринг&nbsp;→ карта&nbsp;мер&nbsp;→ документы&nbsp;→ риски</small>
+    <!-- AI Scan Section -->
+    <section id="ai-scan" class="section section-light">
+      <div class="container scan-wrapper">
+        <div class="scan-info">
+          <h2>AI‑скан и оценка</h2>
+          <p>Мы анализируем ваш бизнес и документы, рассчитываем балл применимости и формируем карту мер поддержки. Прогресс‑бар визуализирует ваш текущий результат и показывает, сколько шагов нужно предпринять для идеального результата.</p>
+          <div class="scan-cta">
+            <a href="#tools" class="btn btn-primary">Перейти к инструментам</a>
           </div>
-          <article class="economics-item">
-            <span>Контур поддержки</span>
-            <strong>до&nbsp;0%</strong>
-            <p>по отдельным программам, плюс возможные компенсации и лизинговые механики</p>
-          </article>
         </div>
-        <p class="economics-disclaimer">Демо‑сравнение. Конкретная ставка, субсидия или компенсация зависит от программы, региона, компании, документов и решения оператора меры.</p>
+        <div class="scan-card-detail">
+          <div class="scan-detail-score">
+            <span class="detail-number">82</span>
+            <span class="detail-total">/100</span>
+          </div>
+          <div class="scan-progress-bar large" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress" style="width:82%"></div>
+          </div>
+          <p class="detail-status">Готовность документов: требуется доработка</p>
+          <ul class="detail-list">
+            <li>ФРП: применимо</li>
+            <li>МСП: возможно</li>
+            <li>РЭЦ: возможно</li>
+            <li>Лизинг: применимо</li>
+            <li>Субсидии: зависит от региона</li>
+          </ul>
+          <p class="detail-risks"><strong>Риски:</strong> инвестплан, ОКВЭД, выручка, сроки</p>
+          <p class="detail-next"><strong>Следующий шаг:</strong> сформировать маршрут документов</p>
+        </div>
       </div>
     </section>
 
-    <!-- Institutional support contour -->
-    <section id="contour" class="scene scene-dark contour-section">
+    <!-- Tools and Operations Section -->
+    <section id="tools" class="section section-white">
       <div class="container">
-        <h2>Работаем с ключевыми контурами поддержки</h2>
-        <div class="institution-logos" aria-label="Ключевые институты и контуры поддержки">
-     <span class="institution-mark"><b>Минпромторг</b><em>Министерство&nbsp;промышленности</em></span>
-<span class="institution-mark"><b>ФРП</b><em>Фонд&nbsp;развития&nbsp;промышленности</em></span>
-<span class="institution-mark"><b>Корпорация&nbsp;МСП</b><em>Корпорация&nbsp;МСП</em></span>
-<span class="institution-mark"><b>МСП&nbsp;Банк</b><em>МСП&nbsp;Банк</em></span>
-<span class="institution-mark"><b>РЭЦ</b><em>Российский&nbsp;экспортный&nbsp;центр</em></span>
-<span class="institution-mark"><b>ГИСП</b><em>ГИСП</em></span>
-<span class="institution-mark"><b>МЭР</b><em>Минэкономразвития</em></span>
-<span class="institution-mark"><b>МСХ</b><em>Минсельхоз</em></span>
-        </div>
-        <div class="contour-cards">
-          <article class="contour-card">
+        <h2>Инструменты и&nbsp;операционный контур</h2>
+        <div class="tool-grid">
+          <div class="tool-card large">
             <h3>Инструменты</h3>
-            <p>займы&nbsp;· субсидии&nbsp;· лизинг&nbsp;· компенсации&nbsp;· экспорт</p>
-          </article>
-          <article class="contour-card">
+            <p>Займы, субсидии, льготное финансирование, лизинг, компенсации, гранты.</p>
+          </div>
+          <div class="tool-card large">
             <h3>Операционный контур</h3>
-            <p>CRM&nbsp;· документооборот&nbsp;· проверка&nbsp;рисков&nbsp;· доказательный&nbsp;контур</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product system -->
-    <section id="platform" class="scene scene-light product-section">
-      <div class="container">
-        <h2>Что делает&nbsp;Promtagram</h2>
-        <div class="product-grid">
-          <article class="product-card"><h3>Предварительный скоринг применимости</h3><p>Проверяем, какие меры поддержки потенциально применимы к вашему профилю.</p></article>
-          <article class="product-card"><h3>Карта возможных мер</h3><p>Составляем карту направлений и программ, которые стоит рассмотреть.</p></article>
-          <article class="product-card"><h3>Маршрут документов</h3><p>Готовим перечень документов и последовательность их подачи.</p></article>
-          <article class="product-card"><h3>Проверка рисков</h3><p>Выявляем ключевые факторы, которые могут повлиять на решение оператора поддержки.</p></article>
-          <article class="product-card"><h3>CRM‑сопровождение</h3><p>Предоставляем инструменты для управления заявками и коммуникацией.</p></article>
-          <article class="product-card"><h3>Партнёрский маршрут</h3><p>Помогаем на этапах подготовки и взаимодействия с институтами.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Route map -->
-    <section id="route" class="scene scene-light route-section">
-      <div class="container">
-        <h2>Карта маршрутов поддержки</h2>
-        <div class="route-grid">
-          <div class="route-group">
-            <h3>Прямая поддержка</h3>
-            <p>субсидии&nbsp;· займы&nbsp;· льготное финансирование&nbsp;· лизинг&nbsp;· компенсации&nbsp;· гранты</p>
+            <p>CRM, документооборот, проверка рисков, доказательный контур.</p>
           </div>
-          <div class="route-group">
-            <h3>Косвенная поддержка</h3>
-            <p>экспорт&nbsp;· сертификация&nbsp;· каналы сбыта&nbsp;· индустриальные площадки&nbsp;· обучение&nbsp;· партнёрские решения</p>
+          <div class="tool-card small">
+            <h4>AI‑скан применимости</h4>
+          </div>
+          <div class="tool-card small">
+            <h4>Карта мер</h4>
+          </div>
+          <div class="tool-card small">
+            <h4>Маршрут документов</h4>
+          </div>
+          <div class="tool-card small">
+            <h4>Проверка рисков</h4>
+          </div>
+          <div class="tool-card small">
+            <h4>CRM‑сопровождение</h4>
+          </div>
+          <div class="tool-card small">
+            <h4>Партнёрский маршрут</h4>
           </div>
         </div>
-        <div class="route-tags">
-          <span>деньги</span><span>документы</span><span>сбыт</span><span>инфраструктура</span><span>партнёры</span><span>риски</span>
-        </div>
       </div>
     </section>
 
-    <!-- SEO support links -->
-    <section id="support-links" class="scene scene-light support-links-section">
+    <!-- Route Map Section -->
+    <section id="route" class="section section-light">
       <div class="container">
-        <h2>Направления господдержки</h2>
-        <div class="support-links-grid">
-          <a href="/frp/">
-            <h3>ФРП</h3>
-            <p>Производственные займы и проекты развития</p>
-          </a>
-          <a href="/msp/">
-            <h3>МСП</h3>
-            <p>Программы для малого и среднего бизнеса</p>
-          </a>
-          <a href="/subsidies/">
-            <h3>Субсидии</h3>
-            <p>Компенсации затрат и процентных ставок</p>
-          </a>
-          <a href="/export/">
-            <h3>Экспорт</h3>
-            <p>Поддержка выхода на зарубежные рынки</p>
-          </a>
-          <a href="/leasing/">
-            <h3>Лизинг</h3>
-            <p>Льготный лизинг и инвестиции в оборудование</p>
-          </a>
-          <a href="/apk/">
-            <h3>АПК</h3>
-            <p>Программы для агропромышленного комплекса</p>
-          </a>
-          <a href="/automation/">
-            <h3>Автоматизация</h3>
-            <p>Субсидии и меры для цифровизации и роботизации</p>
-          </a>
-        </div>
+        <h2>Маршрут к&nbsp;господдержке</h2>
+        <ol class="route-steps">
+          <li>
+            <span class="step-number">01</span>
+            <span class="step-title">Заявка</span>
+            <p>Отправьте заявку и опишите ваш запрос.</p>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <span class="step-title">Квалификация</span>
+            <p>Мы уточняем данные и проверяем eligibility.</p>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <span class="step-title">Скоринг</span>
+            <p>AI‑алгоритм рассчитывает балл применимости.</p>
+          </li>
+          <li>
+            <span class="step-number">04</span>
+            <span class="step-title">Карта мер</span>
+            <p>Составляем список подходящих мер и программ.</p>
+          </li>
+          <li>
+            <span class="step-number">05</span>
+            <span class="step-title">Маршрут документов</span>
+            <p>Готовим набор документов для подачи.</p>
+          </li>
+          <li>
+            <span class="step-number">06</span>
+            <span class="step-title">Проверка рисков</span>
+            <p>Проводим проверку рисков и соответствия.</p>
+          </li>
+          <li>
+            <span class="step-number">07</span>
+            <span class="step-title">Следующий шаг</span>
+            <p>Выбираем дальнейший маршрут и сопровождение.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Industry scenarios -->
-    <section id="industries" class="scene scene-light industries-section">
+    <!-- Evidence Section -->
+    <section id="evidence" class="section section-white">
       <div class="container">
-        <h2>Отраслевые сценарии</h2>
+        <h2>Доказательный контур</h2>
+        <p class="evidence-text">Мы разделяем собственные кейсы, публичные источники, реконструкции, демо‑кейсы и гипотезы. Реконструкции не выдаются за собственные кейсы. Материалы маркируются по источнику и уровню проверки.</p>
+        <ul class="evidence-labels">
+          <li class="label label-own">Собственный кейс</li>
+          <li class="label label-public">Публичный источник</li>
+          <li class="label label-recon">Реконструкция</li>
+          <li class="label label-demo">Демо</li>
+          <li class="label label-hypo">Гипотеза</li>
+          <li class="label label-check">Требует проверки</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Industry Solutions Section -->
+    <section id="solutions" class="section section-light">
+      <div class="container">
+        <h2>Отраслевые решения</h2>
         <div class="industry-grid">
-          <article class="industry-card"><h3>Производство</h3><p>Инвестиции в оборудование, расширение производства и модернизация.</p></article>
-          <article class="industry-card"><h3>АПК</h3><p>Сельское хозяйство, переработка и агропромышленные проекты.</p></article>
-          <article class="industry-card"><h3>Экспорт</h3><p>Поддержка выхода на зарубежные рынки и локализация.</p></article>
-          <article class="industry-card"><h3>Лизинг</h3><p>Поставки оборудования и техники на льготных условиях.</p></article>
-          <article class="industry-card"><h3>Автоматизация</h3><p>Проекты по цифровизации процессов и роботизации.</p></article>
-          <article class="industry-card"><h3>ИТ</h3><p>Разработка программного обеспечения, SaaS и технологические компании.</p></article>
-          <article class="industry-card"><h3>Маркетплейсы</h3><p>Выход на маркетплейсы, логистика и продвижение.</p></article>
-          <article class="industry-card"><h3>Инвестпроекты</h3><p>Крупные инвестиционные инициативы и развитие инфраструктуры.</p></article>
+          <div class="industry-card">
+            <h3>Производство</h3>
+            <p>Гранты, субсидии и льготное финансирование для роста.</p>
+          </div>
+          <div class="industry-card">
+            <h3>АПК</h3>
+            <p>Программы поддержки агропромышленного комплекса.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Экспорт</h3>
+            <p>Экспортные кредиты и страхование поставок.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Лизинг</h3>
+            <p>Лизинговые программы для обновления оборудования.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Автоматизация</h3>
+            <p>Поддержка цифровизации и автоматизации.</p>
+          </div>
+          <div class="industry-card">
+            <h3>ИТ</h3>
+            <p>Меры поддержки для разработчиков и ИТ‑компаний.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Маркетплейсы</h3>
+            <p>Помощь в выходе на площадки электронной торговли.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Инвестпроекты</h3>
+            <p>Комплексные меры для крупных проектов.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Process and result -->
-    <section id="process" class="scene scene-light process-section">
-      <div class="container">
-        <h2>Процесс и результат</h2>
-        <div class="process-grid">
-          <div class="process-step"><span class="step-number">1</span><p>Заявка</p></div>
-          <div class="process-step"><span class="step-number">2</span><p>Квалификация</p></div>
-          <div class="process-step"><span class="step-number">3</span><p>Скоринг</p></div>
-          <div class="process-step"><span class="step-number">4</span><p>Карта мер</p></div>
-          <div class="process-step"><span class="step-number">5</span><p>Маршрут документов</p></div>
-          <div class="process-step"><span class="step-number">6</span><p>Проверка рисков</p></div>
-          <div class="process-step"><span class="step-number">7</span><p>Следующий шаг</p></div>
+    <!-- FAQ and Trust Section -->
+    <section id="faq" class="section section-white">
+      <div class="container faq-grid">
+        <div class="faq-content">
+          <h2>Часто задаваемые вопросы</h2>
+          <details>
+            <summary>Как формируется предварительная оценка?</summary>
+            <p>Мы анализируем ваш запрос, применяем AI‑алгоритмы для оценки применимости мер поддержки и формируем балл и карту возможных мер. Это предварительная оценка и не гарантирует одобрения.</p>
+          </details>
+          <details>
+            <summary>Какие меры поддержки анализирует сервис?</summary>
+            <p>Мы рассматриваем займы, субсидии, льготное финансирование, лизинг, компенсации, гранты, экспорт, сертификацию, рынки сбыта, индустриальные площадки и другие косвенные меры поддержки.</p>
+          </details>
+          <details>
+            <summary>Предоставляете ли вы гарантии получения поддержки?</summary>
+            <p>Нет. Promtagram проводит предварительную оценку и готовит маршрут. Решение о предоставлении поддержки принимает оператор программы.</p>
+          </details>
+          <details>
+            <summary>Что получает клиент по итогам работы сервиса?</summary>
+            <p>Вы получаете оценку применимости, карту мер, маршрут документов, список рисков и рекомендации по следующему шагу.</p>
+          </details>
+          <details>
+            <summary>Кому подходит сервис?</summary>
+            <p>Сервис подходит для промышленных и инфраструктурных компаний, инновационных проектов, региональных предприятий и любых бизнесов, ищущих государственную поддержку.</p>
+          </details>
         </div>
-        <div class="demo-result">
-          <h3>Пример отчёта</h3>
+        <div class="trust-content">
+          <h3>Нам доверяют</h3>
           <ul>
-            <li>Балл применимости: <b>82&nbsp;/&nbsp;100</b></li>
-            <li>Приоритет: <b>высокий</b></li>
-            <li>Направления: <b>ФРП&nbsp;/ МСП&nbsp;/ лизинг</b></li>
-            <li>Риски: <b>инвестплан / ОКВЭД / выручка</b></li>
-            <li>Следующий шаг: консультация + сбор документов</li>
+            <li>Крупный и средний бизнес</li>
+            <li>Инновационные компании</li>
+            <li>Промышленные предприятия</li>
+            <li>Инвестиционные проекты</li>
+            <li>Научные и образовательные организации</li>
+            <li>Региональные организации развития</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Evidence / trust discipline -->
-    <section id="evidence" class="scene scene-dark evidence-section">
-      <div class="container">
-        <h2>Доказательный контур</h2>
-        <p class="section-intro">Мы разделяем собственные кейсы, публичные источники, реконструкции, демо‑кейсы и гипотезы. Реконструкции не выдаются за собственные кейсы. Материалы маркируются по источнику и уровню проверки.</p>
-        <div class="evidence-labels">
-          <span class="label own">Собственный кейс</span>
-          <span class="label public">Публичный источник</span>
-          <span class="label recon">Реконструкция</span>
-          <span class="label demo">Демо</span>
-          <span class="label hypothesis">Гипотеза</span>
-          <span class="label review">Требует проверки</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work formats -->
-    <section id="formats" class="scene scene-light formats-section">
-      <div class="container">
-        <h2>Форматы работы</h2>
-        <div class="formats-grid">
-          <article class="format-card"><h3>Предварительный скоринг</h3><p>Скоринг применимости и рисков по ключевым мерам поддержки.</p></article>
-          <article class="format-card"><h3>Карта мер и документов</h3><p>Сформируем карту возможных мер поддержки и маршрут документов.</p></article>
-          <article class="format-card"><h3>Сопровождение / партнёрский маршрут</h3><p>Сопроводим заявку и подготовим документы вместе с операторами мер и партнёрами.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="scene scene-light faq-section">
-      <div class="container">
-        <h2>Часто задаваемые вопросы</h2>
-        <div class="faq-list">
-          <details open>
-            <summary>Что такое предварительный скоринг господдержки?</summary>
-            <p>Это первичная оценка применимости мер поддержки к&nbsp;профилю компании: отрасли, региону, запросу, документам, ограничениям и рискам. Скоринг помогает выбрать следующий шаг, но не является гарантией одобрения.</p>
-          </details>
-          <details>
-            <summary>Какие меры поддержки анализирует Promtagram?</summary>
-            <p>Promtagram рассматривает возможные направления: субсидии, займы, льготное финансирование, лизинг, компенсации, экспортные меры, инфраструктурные и партнёрские контуры, где они применимы к запросу бизнеса.</p>
-          </details>
-          <details>
-            <summary>Гарантирует ли Promtagram получение субсидии, займа или льготного финансирования?</summary>
-            <p>Нет. Promtagram проводит предварительную оценку, готовит карту возможных мер, маршрут документов и проверку рисков. Решение принимает оператор конкретной программы поддержки.</p>
-          </details>
-          <details>
-            <summary>Что получает заявитель после обращения?</summary>
-            <p>Заявитель получает первичную квалификацию запроса, потенциальные направления поддержки, перечень документных вопросов, риски первого уровня и следующий управленческий шаг.</p>
-          </details>
-          <details>
-            <summary>Для каких компаний подходит Promtagram?</summary>
-            <p>Promtagram подходит производственным компаниям, АПК, экспортёрам, проектам по лизингу, автоматизации, ИТ, маркетплейсам и инвестиционным проектам, если им нужно предварительно оценить меры поддержки и документный маршрут.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lead form -->
-    <section id="lead" class="scene scene-light lead-section">
-      <div class="container">
-        <h2>Оставить заявку</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true" width="100%" height="820" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
-        <p class="lead-fallback"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform" target="_blank" rel="noopener" class="btn btn-outline">Открыть форму в отдельном окне</a></p>
+    <!-- Lead Form Section -->
+    <section id="lead" class="section section-light">
+      <div class="container lead-wrapper">
+        <h2>Получите предварительную оценку</h2>
+        <p>Заполните форму и получите карту мер и маршрут в PDF на вашу почту.</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform?embedded=true" width="100%" height="840" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        <p class="form-note"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform" target="_blank" rel="noopener">Открыть форму в новом окне</a></p>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer scene-dark">
-    <div class="container footer-inner">
-      <p><strong>Promtagram</strong> — Лаборатория господдержки с&nbsp;ИИ</p>
-      <p>Landing v0.6 · GitHub Pages</p>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Promtagram</div>
+        <p>ИИ‑лаборатория для промышленности и инфраструктуры.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Решения</h4>
+        <ul>
+          <li><a href="#solutions">Отраслевые решения</a></li>
+          <li><a href="#tools">Инструменты</a></li>
+          <li><a href="#route">Маршрут</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#about">О&nbsp;нас</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#evidence">Доказательный контур</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="mailto:info@promtagram.ru">info@promtagram.ru</a></li>
+          <li><a href="tel:+7">+7 ...</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="legal">
+        <span>© 2026 Promtagram. Все права защищены.</span>
+        <span><a href="/privacy.html">Политика конфиденциальности</a></span>
+        <span><a href="/consent.html">Согласие на обработку данных</a></span>
+      </div>
+      <nav class="seo-links">
+        <a href="/frp/">ФРП</a>
+        <a href="/msp/">МСП</a>
+        <a href="/subsidies/">Субсидии</a>
+        <a href="/export/">Экспорт</a>
+        <a href="/leasing/">Лизинг</a>
+        <a href="/apk/">АПК</a>
+        <a href="/automation/">Автоматизация</a>
+      </nav>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
