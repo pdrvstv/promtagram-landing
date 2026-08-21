@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const FULL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdtvGqW4_buAn8EuVJVZmmUzlLziiUUR0Uc6cUfD08jxf19Og/viewform';
   const CONSENT_VERSION = 'pd-consent-v0.2-2026-08-21';
+  const EVIDENCE_QA_COMPLETE = false;
 
   // Smooth scroll for internal anchors.
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -57,6 +58,41 @@ document.addEventListener('DOMContentLoaded', function() {
       node.textContent = 'Только в пределах заявленных целей обработки';
     }
   });
+
+  // Evidence red-team gate. Current numeric marketing KPIs and the displayed case
+  // have no public primary evidence attached in the repository. Until Evidence QA is
+  // completed, do not render them as verified performance facts.
+  if (!EVIDENCE_QA_COMPLETE) {
+    document.querySelectorAll('.kpi b, .stats b, .metrics b').forEach(function(valueNode) {
+      valueNode.textContent = 'на проверке';
+    });
+
+    const caseBadge = document.querySelector('.case .pill');
+    if (caseBadge) {
+      caseBadge.textContent = 'Демо / требует Evidence QA';
+    }
+
+    const evidenceHead = document.querySelector('#evidence .head p');
+    if (evidenceHead) {
+      evidenceHead.textContent = 'Показатели и кейсы публикуются как подтверждённые только после проверки первичных источников и права на публичное использование.';
+    }
+
+    document.querySelectorAll('.score').forEach(function(scoreCard) {
+      const demo = document.createElement('p');
+      demo.className = 'note';
+      demo.textContent = 'Демонстрационный пример интерфейса. Не является оценкой конкретной компании.';
+      scoreCard.appendChild(demo);
+    });
+
+    const scanCard = document.querySelector('.scan-left');
+    if (scanCard) {
+      const demo = document.createElement('p');
+      demo.className = 'note';
+      demo.style.gridColumn = '1 / -1';
+      demo.textContent = 'Демонстрационный пример скоринга. Фактическая оценка формируется только по данным конкретного запроса.';
+      scanCard.appendChild(demo);
+    }
+  }
 
   // Surface legal documents from the footer without changing SEO-critical files.
   const footerBottom = document.querySelector('.footer .bottom');
