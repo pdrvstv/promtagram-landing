@@ -1,16 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Promtagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Promtagram</title>
+  <desc id="desc">Круглый знак Promtagram с технологической буквой P</desc>
   <defs>
-    <linearGradient id="g" x1="12" y1="8" x2="84" y2="88" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2f5edb"/>
-      <stop offset="1" stop-color="#0f1e33"/>
+    <linearGradient id="blue" x1="42" y1="36" x2="136" y2="144" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#119CFF"/>
+      <stop offset="1" stop-color="#1459D9"/>
     </linearGradient>
-    <linearGradient id="s" x1="28" y1="20" x2="70" y2="78" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#dbeafe"/>
-      <stop offset="1" stop-color="#93c5fd"/>
-    </linearGradient>
+    <path id="ring" d="M90,90 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"/>
   </defs>
-  <rect x="8" y="8" width="80" height="80" rx="22" fill="url(#g)"/>
-  <path d="M24 30.5h21.5c14 0 23.5 8.4 23.5 20.4 0 12.2-9.4 20.6-23.5 20.6H37.8V58.8h7.7c6.3 0 10.7-3 10.7-7.9 0-4.8-4.4-7.7-10.7-7.7H37.8V71.5H24v-41z" fill="url(#s)"/>
-  <path d="M20 24h56M20 78h56M18 31l60 0M18 65h60" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
-  <path d="M72 26v44" stroke="#93c5fd" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <circle cx="90" cy="90" r="82" fill="#fff"/>
+  <text font-family="Arial,Helvetica,sans-serif" font-size="11.5" font-weight="700" letter-spacing="2.7" fill="#071A35">
+    <textPath href="#ring" startOffset="0%">PROMTAGRAM · AI TECHNOLOGIES · PROMT ENGINEERING · </textPath>
+  </text>
+  <g fill="none" stroke="url(#blue)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M57 45v91M57 45h43c25 0 39 14 39 35 0 21-14 35-39 35H78"/>
+    <path d="M57 70l22 22 20-24M57 100l22 20 20-18M78 92v-28M99 68v47M99 68c20 4 29 15 29 30M99 84l16 9 13-7M99 101l18 8 10-5"/>
+    <path d="M57 136l22-24 20 24z"/>
+  </g>
+  <g fill="url(#blue)">
+    <circle cx="57" cy="45" r="5"/><circle cx="57" cy="70" r="5"/><circle cx="57" cy="100" r="5"/><circle cx="57" cy="136" r="5"/>
+    <circle cx="78" cy="92" r="5"/><circle cx="78" cy="120" r="5"/><circle cx="99" cy="68" r="5"/><circle cx="99" cy="101" r="5"/>
+    <circle cx="115" cy="93" r="4"/><circle cx="128" cy="86" r="4"/><circle cx="117" cy="109" r="4"/>
+  </g>
+  <circle cx="99" cy="92" r="10" fill="#fff" stroke="#fff" stroke-width="2"/>
 </svg>
