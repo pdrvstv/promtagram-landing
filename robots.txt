@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
+Disallow: /AGENTS.html
+Disallow: /SECURITY.html
+Disallow: /DESIGN_BRIEF_V06.html
 
 Sitemap: https://promtagram.ru/sitemap.xml

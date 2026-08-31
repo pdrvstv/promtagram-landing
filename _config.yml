@@ -1,0 +1,7 @@
+exclude:
+  - AGENTS.md
+  - README.md
+  - SECURITY.md
+  - DESIGN_BRIEF_V06.md
+  - docs/
+  - assets/README.md
