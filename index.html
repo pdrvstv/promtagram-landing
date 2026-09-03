@@ -1,4 +1,6 @@
 ---
 ---
-{% include site-base.html %}
-<link rel="stylesheet" href="/assets/visual-fixes.css?v=20260902-2">
+{% capture page %}{% include site-base.html %}{% endcapture %}
+{% assign page = page | replace: 'assets/vladimir-korol.webp', '/assets/vladimir-korol-hq.jpg?v=20260903-1' %}
+{% assign head_inject = '<link rel="stylesheet" href="/assets/visual-fixes.css?v=20260903-1"></head>' %}
+{{ page | replace: '</head>', head_inject }}
