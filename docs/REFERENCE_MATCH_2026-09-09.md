@@ -1,0 +1,5 @@
+# Reference match
+
+User requested much closer match to original nine screen concepts. Inspected all nine source images. Rebuilt homepage composition: dark continuous masthead/hero, larger typography, illustrated services, separate structure and AI artwork screens, light process, founder portrait, situations, editorial publications and P contact screen. Retained program ranges, calculator, deliverables, FAQ and SEO routes. Three standalone reference-derived assets generated and inspected; compressed as WebP. No screenshot used as a whole website.
+
+16 HTML routes, local references, unique IDs and homepage FAQ structured data validated. Browser layout QA not performed. No changes to financial formulas, legal wording, intake, or evidence status; historical intake HOLD remains unchanged. Publication authorized by user.
