@@ -1,0 +1,190 @@
+/* Promtagram V07 — Engineering Blueprint / White Relief System */
+:root{
+  --v07-ink:#0a2438;
+  --v07-blue:#087fbe;
+  --v07-line:rgba(10,36,56,.10);
+  --v07-soft:rgba(10,36,56,.035);
+}
+
+/* White paper replaces the alternating dark/light rhythm with one continuous engineering canvas. */
+html,body,.reference-home{background:#fff!important;color:var(--v07-ink)!important}
+.reference-home .top,
+.reference-home .section,
+.reference-home .opening-scene,
+.reference-home .ref-structure,
+.reference-home .ref-ai,
+.reference-home .ref-process,
+.reference-home .ranges-section,
+.reference-home .calculator-section,
+.reference-home .output-section,
+.reference-home .media-section,
+.reference-home .ecosystem-section,
+.reference-home .case-section,
+.reference-home .achievements-section,
+.reference-home .process-conclusion,
+.reference-home .architecture-contact,
+.reference-home footer{background:#fff!important;color:var(--v07-ink)!important}
+
+/* Low-contrast embossed blueprint field. */
+.reference-home::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.30;
+  background-image:
+    linear-gradient(rgba(8,127,190,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(8,127,190,.045) 1px,transparent 1px),
+    radial-gradient(circle at 12% 18%,transparent 0 78px,rgba(10,36,56,.055) 79px,transparent 80px),
+    radial-gradient(circle at 82% 66%,transparent 0 125px,rgba(10,36,56,.045) 126px,transparent 127px),
+    linear-gradient(135deg,transparent 0 49.6%,rgba(10,36,56,.035) 49.7% 50.3%,transparent 50.4%);
+  background-size:28px 28px,28px 28px,420px 420px,560px 560px,320px 320px;
+  mix-blend-mode:multiply;
+}
+.reference-home::after{
+  content:"E = f(C, T, R)   Σ   NPV   →   SUPPORT MATRIX   /   PROJECT ROUTE   /   RISK QA";
+  position:fixed;
+  left:4vw;
+  right:4vw;
+  bottom:18px;
+  z-index:0;
+  pointer-events:none;
+  font:600 9px/1.2 Arial,sans-serif;
+  letter-spacing:2.1px;
+  color:rgba(10,36,56,.075);
+  text-align:center;
+}
+.reference-home>*{position:relative;z-index:1}
+
+/* Opening scene becomes a white technical drawing rather than a photo-heavy hero. */
+.reference-home .opening-scene{min-height:720px;overflow:hidden;border-bottom:1px solid var(--v07-line)}
+.reference-home .opening-scene .scene-background{opacity:.12!important;filter:grayscale(1) contrast(.85);mix-blend-mode:multiply;transform:translate3d(0,var(--v07-hero-y,0),0) scale(1.04)}
+.reference-home .opening-scene .scene-shade{background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.91) 52%,rgba(255,255,255,.70) 100%)!important}
+.reference-home .opening-content{color:var(--v07-ink)!important}
+.reference-home .opening-scene h1,
+.reference-home .opening-scene p,
+.reference-home .opening-scene .scene-bottom,
+.reference-home .opening-scene .scene-secondary{color:var(--v07-ink)!important}
+.reference-home .opening-scene h1 em{color:var(--v07-blue)!important}
+.reference-home .opening-scene .scene-kicker{color:var(--v07-blue)!important}
+.reference-home .opening-scene .scene-bottom{border-top-color:var(--v07-line)!important}
+.reference-home .opening-scene .button{background:var(--v07-ink)!important;color:#fff!important}
+
+/* Blueprint marks around blocks. */
+.reference-home .section-heading,
+.reference-home .ref-structure-grid,
+.reference-home .founder-layout,
+.reference-home .case-section .wrap,
+.reference-home .ecosystem-section .wrap{isolation:isolate}
+.reference-home .section-heading:before,
+.reference-home .ref-structure-grid:before,
+.reference-home .founder-layout:before,
+.reference-home .case-section .wrap:before{
+  content:"";
+  position:absolute;
+  width:54px;height:54px;
+  border:1px solid rgba(8,127,190,.11);
+  border-radius:50%;
+  transform:translate(var(--v07-x,0),var(--v07-y,0));
+  pointer-events:none;
+}
+.reference-home .section-heading:before{right:0;top:-15px}
+.reference-home .ref-structure-grid:before{right:7%;top:14%}
+.reference-home .founder-layout:before{left:43%;top:5%}
+.reference-home .case-section .wrap:before{left:2%;top:3%}
+
+/* Cards are paper modules with subtle relief. */
+.reference-home .solution-card,
+.reference-home .case-cover,
+.reference-home .achievement-card,
+.reference-home .ecosystem-grid article,
+.reference-home .calculator,
+.reference-home .range-grid article,
+.reference-home .example-panel,
+.reference-home .article{
+  background:linear-gradient(145deg,#fff,#f8fbfd)!important;
+  color:var(--v07-ink)!important;
+  border-color:rgba(10,36,56,.11)!important;
+  box-shadow:0 12px 32px rgba(10,36,56,.055),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+.reference-home .solution-0{background:linear-gradient(145deg,#fff,#f6fafc)!important;color:var(--v07-ink)!important}
+.reference-home .solution-card p,
+.reference-home .case-cover p,
+.reference-home .achievement-card p,
+.reference-home .ecosystem-grid p,
+.reference-home .section-heading>p,
+.reference-home .opening-scene p{color:#52697a!important}
+.reference-home .solution-card:hover,.reference-home .case-cover.is-active{transform:translateY(-5px)!important;box-shadow:0 18px 40px rgba(10,36,56,.09),inset 0 1px 0 rgba(255,255,255,.95)!important}
+.reference-home .case-cover.is-before{transform:perspective(1000px) rotateY(6deg) scale(.95)!important}
+.reference-home .case-cover.is-after{transform:perspective(1000px) rotateY(-6deg) scale(.95)!important}
+
+/* Dark surfaces are converted to ink-on-paper technical panels. */
+.reference-home .ref-ai,
+.reference-home .process-conclusion,
+.reference-home .architecture-contact,
+.reference-home footer{border-top:1px solid var(--v07-line)!important}
+.reference-home .ref-ai *,
+.reference-home .process-conclusion *,
+.reference-home .architecture-contact *,
+.reference-home footer *{color:var(--v07-ink)!important}
+.reference-home .ref-ai em,.reference-home .architecture-contact em{color:var(--v07-blue)!important}
+.reference-home .ref-ai img{mix-blend-mode:multiply;opacity:.30}
+.reference-home .process-grid article{border-top-color:rgba(10,36,56,.16)!important}
+.reference-home .process-grid article>span{color:rgba(8,127,190,.45)!important}
+.reference-home .process-grid p{color:#52697a!important}
+.reference-home .process-conclusion{padding:42px 0!important;background:linear-gradient(180deg,#fff,#f7fafc)!important}
+.reference-home .architecture-contact .button{background:var(--v07-ink)!important;color:#fff!important}
+.reference-home footer{background:#fbfcfd!important}
+
+/* Engineering ornament inside images. */
+.reference-home .solution-art,
+.reference-home .case-cover-art img,
+.reference-home .structure-art,
+.reference-home .portrait img{
+  filter:grayscale(.75) saturate(.65) contrast(.95);
+}
+.reference-home .solution-art,.reference-home .case-cover-art img{transform:translate3d(0,var(--v07-art-y,0),0) scale(1.02);transition:none!important}
+
+/* Parallax-friendly hooks. */
+[data-v07-parallax]{will-change:transform;transform:translate3d(var(--v07-parallax-x,0px),var(--v07-parallax-y,0px),0)}
+.reference-home .case-section,
+.reference-home .ref-structure,
+.reference-home .ref-process,
+.reference-home .ecosystem-section{overflow:clip}
+
+/* Blueprint side notes. */
+.reference-home .solution-card:before,
+.reference-home .case-cover:before,
+.reference-home .achievement-card:before{
+  content:attr(data-v07-index);
+  position:absolute;
+  right:16px;top:13px;
+  font:600 9px/1 Arial,sans-serif;
+  letter-spacing:1.4px;
+  color:rgba(10,36,56,.22);
+}
+.reference-home .solution-card,.reference-home .case-cover,.reference-home .achievement-card{position:relative}
+
+/* New flagship case injected into the existing case rail. */
+.v07-case-flagship{flex-basis:640px;max-width:92vw!important}
+.v07-case-flagship .case-cover-art{height:250px!important;background:linear-gradient(145deg,#f4f8fa,#e8f1f6)!important}
+.v07-case-flagship .case-cover-copy{padding:30px!important}
+.v07-case-flagship .v07-case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 8px}
+.v07-case-flagship .v07-metric{border-top:1px solid rgba(10,36,56,.13);padding-top:12px}
+.v07-case-flagship .v07-metric b{display:block;font-size:22px;font-weight:600;letter-spacing:-.04em;color:var(--v07-blue)}
+.v07-case-flagship .v07-metric span{display:block;font-size:10px;line-height:1.35;color:#607687;margin-top:4px}
+.v07-flow{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 18px}
+.v07-flow span{font-size:10px;padding:7px 9px;border:1px solid rgba(8,127,190,.18);border-radius:99px;background:#fff;color:#3c5c70}
+
+@media(max-width:650px){
+  .reference-home .opening-scene{min-height:620px}
+  .reference-home::after{font-size:7px;letter-spacing:1px}
+  .v07-case-flagship{flex-basis:340px}
+  .v07-case-flagship .v07-case-grid{grid-template-columns:1fr 1fr}
+  .v07-case-flagship .case-cover-art{height:200px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .reference-home .opening-scene .scene-background{transform:none}
+  [data-v07-parallax]{transform:none!important}
+}
