@@ -60,7 +60,8 @@ if(!reduced.matches){
   requestAnimationFrame(update);
 
   document.querySelectorAll('.reference-home .solution-card .solution-art,.reference-home .structure-art,.reference-home .ref-ai img,.reference-home .portrait img').forEach((el,i)=>{
-    el.dataset.v07Parallax='';el.dataset.v07Speed=i%2?.08:'.12';
+    el.dataset.v07Parallax='';
+    el.dataset.v07Speed=i%2 ? '.08' : '.12';
   });
 }
 
