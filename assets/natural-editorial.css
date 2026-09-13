@@ -24,3 +24,88 @@
 .white-studio .image-note{font-size:11px;color:#607180;max-width:800px;margin-top:25px}
 @media(max-width:950px){.white-studio .opening-scene,.white-studio .closing-scene{display:flex;flex-direction:column}.white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{position:static;width:100%;height:380px;order:2;object-position:center 44%}.white-studio .opening-content,.white-studio .closing-content{order:1;min-height:0;padding:45px 0}.white-studio .opening-content>*,.white-studio .closing-content>*{max-width:100%}.white-studio .opening-scene h1,.white-studio .closing-scene h2{max-width:850px;font-size:clamp(38px,6vw,64px)}.white-studio .opening-content>p,.white-studio .closing-content>p{max-width:620px}.white-studio .scene-bottom{width:100%;max-width:100%;display:flex}.white-studio .scene-bottom>a{margin:0}.white-studio .closing-brief{max-width:100%}}
 @media(max-width:540px){.white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{height:290px}.white-studio .opening-content,.white-studio .closing-content{padding:35px 0}.white-studio .opening-content>p,.white-studio .closing-content>p{font-size:18px}.white-studio .ref-ai img{width:100%;margin-left:0;height:260px}.white-studio .article:first-child h3{font-size:28px}.white-studio .scene-actions{align-items:flex-start}}
+
+/* 2026-09-13: technical blueprint visual system + alternating light/navy screens. */
+:root{--ptg-navy:#071b33;--ptg-navy-2:#0b2747;--ptg-ink:#14283b;--ptg-blue:#2f6fa7;--ptg-blue-soft:#8fb7d8;--ptg-paper:#f7fbfe}
+
+/* Use a transparent replacement content layer so legacy raster photos never render,
+   while the SVG atlas remains a CSS background. Brand marks, partner logos and
+   founder photography are intentionally outside these selectors. */
+.white-studio .opening-scene .scene-background,
+.white-studio .closing-scene .scene-background,
+.white-studio .solution-art,
+.white-studio .ref-structure figure img,
+.white-studio .ref-ai img,
+.white-studio .case-cover-art img,
+.white-studio .case-detail-visual img{
+  content:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E");
+  background-image:url('/assets/blueprint-system.svg');
+  background-repeat:no-repeat;
+  background-size:100% 900%;
+  background-color:#fff;
+  border:1px solid rgba(47,111,167,.18);
+  box-shadow:0 20px 55px rgba(6,31,57,.08);
+}
+.white-studio .opening-scene .scene-background{background-position:center 0%;object-position:center}
+.white-studio .ref-structure figure img{background-position:center 12.5%}
+.white-studio .ref-ai img{background-position:center 25%;height:440px;max-height:440px}
+.white-studio .closing-scene .scene-background{background-position:center 100%}
+.white-studio .case-detail-visual img{background-position:center 37.5%}
+
+/* Five service directions receive distinct technical drawings. */
+.white-studio .solution-card:nth-child(1) .solution-art{background-position:center 75%}
+.white-studio .solution-card:nth-child(2) .solution-art{background-position:center 12.5%}
+.white-studio .solution-card:nth-child(3) .solution-art{background-position:center 62.5%}
+.white-studio .solution-card:nth-child(4) .solution-art{background-position:center 0%}
+.white-studio .solution-card:nth-child(5) .solution-art{background-position:center 100%}
+.white-studio .solution-art{opacity:.52!important;filter:none!important;mix-blend-mode:multiply!important}
+
+/* Eight case covers map to industrial deal / robotics / export / guarantee / production funding. */
+.white-studio .case-cover:nth-child(1) .case-cover-art img{background-position:center 37.5%}
+.white-studio .case-cover:nth-child(2) .case-cover-art img{background-position:center 50%}
+.white-studio .case-cover:nth-child(3) .case-cover-art img{background-position:center 62.5%}
+.white-studio .case-cover:nth-child(4) .case-cover-art img{background-position:center 75%}
+.white-studio .case-cover:nth-child(5) .case-cover-art img{background-position:center 75%}
+.white-studio .case-cover:nth-child(6) .case-cover-art img{background-position:center 87.5%}
+.white-studio .case-cover:nth-child(7) .case-cover-art img{background-position:center 87.5%}
+.white-studio .case-cover:nth-child(8) .case-cover-art img{background-position:center 100%}
+
+/* Homepage: strict light → navy → light → navy rhythm. */
+body.reference-home main>section:nth-of-type(odd){background:#fff!important;color:var(--ptg-ink)!important}
+body.reference-home main>section:nth-of-type(even){background:var(--ptg-navy)!important;color:#f7fbff!important}
+body.reference-home main>section:nth-of-type(even) :is(h1,h2,h3,h4,p,.eyebrow,.section-kicker,.case-amount,.ref-ruler span){color:#f7fbff!important}
+body.reference-home main>section:nth-of-type(even) a:not(.button):not(.solution-card){color:#d9eafb}
+body.reference-home main>section:nth-of-type(even) .section-heading>p,
+body.reference-home main>section:nth-of-type(even) .fine{color:#abc1d5!important}
+body.reference-home main>section:nth-of-type(even) :is(.solution-card,.case-cover,.article,.example-panel,.faq-item,.calc-panel,.result-card){background:#fff!important;color:var(--ptg-ink)!important;border-color:rgba(143,183,216,.34)!important}
+body.reference-home main>section:nth-of-type(even) :is(.solution-card,.case-cover,.article,.example-panel,.faq-item,.calc-panel,.result-card) :is(h2,h3,h4,p,span,small,a){color:var(--ptg-ink)!important}
+body.reference-home main>section:nth-of-type(even) .button{background:#f7fbff!important;color:var(--ptg-navy)!important;border-color:#f7fbff!important}
+body.reference-home main>section:nth-of-type(even) .ref-ruler{border-color:rgba(255,255,255,.2)}
+body.reference-home main>section:nth-of-type(even) .ref-ruler span{border-color:rgba(255,255,255,.18)}
+
+/* Secondary page rhythm: first screen light, analytical section navy, next light, result navy, CTA light. */
+body.service-page .service-tasks,
+body.service-page .output-section,
+body.experience-page .case-section{background:var(--ptg-navy)!important;color:#f7fbff!important}
+body.service-page .service-tasks :is(h2,h3,p,li,.eyebrow),
+body.service-page .output-section :is(h2,h3,p,.eyebrow),
+body.experience-page .case-section :is(h2,p,.eyebrow){color:#f7fbff!important}
+body.service-page .output-section .example-panel,
+body.experience-page .case-section .case-cover{background:#fff!important;color:var(--ptg-ink)!important}
+body.service-page .output-section .example-panel :is(p,span,a),
+body.experience-page .case-section .case-cover :is(h3,p,span,small,a){color:var(--ptg-ink)!important}
+body.service-page .service-tasks li{border-color:rgba(255,255,255,.18)!important}
+
+/* Blueprint images should read as technical drawings, not photography. */
+.white-studio .case-cover-art img,.white-studio .case-detail-visual img,.white-studio .ref-structure figure img,.white-studio .ref-ai img{border-radius:14px}
+.white-studio .case-cover-art{background:#fff}
+.white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{object-fit:cover}
+
+@media(max-width:950px){
+  .white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{height:auto;aspect-ratio:16/9;background-size:100% 900%;background-color:#fff}
+  body.reference-home main>section:nth-of-type(even){background:var(--ptg-navy)!important}
+}
+@media(max-width:540px){
+  .white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{height:auto;aspect-ratio:16/9}
+  .white-studio .ref-ai img{height:auto;aspect-ratio:16/9}
+}
