@@ -179,3 +179,29 @@ body.reference-home main>section:nth-of-type(even) .deliverables article span{co
   body.reference-home main>section:nth-of-type(even) :where(.deliverables article,.range-grid>article){box-shadow:none!important}
   .white-studio .case-cover-art img,.white-studio .structure-art,.white-studio .journal-art{aspect-ratio:16/9;height:auto!important}
 }
+
+/* Blueprint scene routing: each image receives a complete 16:9 technical scene. */
+.white-studio .opening-scene .scene-background{content:url('/assets/blueprint-system.svg#hero')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .ref-structure figure img{content:url('/assets/blueprint-system.svg#financing')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .ref-ai img{content:url('/assets/blueprint-system.svg#ai')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .closing-scene .scene-background{content:url('/assets/blueprint-system.svg#deliverables')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .solution-card:nth-child(1) .solution-art{content:url('/assets/blueprint-system.svg#guarantee')!important}
+.white-studio .solution-card:nth-child(2) .solution-art{content:url('/assets/blueprint-system.svg#financing')!important}
+.white-studio .solution-card:nth-child(3) .solution-art{content:url('/assets/blueprint-system.svg#export')!important}
+.white-studio .solution-card:nth-child(4) .solution-art{content:url('/assets/blueprint-system.svg#deal')!important}
+.white-studio .solution-card:nth-child(5) .solution-art{content:url('/assets/blueprint-system.svg#deliverables')!important}
+.white-studio .case-cover:nth-child(1) .case-cover-art img{content:url('/assets/blueprint-system.svg#deal')!important}
+.white-studio .case-cover:nth-child(2) .case-cover-art img{content:url('/assets/blueprint-system.svg#robotics')!important}
+.white-studio .case-cover:nth-child(3) .case-cover-art img{content:url('/assets/blueprint-system.svg#export')!important}
+.white-studio .case-cover:nth-child(4) .case-cover-art img{content:url('/assets/blueprint-system.svg#guarantee')!important}
+.white-studio .case-cover:nth-child(5) .case-cover-art img{content:url('/assets/blueprint-system.svg#guarantee')!important}
+.white-studio .case-cover:nth-child(6) .case-cover-art img{content:url('/assets/blueprint-system.svg#production')!important}
+.white-studio .case-cover:nth-child(7) .case-cover-art img{content:url('/assets/blueprint-system.svg#production')!important}
+.white-studio .case-cover:nth-child(8) .case-cover-art img{content:url('/assets/blueprint-system.svg#financing')!important}
+.white-studio .case-detail-visual img{content:url('/assets/blueprint-system.svg#deal')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .structure-art{content:url('/assets/blueprint-system.svg#deliverables')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .journal-art{content:url('/assets/blueprint-system.svg#deal')!important;object-fit:contain!important;object-position:center!important}
+.white-studio .solution-art,.white-studio .case-cover-art img{object-fit:cover!important;object-position:center!important}
+@media(max-width:950px){
+  .white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{object-fit:contain!important}
+}
