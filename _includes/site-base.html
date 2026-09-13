@@ -1,1 +1,37 @@
 {% include site-base-core.html %}
+<script>
+(function(){
+  'use strict';
+  function fixMedia(){
+    var grid=document.querySelector('#media .media-grid');
+    if(!grid)return;
+    [
+      'a.article[href*="206735"]',
+      'a.article[href*="205720"]'
+    ].forEach(function(selector){
+      grid.querySelectorAll(selector).forEach(function(card){card.remove();});
+    });
+    grid.querySelectorAll('.article').forEach(function(card){
+      var source=card.querySelector('.source');
+      var title=card.querySelector('h3');
+      var sourceText=source?source.textContent:'';
+      var titleText=title?title.textContent:'';
+      if(sourceText.indexOf('Астрахань 24')!==-1 && (
+        titleText.indexOf('Поддержка МСП и инвестиционный потенциал')!==-1 ||
+        titleText.indexOf('Инвестиционная карта региона')!==-1
+      )) card.remove();
+    });
+    if(!grid.querySelector('[data-volga-proof]')){
+      var card=document.createElement('article');
+      card.className='article';
+      card.setAttribute('data-volga-proof','1');
+      card.innerHTML='<div class="source">Газета «ВОЛГА» · региональная пресса</div><h3>Комментарий Владимира Короля в газете «ВОЛГА»</h3><p>Публикация регионального издания с экспертным комментарием Владимира Короля.</p><span class="article-link">Публикация в СМИ</span>';
+      var rg=grid.querySelector('a.article[href*="rg.ru/"]');
+      if(rg)rg.insertAdjacentElement('afterend',card);else grid.prepend(card);
+    }
+  }
+  fixMedia();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fixMedia,{once:true});
+  window.addEventListener('load',fixMedia,{once:true});
+})();
+</script>
