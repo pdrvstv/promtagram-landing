@@ -1,3 +1,4 @@
 ---
 ---
-{% include site-base.html %}
+{% capture rendered_site %}{% include site-base.html %}{% endcapture %}
+{{ rendered_site | replace: '/assets/experience.js?v=20260910-experience', '/assets/experience.js?v=20260913-homecases' }}
