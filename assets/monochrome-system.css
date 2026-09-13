@@ -82,6 +82,7 @@ body.matrix-mono header.top{
   backdrop-filter:blur(18px);
 }
 body.matrix-mono :is(.brand,.brand span,.brand small,.navlinks a){color:var(--mx-ink)!important}
+body.matrix-mono .navlinks{background:transparent!important}
 body.matrix-mono .brand img{border:1px solid var(--mx-line)!important}
 body.matrix-mono :is(.nav-cta,.button,.up,.carousel-controls button){
   background:var(--mx-navy)!important;
@@ -520,6 +521,12 @@ body.white-studio.matrix-mono :is(.feature-case,.case-cover,.achievement-card,.e
   color:var(--mx-muted)!important;
 }
 body.white-studio.matrix-mono :is(.feature-case,.deal-chain,.case-cover,.achievement-card,.ecosystem-grid article,.article:not(:first-child),.range-grid>article,.deliverables article,.example-panel,.check-grid article,.project-card,.metric-card,.stat-card,.topic-card,.calc-results,.comparison article,.faqs details,.credentials) :is(h1,h2,h3,h4,h5,dt,summary,strong,b,em,span,a){
+  color:var(--mx-ink)!important;
+}
+body.white-studio.matrix-mono .opening-scene .button,
+body.white-studio.matrix-mono .opening-scene .button span,
+body.white-studio.matrix-mono .closing-scene .button,
+body.white-studio.matrix-mono .closing-scene .button span{
   color:var(--mx-ink)!important;
 }
 
