@@ -530,6 +530,35 @@ body.white-studio.matrix-mono .closing-scene .button span{
   color:var(--mx-ink)!important;
 }
 
+/* Absolute render lock for the homepage. Several legacy theme files use
+   body-qualified selectors with !important, so these intentionally win on
+   the three surfaces where foreground/background contrast is critical. */
+html body.white-studio.matrix-mono.reference-home main#main>section.opening-scene,
+html body.white-studio.matrix-mono.reference-home main#main>section.closing-scene{
+  background-color:var(--mx-navy)!important;
+  background-image:none!important;
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono.reference-home main#main>section.opening-scene .opening-content .scene-actions>a.button,
+html body.white-studio.matrix-mono.reference-home main#main>section.opening-scene .opening-content .scene-actions>a.button *,
+html body.white-studio.matrix-mono.reference-home main#main>section.closing-scene .closing-content>a.button,
+html body.white-studio.matrix-mono.reference-home main#main>section.closing-scene .closing-content>a.button *{
+  background-color:var(--mx-white)!important;
+  color:var(--mx-ink)!important;
+}
+html body.white-studio.matrix-mono.reference-home main#main>section.solutions-section .solutions-grid>a.solution-card{
+  background-color:var(--mx-navy)!important;
+  background-image:linear-gradient(112deg,rgba(5,20,32,.99) 0%,rgba(8,28,44,.96) 49%,rgba(12,37,56,.72) 100%)!important;
+  border-color:#3b5668!important;
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono.reference-home main#main>section.solutions-section .solutions-grid>a.solution-card :is(h3,p,span,strong,b,.card-cap,.card-link){
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono.reference-home main#main>section.solutions-section .solutions-grid>a.solution-card p{
+  color:#c3d0d8!important;
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   body.matrix-mono *,body.matrix-mono *::before,body.matrix-mono *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
