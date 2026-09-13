@@ -50,3 +50,5 @@ body.white-studio{--blue:#087fb8;--navy:#172f40;--ink:#172f40;--muted:#526878;ba
 .white-studio :is(.calc-label,.calc-result-label,.bar-label,.service-hero p,.service-blueprint p){color:#526878!important}
 .white-studio .case-detail-visual strong{font-size:clamp(27px,3vw,43px)}
 .white-studio.motion-paused .marquee-track{animation-play-state:paused}
+
+.white-studio .opening-scene:after{display:none}
