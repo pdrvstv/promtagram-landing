@@ -21,7 +21,19 @@ if (menu && navigation) {
     }
   });
 }
+const caseGridStyle = document.createElement('link');
+caseGridStyle.rel = 'stylesheet';
+caseGridStyle.href = '/assets/site-cases-3x3.css?v=20260914a';
+document.head.appendChild(caseGridStyle);
 const proofLayer = document.createElement('script');
 proofLayer.src = '/assets/media-proof.js?v=20260914c';
-proofLayer.defer = true;
+proofLayer.async = false;
 document.head.appendChild(proofLayer);
+const caseGridLayer = document.createElement('script');
+caseGridLayer.src = '/assets/site-cases-3x3.js?v=20260914a';
+caseGridLayer.async = false;
+document.head.appendChild(caseGridLayer);
+const mediaVolgaLayer = document.createElement('script');
+mediaVolgaLayer.src = '/assets/media-volga-fix.js?v=20260914a';
+mediaVolgaLayer.async = false;
+document.head.appendChild(mediaVolgaLayer);
