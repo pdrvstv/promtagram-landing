@@ -27,7 +27,7 @@ if (menu && navigation) {
   if (!document.querySelector('link[data-ptg-light-industrial]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/assets/site-light-industrial.css?v=20260913-1';
+    link.href = '/assets/site-light-industrial.css?v=20260913-2';
     link.dataset.ptgLightIndustrial = 'true';
     document.head.appendChild(link);
   }

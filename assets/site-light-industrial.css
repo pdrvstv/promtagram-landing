@@ -93,6 +93,17 @@ body.experience-page{background:var(--ptg-page)!important;color:var(--ptg-ink)!i
 body.reference-home .solutions-section{background:var(--ptg-paper-2)!important;color:var(--ptg-ink)!important}
 body.reference-home .solutions-section :is(h2,p,.eyebrow){color:inherit!important}
 body.reference-home .solutions-section .eyebrow{color:var(--ptg-blue)!important}
+
+/* Safety normalization: no pale content cards survive on the light canvas. */
+.white-studio main :is(article,details,[class*="-card"],[class*="-panel"]){
+  background:linear-gradient(145deg,var(--ptg-navy) 0%,var(--ptg-navy-2) 100%)!important;
+  color:#f7fbff!important;
+  border-color:#173f63!important;
+}
+.white-studio main :is(article,details,[class*="-card"],[class*="-panel"]) :is(h1,h2,h3,h4,h5,p,li,dt,dd,summary,strong,b,em,span,small,a){color:#f7fbff!important}
+.white-studio main details{box-shadow:0 12px 30px rgba(7,27,51,.10)!important}
+.white-studio main :is(.ref-ruler span,.topic-links a,.org-controls a,.carousel-position){background:var(--ptg-navy)!important;color:#fff!important;border-color:#173f63!important}
+
 @media(max-width:950px){
   .white-studio .opening-scene .scene-background,.white-studio .closing-scene .scene-background{background:#dce7ef!important}
   .white-studio .solution-art{mask-image:none!important;opacity:1!important}
