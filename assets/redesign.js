@@ -22,7 +22,18 @@ if (menu && navigation) {
   });
 }
 
-// 2026-09-13: site-wide thematic visual routing.
+// Site-wide visual system: load the final override after legacy styles.
+(() => {
+  if (!document.querySelector('link[data-ptg-light-industrial]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/assets/site-light-industrial.css?v=20260913-1';
+    link.dataset.ptgLightIndustrial = 'true';
+    document.head.appendChild(link);
+  }
+})();
+
+// Site-wide thematic visual routing.
 // Preserve founder photography, Promtagram identity and official support-institution marks.
 (() => {
   const protectedImage = img => {
@@ -49,7 +60,6 @@ if (menu && navigation) {
     structure: '/assets/structure.webp'
   };
 
-  // Homepage: fixed semantic mapping.
   setImage(document.querySelector('.opening-scene .scene-background'), visuals.industry);
   const solutionVisuals = [visuals.investment, visuals.equipment, visuals.export, visuals.industry, visuals.structure];
   document.querySelectorAll('.solution-card .solution-art').forEach((img, i) => setImage(img, solutionVisuals[i % solutionVisuals.length]));
@@ -59,11 +69,9 @@ if (menu && navigation) {
   setImage(document.querySelector('.journal-art'), visuals.investment);
   setImage(document.querySelector('.closing-scene .scene-background'), visuals.industry);
 
-  // Cases and detailed materials: industrial/investment/export rotation.
   const caseVisuals = [visuals.industry, visuals.equipment, visuals.export, visuals.investment, visuals.analysis, visuals.structure];
   document.querySelectorAll('.case-cover-art img,.case-detail-visual img').forEach((img, i) => setImage(img, caseVisuals[i % caseVisuals.length]));
 
-  // Any remaining legacy editorial photo gets a relevant thematic replacement.
   const fallback = [visuals.industry, visuals.investment, visuals.export, visuals.equipment, visuals.analysis, visuals.structure];
   let fallbackIndex = 0;
   document.querySelectorAll('img').forEach(img => {
