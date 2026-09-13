@@ -22,6 +22,6 @@ if (menu && navigation) {
   });
 }
 const proofLayer = document.createElement('script');
-proofLayer.src = '/assets/media-proof.js?v=20260914';
+proofLayer.src = '/assets/media-proof.js?v=20260914b';
 proofLayer.defer = true;
 document.head.appendChild(proofLayer);
