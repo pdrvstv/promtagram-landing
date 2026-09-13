@@ -22,17 +22,6 @@ if (menu && navigation) {
   });
 }
 
-// Site-wide visual system: load the final override after legacy styles.
-(() => {
-  if (!document.querySelector('link[data-ptg-light-industrial]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/assets/site-light-industrial.css?v=20260913-2';
-    link.dataset.ptgLightIndustrial = 'true';
-    document.head.appendChild(link);
-  }
-})();
-
 // Site-wide thematic visual routing.
 // Preserve founder photography, Promtagram identity and official support-institution marks.
 (() => {
@@ -52,27 +41,39 @@ if (menu && navigation) {
   };
 
   const visuals = {
-    industry: '/assets/theme-production.webp',
-    export: '/assets/theme-export.webp',
-    investment: '/assets/theme-dossier.webp',
-    analysis: '/assets/ref-analysis.webp',
-    equipment: '/assets/ref-machine.webp',
-    structure: '/assets/structure.webp'
+    hero: '/assets/matrix-hero.webp',
+    industry: '/assets/matrix-production.webp',
+    export: '/assets/matrix-export.webp',
+    investment: '/assets/matrix-finance.webp',
+    analysis: '/assets/matrix-ai.webp',
+    equipment: '/assets/matrix-production.webp',
+    structure: '/assets/matrix-registry.webp',
+    registry: '/assets/matrix-registry.webp'
   };
 
-  setImage(document.querySelector('.opening-scene .scene-background'), visuals.industry);
-  const solutionVisuals = [visuals.investment, visuals.equipment, visuals.export, visuals.industry, visuals.structure];
+  setImage(document.querySelector('.opening-scene .scene-background'), visuals.hero);
+  const solutionVisuals = [visuals.investment, visuals.equipment, visuals.export, visuals.analysis, visuals.registry];
   document.querySelectorAll('.solution-card .solution-art').forEach((img, i) => setImage(img, solutionVisuals[i % solutionVisuals.length]));
   setImage(document.querySelector('.ref-structure figure img'), visuals.investment);
   setImage(document.querySelector('.ref-ai img'), visuals.analysis);
   setImage(document.querySelector('.structure-art'), visuals.structure);
-  setImage(document.querySelector('.journal-art'), visuals.investment);
-  setImage(document.querySelector('.closing-scene .scene-background'), visuals.industry);
+  setImage(document.querySelector('.journal-art'), visuals.analysis);
+  setImage(document.querySelector('.closing-scene .scene-background'), visuals.hero);
 
-  const caseVisuals = [visuals.industry, visuals.equipment, visuals.export, visuals.investment, visuals.analysis, visuals.structure];
-  document.querySelectorAll('.case-cover-art img,.case-detail-visual img').forEach((img, i) => setImage(img, caseVisuals[i % caseVisuals.length]));
+  const caseVisuals = [visuals.industry, visuals.analysis, visuals.export, visuals.investment, visuals.investment, visuals.industry, visuals.industry, visuals.registry];
+  document.querySelectorAll('.case-cover-art img').forEach((img, i) => setImage(img, caseVisuals[i % caseVisuals.length]));
 
-  const fallback = [visuals.industry, visuals.investment, visuals.export, visuals.equipment, visuals.analysis, visuals.structure];
+  const detailVisual = document.querySelector('.case-detail-visual img');
+  if (detailVisual) {
+    const classes = document.body.classList;
+    let src = visuals.industry;
+    if (classes.contains('case-automation-model')) src = visuals.analysis;
+    if (classes.contains('case-export-model')) src = visuals.export;
+    if (classes.contains('case-contract-financing') || classes.contains('case-working-capital') || classes.contains('case-new-properties')) src = visuals.investment;
+    setImage(detailVisual, src);
+  }
+
+  const fallback = [visuals.hero, visuals.industry, visuals.investment, visuals.export, visuals.analysis, visuals.registry];
   let fallbackIndex = 0;
   document.querySelectorAll('img').forEach(img => {
     if (protectedImage(img)) return;
