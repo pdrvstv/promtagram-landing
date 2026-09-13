@@ -1,0 +1,52 @@
+/* White drafting studio. Shared by every page. */
+body.white-studio{--blue:#087fb8;--navy:#172f40;--ink:#172f40;--muted:#526878;background:#fff!important;color:#172f40}
+.white-studio :is(.top,footer,main,.section,.opening-scene,.closing-scene,.contact-section,.architecture-hero,.process-conclusion,.project-history,.experience-intro,.legal-card,.legal-wrap,.navlinks){background-color:#fff!important;background-image:none!important;color:#172f40!important}
+.white-studio main>section{position:relative;isolation:isolate;border-bottom:1px solid #edf0f2}
+.white-studio main>section:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('/assets/economic-drafting.svg') right center/740px auto no-repeat;opacity:.17;transform:translateY(var(--draft-shift,0px));mask-image:linear-gradient(90deg,transparent 20%,#000)}
+.white-studio main>section:nth-child(3n):before{background-position:left center;mask-image:linear-gradient(90deg,#000,transparent 80%)}
+.white-studio :is(h1,h2,h3,h4,.brand,.navlinks a,.footer-brand,.up,.email,.closing-email,.founder-role,.case-detail-text blockquote){color:#172f40!important}
+.white-studio :is(p,li,.owner,.fine,.scene-kicker>span,.scene-bottom,.closing-brief,.ref-ruler,.credentials,.legal-links,.footer-brand span){color:#526878!important}
+.white-studio :is(.eyebrow,.scene-kicker,em,.case-amount,.card-cap,.article-link,.section-more){color:#087fb8!important}
+.white-studio :is(.solution-card,.achievement-card,.ecosystem-grid article,.case-cover,.case-detail-visual,.calc-panel,.calc-result,.output-card,.range-card,.legal-card,.article:first-child,.case-detail-text blockquote){background:#fff!important;border:1px solid #dfe6eb!important;box-shadow:7px 9px 24px #243b5010,-5px -5px 15px #fff!important;color:#172f40!important}
+.white-studio :is(.button,.nav-cta){background:#fff!important;color:#076d9e!important;border:1px solid #a8c7d9!important;box-shadow:4px 5px 12px #1639520d;border-radius:8px!important}
+.white-studio :is(.button,.nav-cta):hover{background:#f3f9fc!important;border-color:#087fb8!important}
+.white-studio :is(.scene-secondary,.closing-email){color:#087fb8!important;border-color:#b4cbd8}
+.white-studio .top{border-bottom:1px solid #e6edf1!important}
+.white-studio .brand img,.white-studio .footer-brand img{border-radius:50%}
+.white-studio .scene-background,.white-studio .scene-shade{display:none}
+.white-studio .opening-content{min-height:710px;position:relative;padding-top:85px}
+.white-studio .opening-scene:before,.white-studio .closing-scene:before{opacity:.85;background-size:min(65vw,950px) auto;background-position:right center;mask-image:linear-gradient(90deg,transparent 25%,#000 64%)}
+.white-studio .opening-scene h1{font-weight:500;font-size:clamp(44px,5.5vw,82px);max-width:900px}
+.white-studio .opening-content>p{max-width:570px;font-size:21px}
+.white-studio .closing-content{min-height:690px}
+.white-studio .scene-bottom{border-top:1px solid #e2e9ee;margin-top:55px;padding-top:25px}
+.white-studio :is(.solution-art,.journal-art){opacity:.24!important;mix-blend-mode:multiply!important}
+.white-studio .solution-card h3{width:80%}.white-studio .solution-card p{width:75%}
+.white-studio :is(.ref-structure figure,.ref-ai img,.case-cover-art){background:#fff!important;mix-blend-mode:normal}
+.white-studio .ref-structure figcaption span{background:#ffffffeb!important;color:#315063;border-color:#087fb8}
+.white-studio .ref-ai img{object-fit:contain;max-height:480px;margin-top:25px}
+.white-studio .ref-ai:after{display:none}
+.white-studio .article:first-child :is(h3,p,span){color:#172f40!important}
+.white-studio .article:first-child{justify-content:flex-end}.white-studio .journal-art{object-fit:contain!important;object-position:center top}
+.white-studio .ref-ruler{border-color:#dce5eb}.white-studio .ref-ruler span{border-color:#dce5eb}
+.white-studio .process-conclusion{border-block:1px solid #e4ebef;font-size:clamp(27px,3.5vw,44px)}
+.white-studio .case-cover-art img{object-fit:contain}.white-studio .case-cover-art{border-bottom:1px solid #edf1f4}
+.white-studio .case-cover.is-active{box-shadow:10px 16px 35px #173e541a!important}
+.white-studio .case-detail-visual img{object-fit:contain;background:white}
+.white-studio .case-detail-text blockquote{border-left:3px solid #087fb8!important}
+.white-studio .motion-toggle{display:block;margin:20px 0;padding:9px 14px;border:1px solid #c8d7e0;background:#fff;color:#476170;border-radius:30px;cursor:pointer;font:inherit;font-size:12px}
+.white-studio .feature-case{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;padding:45px;border:1px solid #dae4eb;border-radius:14px;background:#fff;margin:15px 0 50px;box-shadow:8px 10px 30px #173e540b}
+.white-studio .feature-case h2{font-size:clamp(30px,3.5vw,50px);margin:20px 0}.white-studio .feature-case p{font-size:17px;line-height:1.7}
+.white-studio .deal-chain{display:grid;gap:0;list-style:none;padding:0;counter-reset:step}.white-studio .deal-chain li{counter-increment:step;padding:20px 0 20px 55px;border-bottom:1px solid #e1e8ed;position:relative}.white-studio .deal-chain li:before{content:'0' counter(step);position:absolute;left:0;color:#087fb8}.white-studio .deal-chain strong{display:block;color:#173e54;margin-bottom:6px}
+.white-studio [data-parallax]{translate:0 var(--parallax-y,0px)}
+.white-studio .section.arrived .section-heading,.white-studio .section.arrived .achievement-grid{animation:none}
+.white-studio :focus-visible{outline:3px solid #087fb8;outline-offset:5px}
+@media(max-width:950px){.white-studio .navlinks,.white-studio .menu{background:white!important;color:#172f40!important}.white-studio .opening-content{padding-top:50px}.white-studio .feature-case{grid-template-columns:1fr;gap:20px}}
+@media(max-width:650px){.white-studio .opening-content{min-height:750px}.white-studio .opening-scene:before,.white-studio .closing-scene:before{background-size:600px;background-position:65% bottom;opacity:.35;mask-image:linear-gradient(180deg,transparent 15%,#000 70%)}.white-studio .opening-content>p{font-size:18px}.white-studio .feature-case{padding:25px}.white-studio .closing-content{min-height:690px}.white-studio main>section:before{opacity:.09}.white-studio .ref-ruler{flex-wrap:wrap}.white-studio .ref-ruler span{min-width:28%}}
+@media(prefers-reduced-motion:reduce){.white-studio [data-parallax]{translate:none!important}.white-studio main>section:before{transform:none!important}}
+.white-studio :is(.range-grid article,.range-dark,.calc-controls,.calc-results,.service-blueprint,.service-index,.method-result,.portrait,.service-tasks,.result-section,.architecture-contact,.ai-section,.direction,.service-switcher a[aria-current]){background:#fff!important;background-image:none!important;color:#172f40!important;border-color:#dce5eb!important}
+.white-studio :is(.range-grid article,.calc-controls,.calc-results,.service-blueprint,.service-index,.method-result){box-shadow:6px 8px 20px #1639520b}
+.white-studio :is(.range-grid strong,.range-grid small,.service-blueprint strong,.service-blueprint span,.service-index a,.result-section a,.service-switcher a[aria-current],.portrait figcaption,.scene-bottom>a,.scene-bottom>a>span,.ref-ruler span,.card-link,.card-cap>span){color:#315367!important}
+.white-studio :is(.calc-label,.calc-result-label,.bar-label,.service-hero p,.service-blueprint p){color:#526878!important}
+.white-studio .case-detail-visual strong{font-size:clamp(27px,3vw,43px)}
+.white-studio.motion-paused .marquee-track{animation-play-state:paused}
