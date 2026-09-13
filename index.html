@@ -4,4 +4,5 @@
 {% assign home_html = home_html | replace: '/assets/meeting-natural.webp', '/assets/blueprint-system.svg' %}
 {% assign home_html = home_html | replace: '/assets/production-natural.webp', '/assets/blueprint-system.svg' %}
 {% assign home_html = home_html | replace: 'natural-editorial.css?v=20260913-natural', 'natural-editorial.css?v=20260913-blueprint4' %}
+{% assign home_html = home_html | replace: '</head>', '<link rel="stylesheet" href="/assets/home-first-two.css?v=20260913-v1"></head>' %}
 {{ home_html }}
