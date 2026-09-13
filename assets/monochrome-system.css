@@ -559,6 +559,78 @@ html body.white-studio.matrix-mono.reference-home main#main>section.solutions-se
   color:#c3d0d8!important;
 }
 
+/* Site-wide surface contract. The legacy light theme uses high-specificity
+   :is() groups, so the page id is used here to make every text/surface pair
+   deterministic on home, service, case, evidence and legal routes. */
+html body.white-studio.matrix-mono main#main>section:is(.opening-scene,.closing-scene){
+  background-color:var(--mx-navy)!important;
+  background-image:none!important;
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono main#main>section:is(.ref-ai,.case-section,.result-section,.process-conclusion,.contact-section,.architecture-contact){
+  background-color:var(--mx-navy)!important;
+  background-image:var(--mx-grid-dark)!important;
+  background-size:42px 42px,42px 42px,100% 100%!important;
+  color:var(--mx-white)!important;
+  border-color:#29465a!important;
+}
+html body.white-studio.matrix-mono main#main>section.experience-intro{
+  background-color:var(--mx-navy)!important;
+  background-image:linear-gradient(90deg,rgba(5,20,32,.98) 0%,rgba(6,22,36,.94) 52%,rgba(6,22,36,.40) 77%,rgba(6,22,36,.12)),var(--mx-page-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono main#main>section.experience-intro :is(h1,p,a,span,.eyebrow),
+html body.white-studio.matrix-mono main#main>section:is(.opening-scene,.closing-scene,.ref-ai,.case-section,.result-section,.process-conclusion,.contact-section,.architecture-contact) :is(h1,h2,h3,h4,h5,p,li,dt,dd,summary,strong,b,em,span,small,a){
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono main#main>section.experience-intro>p,
+html body.white-studio.matrix-mono main#main>section:is(.opening-scene,.closing-scene,.ref-ai,.case-section,.result-section,.process-conclusion,.contact-section,.architecture-contact) :is(p,li,dd,small){
+  color:#c3d0d8!important;
+}
+html body.white-studio.matrix-mono main#main :is(.service-index,.service-blueprint){
+  background-color:var(--mx-navy)!important;
+  background-image:linear-gradient(105deg,rgba(5,20,32,.96),rgba(7,25,40,.70)),var(--mx-page-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  color:var(--mx-white)!important;
+  border-color:#385467!important;
+}
+html body.white-studio.matrix-mono main#main :is(.calc-controls,.case-detail-visual,.article:first-child,.portrait){
+  background-color:var(--mx-navy)!important;
+  background-image:none!important;
+  color:var(--mx-white)!important;
+  border-color:#365267!important;
+}
+html body.white-studio.matrix-mono main#main :is(.service-index,.service-blueprint,.calc-controls,.case-detail-visual,.article:first-child,.portrait) :is(h1,h2,h3,h4,h5,p,li,dt,dd,summary,strong,b,em,span,small,a,label){
+  color:var(--mx-white)!important;
+}
+html body.white-studio.matrix-mono main#main :is(.service-index,.service-blueprint,.calc-controls,.case-detail-visual,.article:first-child) :is(p,li,dd,small){
+  color:#c3d0d8!important;
+}
+html body.white-studio.matrix-mono main#main :is(.feature-case,.deal-chain,.case-cover,.achievement-card,.ecosystem-grid article,.article:not(:first-child),.range-grid>article,.deliverables article,.example-panel,.check-grid article,.project-card,.metric-card,.stat-card,.topic-card,.calc-results,.comparison article,.faqs details,.credentials,.org-item,.process-grid article,.doc-preview,.legal-card){
+  background-color:var(--mx-panel)!important;
+  background-image:none!important;
+  color:var(--mx-ink)!important;
+  border-color:var(--mx-line-soft)!important;
+}
+html body.white-studio.matrix-mono main#main :is(.feature-case,.deal-chain,.case-cover,.achievement-card,.ecosystem-grid article,.article:not(:first-child),.range-grid>article,.deliverables article,.example-panel,.check-grid article,.project-card,.metric-card,.stat-card,.topic-card,.calc-results,.comparison article,.faqs details,.credentials,.org-item,.process-grid article,.doc-preview,.legal-card) :is(h1,h2,h3,h4,h5,dt,summary,strong,b,em,span,a,label){
+  color:var(--mx-ink)!important;
+}
+html body.white-studio.matrix-mono main#main :is(.feature-case,.deal-chain,.case-cover,.achievement-card,.ecosystem-grid article,.article:not(:first-child),.range-grid>article,.deliverables article,.example-panel,.check-grid article,.project-card,.metric-card,.stat-card,.topic-card,.calc-results,.comparison article,.faqs details,.credentials,.org-item,.process-grid article,.doc-preview,.legal-card) :is(p,li,dd,small){
+  color:var(--mx-muted)!important;
+}
+html body.white-studio.matrix-mono main#main .comparison article{
+  background-color:#d5dfe4!important;
+}
+html body.white-studio.matrix-mono main#main .service-switcher a[aria-current="page"]{
+  background-color:var(--mx-navy)!important;
+  background-image:none!important;
+  color:var(--mx-white)!important;
+  border-color:var(--mx-navy)!important;
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   body.matrix-mono *,body.matrix-mono *::before,body.matrix-mono *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
