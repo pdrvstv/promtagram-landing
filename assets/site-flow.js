@@ -1,31 +1,31 @@
 (()=>{'use strict';
-function removeTop1000Duplicates(){
-  document.querySelectorAll('.reference-home [data-top1000], .reference-home .certificate-strip').forEach(el=>el.remove());
-}
-function addDividers(){
-  const main=document.querySelector('main'); if(!main)return;
-  const sections=[...main.children].filter(el=>el.tagName==='SECTION');
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function cleanupLegacy(){document.querySelectorAll('.ptg-flow-divider').forEach(el=>el.remove());document.querySelectorAll('.reference-home [data-top1000],.reference-home .certificate-strip').forEach(el=>el.remove());}
+function markStages(){
+  const sections=[...document.querySelectorAll('.reference-home main>section')];
   sections.forEach((section,i)=>{
-    if(i===sections.length-1)return;
-    const next=sections[i+1];
-    if(section.nextElementSibling&&section.nextElementSibling.classList.contains('ptg-flow-divider'))return;
-    const d=document.createElement('div');
-    d.className='ptg-flow-divider'; d.setAttribute('aria-hidden','true');
-    const s=getComputedStyle(section), n=getComputedStyle(next);
-    const dark=/rgb\((?:[0-4]?\d|5[0-5]),\s*(?:[0-4]?\d|5[0-5]),\s*(?:[0-4]?\d|5[0-5])\)/.test(s.backgroundColor)||/rgb\((?:[0-4]?\d|5[0-5]),\s*(?:[0-4]?\d|5[0-5]),\s*(?:[0-4]?\d|5[0-5])\)/.test(n.backgroundColor);
-    if(dark)d.dataset.tone='dark';
-    section.insertAdjacentElement('afterend',d);
+    if(i===0)return;
+    section.classList.add('ptg-stage');
+    if(section.dataset.ptgPointer!=='1'){
+      section.dataset.ptgPointer='1';
+      section.addEventListener('pointermove',e=>{const r=section.getBoundingClientRect();const x=clamp((e.clientX-r.left)/Math.max(1,r.width),0,1);section.style.setProperty('--ptg-pointer',`${(x*100).toFixed(1)}%`);},{passive:true});
+      section.addEventListener('pointerleave',()=>section.style.setProperty('--ptg-pointer','50%'),{passive:true});
+    }
+    const bg=getComputedStyle(section).backgroundColor;const m=bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);if(m){const lum=(+m[1]*.2126)+(+m[2]*.7152)+(+m[3]*.0722);if(lum<90)section.dataset.dark='1';}
   });
 }
-function revealSections(){
-  if(!('IntersectionObserver'in window))return;
-  document.documentElement.classList.add('ptg-motion-ready');
-  const sections=[...document.querySelectorAll('main>section')];
-  sections.forEach((s,i)=>{if(i>0)s.classList.add('ptg-pending');});
-  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('ptg-pending');e.target.classList.add('ptg-in-view');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
-  sections.slice(1).forEach(s=>io.observe(s));
+let ticking=false;
+function render(){ticking=false;const vh=window.innerHeight||800;document.querySelectorAll('.reference-home main>section.ptg-stage').forEach(section=>{const r=section.getBoundingClientRect();const enter=clamp((vh-r.top)/(vh*.46),0,1);const edge=Math.round(enter*100);const lift=(1-enter)*16;const alpha=.90+(enter*.10);section.style.setProperty('--ptg-edge',`${edge}%`);section.style.setProperty('--ptg-lift',`${lift.toFixed(1)}px`);section.style.setProperty('--ptg-alpha',alpha.toFixed(3));});}
+function queue(){if(ticking)return;ticking=true;requestAnimationFrame(render);}
+function removeCaption(){const needle='Это история лаборатории Promtagram';document.querySelectorAll('p,figcaption,small,div,span').forEach(el=>{const t=(el.textContent||'').replace(/\s+/g,' ').trim();if(t.includes(needle)&&t.includes('отказался от госслужбы'))el.remove();});}
+function dedupeGosneuroset(){
+  cleanupLegacy();
+  document.querySelectorAll('.reference-home #mission article').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.remove();});
+  document.querySelectorAll('.reference-home #achievements article,.reference-home #achievements .achievement-card').forEach(card=>{if((card.textContent||'').includes('Госнейросеть')&&!card.closest('#recognition'))card.remove();});
+  document.querySelectorAll('.reference-home .ptg-stats .ptg-stat').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.innerHTML='<strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i>';});
 }
-function apply(){removeTop1000Duplicates();addDividers();revealSections();}
+function apply(){cleanupLegacy();dedupeGosneuroset();removeCaption();markStages();queue();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
-window.addEventListener('load',()=>{removeTop1000Duplicates();addDividers();},{once:true});
+window.addEventListener('load',()=>{apply();setTimeout(apply,220);},{once:true});
+window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue,{passive:true});
 })();
