@@ -12,7 +12,8 @@
 ## Evidence / claim rules
 
 - `≈150` is the rounded version of the 146 unique CRM objects in the 14.09.2026 CRM report. It is described as cases/business situations, not confirmed clients.
-- `≈1.5 bn RUB` financing need and `≈70 bn RUB` aggregate company turnover are explicitly marked as approximate management estimates of the studied working set, not audited reporting and not Promtagram results.
+- `≈65 bn RUB` is the rounded aggregate of project/financial-request values explicitly present in the CRM `Сумма проекта` field. The source field mixes financing needs, project budgets and some public opportunity amounts, so the site calls it an approximate combined volume rather than approved financing.
+- `≈360 bn RUB` is the rounded aggregate of available revenue/turnover values in the CRM `Выручка` field. Years and verification levels differ, so it is explicitly labelled an estimate of objects with available financial indicators, not audited consolidated revenue.
 - `≈68 bn RUB` is the rounded 2026 appropriation for the federal project `Малое и среднее предпринимательство и поддержка индивидуальной предпринимательской инициативы` under Federal Law No. 426-FZ (67,959,609.5 thousand RUB).
 - The photo cloud uses selected images from the owner's Drive archive; Gmail screenshots and potentially private material are excluded.
 
