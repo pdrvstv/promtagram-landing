@@ -1,95 +1,24 @@
 (()=>{'use strict';
-const icon=paths=>`<svg viewBox="0 0 48 48" aria-hidden="true">${paths}</svg>`;
-const menuItems=[
-{n:'01',title:'Решения',meta:'Господдержка и финансирование',href:'#solutions',icon:icon('<path d="M10 12h28v24H10z"/><path d="M15 18h18M15 24h12M15 30h8"/>')},
-{n:'02',title:'AI-система',meta:'Агенты Promtagram',href:'#system',icon:icon('<circle cx="24" cy="24" r="6"/><circle cx="11" cy="14" r="3"/><circle cx="37" cy="14" r="3"/><circle cx="11" cy="34" r="3"/><circle cx="37" cy="34" r="3"/><path d="M16 17l4 4M32 17l-4 4M16 31l4-4M32 31l-4-4"/>')},
-{n:'03',title:'Госнейросеть',meta:'TOP‑1000 · 2025',href:'#recognition',icon:icon('<path d="M12 9h24v30H12z"/><path d="M18 16h12M18 22h12M18 28h8"/><path d="m28 34 3 3 7-8"/>')},
-{n:'04',title:'Кейсы',meta:'Рабочие разборы проектов',href:'#cases',icon:icon('<path d="M9 14h30v24H9z"/><path d="M16 14v-4h16v4M15 21h18M15 28h12"/>')},
-{n:'05',title:'Доказательства',meta:'Фото, роли и подтверждения',href:'#achievements',icon:icon('<circle cx="24" cy="20" r="9"/><path d="m17 28-3 11 10-5 10 5-3-11"/><path d="m20 20 3 3 6-7"/>')},
-{n:'06',title:'Институты',meta:'Система мер поддержки',href:'#ecosystem',icon:icon('<path d="M7 19h34L24 8 7 19Z"/><path d="M11 22v13M19 22v13M29 22v13M37 22v13M7 39h34"/>')},
-{n:'07',title:'Публикации',meta:'Экспертные материалы',href:'#media',icon:icon('<path d="M11 9h26v30H11z"/><path d="M16 15h16M16 21h16M16 27h10M16 33h7"/>')},
-{n:'08',title:'Социальные проекты',meta:'Миссия и общественный контур',href:'#mission',icon:icon('<path d="M24 39s-14-8-14-19a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 11-14 19-14 19Z"/><path d="M24 15v12M18 21h12"/>')}
+const STYLE='/assets/coverflow-v3.css?v=20260915-2145';
+const photos=[
+['1OR3j0hqvj-UyQdZJe8dMTFrkUw6UjUz3','Лекция и работа с аудиторией'],
+['12odWb1jDPV_iS3aZS15fxNFIL77dSvvE','Анонс лекции Владимира Короля'],
+['1m6_53ioKvQ8T8OFy9xWh9HX9fz6z4uJ6','Каспийский медиафорум'],
+['1spgWNkdYIkfS6XizUBqvDhZDTmTDyyMF','Программа о нейросетях для НКО'],
+['14Zky33oG2lL4OPeylv9cBK-0KlyAAsGE','Профессиональное мероприятие'],
+['1RNQwDNuSFtr1zVBbVv7ZyTMMXqzlSYs5','Публичные материалы Promtagram'],
+['1KP0CeRm5H6M3KppbKKv1CmLujaNZeu7I','Профессиональный контур Promtagram'],
+['1kWHCwEGSxXiU7GKbQ94_9VjEmf2EQ_Z_','Работа с государственной повесткой']
 ];
-function squareMenu(){
- if(document.querySelector('.ptg-square-menu'))return;
- const hero=document.querySelector('.reference-home .opening-scene');if(!hero)return;
- const section=document.createElement('section');section.className='ptg-square-menu section';section.id='site-map';
- section.innerHTML=`<div class="wrap"><div class="ptg-square-menu-head"><div><div class="ptg-menu-kicker">НАВИГАЦИЯ PROMTAGRAM</div><h2>Весь сайт.<br>На одном экране.</h2></div><p>Выберите раздел. Карта связывает коммерческий, технологический и социальный контуры Promtagram.</p></div><nav class="ptg-square-grid" aria-label="Основные разделы сайта">${menuItems.map((x,i)=>`<a class="ptg-menu-tile" data-menu-color="${i+1}" href="${x.href}"><span class="ptg-menu-num">${x.n}</span><span class="ptg-page-icon"><span class="ptg-page-face">${x.icon}</span></span><span class="ptg-menu-copy"><strong>${x.title}</strong><small>${x.meta}</small></span><span class="ptg-menu-arrow" aria-hidden="true">↗</span></a>`).join('')}</nav></div>`;
- hero.insertAdjacentElement('afterend',section);
-}
-function closeNav(nav){nav.classList.remove('open');const b=document.querySelector('.menu');if(b){b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Открыть меню');}}
-function syncMenuLinks(){
- const nav=document.querySelector('.reference-home #navigation');if(!nav)return;
- nav.querySelectorAll('a[href="/#gosneuroset"],a[href="#gosneuroset"]').forEach(a=>a.setAttribute('href','/#recognition'));
- if(![...nav.querySelectorAll('a')].some(a=>['/#recognition','#recognition'].includes(a.getAttribute('href')))){
-   const mission=[...nav.querySelectorAll('a')].find(a=>['/#mission','#mission'].includes(a.getAttribute('href')));
-   const a=document.createElement('a');a.href='/#recognition';a.textContent='Госнейросеть';a.addEventListener('click',()=>closeNav(nav));
-   mission?mission.insertAdjacentElement('beforebegin',a):nav.appendChild(a);
- }
-}
-function hardDedupeRecognition(){
- const all=[...new Set([...document.querySelectorAll('.reference-home section#recognition,.reference-home section#gosneuroset,.reference-home section.ptg-recognition')])];
- if(all.length){const keep=all.find(s=>s.id==='recognition')||all[0];keep.id='recognition';keep.classList.add('ptg-recognition');all.forEach(s=>{if(s!==keep)s.remove();});}
- document.querySelectorAll('.reference-home [data-top1000],.reference-home .certificate-strip').forEach(el=>el.remove());
- document.querySelectorAll('.reference-home #mission article').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.remove();});
- document.querySelectorAll('.reference-home .ptg-stats .ptg-stat').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.innerHTML='<strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i>';});
- return document.querySelector('.reference-home #recognition');
-}
-function placeRecognitionAndPhotobank(){
- const achievements=document.querySelector('.reference-home #achievements');
- const recognition=hardDedupeRecognition();
- const cloud=document.querySelector('.reference-home .ptg-proof-cloud');
- if(!achievements||!recognition||!cloud)return null;
- let photobank=document.querySelector('.reference-home #photobank');
- if(!photobank){
-   photobank=document.createElement('section');photobank.id='photobank';photobank.className='section ptg-photobank-section';
-   const wrap=document.createElement('div');wrap.className='wrap ptg-photobank-wrap';photobank.appendChild(wrap);wrap.appendChild(cloud);
- }
- if(achievements.nextElementSibling!==recognition)achievements.insertAdjacentElement('afterend',recognition);
- if(recognition.nextElementSibling!==photobank)recognition.insertAdjacentElement('afterend',photobank);
- return photobank;
-}
-function setupCoverFlow(){
- const photobank=placeRecognitionAndPhotobank();if(!photobank)return;
- const track=photobank.querySelector('.ptg-photo-mosaic');if(!track)return;
- const cards=[...track.querySelectorAll('.ptg-photo')];if(!cards.length)return;
- track.classList.remove('ptg-coverflow');track.classList.add('ptg-itunes-coverflow');track.setAttribute('tabindex','0');track.setAttribute('role','region');track.setAttribute('aria-label','Фотобанк Promtagram — перелистывание обложек');
- const cloud=photobank.querySelector('.ptg-proof-cloud');
- let controls=cloud.querySelector('.ptg-coverflow-controls');
- if(!controls){controls=document.createElement('div');controls.className='ptg-coverflow-controls';controls.innerHTML='<button type="button" class="ptg-cf-prev" aria-label="Предыдущая фотография">←</button><div class="ptg-cf-status" aria-live="polite"></div><button type="button" class="ptg-cf-next" aria-label="Следующая фотография">→</button>';track.insertAdjacentElement('afterend',controls);}
- let position=Number(track.dataset.position||Math.floor((cards.length-1)/2));let dragging=false,startX=0,startPosition=position,lastPointer=0,wheelTimer=0;
- const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- const labelFor=card=>((card.getAttribute('aria-label')||card.querySelector('img')?.alt||'').trim());
- function render(immediate=false){
-   position=clamp(position,0,cards.length-1);const w=track.getBoundingClientRect().width||window.innerWidth;const cardW=clamp(w*.29,210,360);const step=cardW*.54;
-   cards.forEach((card,i)=>{
-     const d=i-position,ad=Math.abs(d),side=d<0?-1:d>0?1:0;
-     const x=side===0?0:side*(step+(Math.max(0,ad-1)*cardW*.23));
-     const rot=side===0?0:side*-58;const scale=Math.max(.68,1-ad*.105);const z=-Math.min(360,ad*105);const y=Math.min(32,ad*9);
-     card.style.transition=immediate?'none':'';card.style.width=`${cardW}px`;card.style.transform=`translate3d(calc(-50% + ${x.toFixed(1)}px),calc(-50% + ${y.toFixed(1)}px),${z.toFixed(1)}px) rotateY(${rot}deg) scale(${scale.toFixed(3)})`;
-     card.style.opacity=String(Math.max(.28,1-ad*.17));card.style.zIndex=String(100-Math.round(ad*10));card.style.pointerEvents=ad>3.6?'none':'auto';card.classList.toggle('is-active',ad<.5);
-   });
-   const active=cards[Math.round(position)];if(active){controls.querySelector('.ptg-cf-status').textContent=`${String(Math.round(position)+1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')} — ${labelFor(active)}`;}
-   track.dataset.position=String(position);
-   if(immediate)requestAnimationFrame(()=>cards.forEach(c=>c.style.transition=''));
- }
- function snap(){position=Math.round(position);render();}
- function go(delta){position=clamp(Math.round(position)+delta,0,cards.length-1);render();}
- if(track.dataset.itunesFlow!=='1'){
-   track.dataset.itunesFlow='1';
-   controls.querySelector('.ptg-cf-prev').addEventListener('click',()=>go(-1));controls.querySelector('.ptg-cf-next').addEventListener('click',()=>go(1));
-   cards.forEach((card,i)=>card.addEventListener('click',e=>{if(Math.abs(position-i)>.45){e.preventDefault();position=i;render();}}));
-   track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;dragging=true;startX=e.clientX;lastPointer=e.clientX;startPosition=position;track.classList.add('is-dragging');track.setPointerCapture?.(e.pointerId);});
-   track.addEventListener('pointermove',e=>{if(!dragging)return;lastPointer=e.clientX;const cardW=parseFloat(cards[0].style.width)||280;position=clamp(startPosition-(e.clientX-startX)/(cardW*.46),0,cards.length-1);render(true);});
-   const end=e=>{if(!dragging)return;dragging=false;track.classList.remove('is-dragging');try{track.releasePointerCapture?.(e.pointerId);}catch(_){}snap();};track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);
-   track.addEventListener('wheel',e=>{const delta=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(!delta)return;const dir=Math.sign(delta);const atStart=position<=.01&&dir<0,atEnd=position>=cards.length-1-.01&&dir>0;if(atStart||atEnd)return;e.preventDefault();position=clamp(position+delta*.0028,0,cards.length-1);render(true);clearTimeout(wheelTimer);wheelTimer=setTimeout(snap,120);},{passive:false});
-   track.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}if(e.key==='ArrowRight'){e.preventDefault();go(1);}if(e.key==='Home'){e.preventDefault();position=0;render();}if(e.key==='End'){e.preventDefault();position=cards.length-1;render();}});
-   window.addEventListener('resize',()=>render(true),{passive:true});
- }
- render(true);
-}
-function observeLateDuplicates(){if(document.documentElement.dataset.ptgRecognitionWatch==='1')return;document.documentElement.dataset.ptgRecognitionWatch='1';const obs=new MutationObserver(()=>{hardDedupeRecognition();placeRecognitionAndPhotobank();});obs.observe(document.body,{childList:true,subtree:true});setTimeout(()=>obs.disconnect(),5000);}
-function apply(){if(!document.body.classList.contains('reference-home'))return;squareMenu();hardDedupeRecognition();syncMenuLinks();placeRecognitionAndPhotobank();setupCoverFlow();observeLateDuplicates();}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
-window.addEventListener('load',()=>{apply();setTimeout(apply,220);setTimeout(apply,900);},{once:true});
+const thumb=id=>`https://drive.google.com/thumbnail?id=${id}&sz=w1400`;
+function ensureStyle(){if(document.querySelector(`link[href*="coverflow-v3.css"]`))return;const l=document.createElement('link');l.rel='stylesheet';l.href=STYLE;document.head.appendChild(l);}
+function cleanupOld(){document.querySelectorAll('.reference-home .ptg-proof-cloud,.reference-home .ptg-photo-mosaic').forEach(n=>n.remove());}
+function dedupeRecognition(){const list=[...document.querySelectorAll('.reference-home section#recognition,.reference-home section#gosneuroset,.reference-home section.ptg-recognition')];if(!list.length)return null;const keep=list[0];keep.id='recognition';keep.classList.add('ptg-recognition');list.slice(1).forEach(n=>n.remove());return keep;}
+function ensurePhotobank(){let s=document.querySelector('.reference-home #photobank');if(s)return s;s=document.createElement('section');s.id='photobank';s.className='section ptg-photobank';s.innerHTML=`<div class="wrap"><div class="ptg-photobank-head"><div><div class="ptg-photobank-kicker">ФОТОБАНК / АРХИВ</div><h2>Promtagram<br>в работе.</h2></div><p>Листайте как обложки альбомов: центральный кадр активен, соседние уходят в перспективу. Колесо мыши, свайп, drag или стрелки.</p></div></div><div class="ptg-coverflow-shell"><div class="ptg-coverflow-floor"></div><div class="ptg-coverflow-stage" tabindex="0" aria-label="Фотобанк Promtagram в формате Cover Flow">${photos.map(([id,label],i)=>`<a class="ptg-cf-card" href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener noreferrer" data-index="${i}" aria-label="${label}"><span class="ptg-cf-cover"><img src="${thumb(id)}" alt="${label}" loading="lazy"><span class="ptg-cf-caption">${String(i+1).padStart(2,'0')} / ${label}</span></span></a>`).join('')}</div><div class="ptg-coverflow-hint">листайте обложки</div><div class="ptg-coverflow-controls"><button type="button" data-cf-prev aria-label="Предыдущая фотография">←</button><span class="ptg-coverflow-count" aria-live="polite">1 / ${photos.length}</span><button type="button" data-cf-next aria-label="Следующая фотография">→</button></div></div><div class="wrap ptg-photobank-footer"><a href="https://drive.google.com/drive/folders/1WpJ2cv6BjcWu0bj7n_F9Ysb0toy1OEBW" target="_blank" rel="noopener noreferrer">Открыть весь фотобанк ↗</a></div>`;return s;}
+function placeSections(){const achievements=document.querySelector('.reference-home #achievements'),recognition=dedupeRecognition(),photobank=ensurePhotobank(),ecosystem=document.querySelector('.reference-home #ecosystem');if(!recognition||!photobank)return;if(achievements){achievements.insertAdjacentElement('afterend',recognition);recognition.insertAdjacentElement('afterend',photobank);}else if(ecosystem){ecosystem.parentNode.insertBefore(recognition,ecosystem);recognition.insertAdjacentElement('afterend',photobank);} }
+function setupFlow(){const stage=document.querySelector('#photobank .ptg-coverflow-stage');if(!stage||stage.dataset.ready==='1')return;stage.dataset.ready='1';const cards=[...stage.querySelectorAll('.ptg-cf-card')],shell=stage.closest('.ptg-coverflow-shell'),count=shell.querySelector('.ptg-coverflow-count'),prev=shell.querySelector('[data-cf-prev]'),next=shell.querySelector('[data-cf-next]');let active=Math.min(2,cards.length-1),drag=false,startX=0,accum=0,wheelLock=false;
+const render=()=>{const w=Math.max(320,shell.clientWidth),step=Math.min(245,Math.max(120,w*.17));cards.forEach((c,i)=>{const d=i-active,a=Math.abs(d),sg=d<0?-1:1;let x=d*step;if(a>1)x+=sg*(a-1)*28;const rot=d===0?0:(d<0?58:-58),z=d===0?120:-Math.min(440,a*115),scale=d===0?1:Math.max(.62,.88-a*.08),op=d===0?1:Math.max(.16,.74-a*.16);c.style.setProperty('--cf-zindex',String(100-a));c.style.setProperty('--cf-opacity',op.toFixed(2));c.style.setProperty('--cf-sat',d===0?'1.02':'.76');c.style.setProperty('--cf-bright',d===0?'1':'.84');c.style.transform=`translate(-50%,-50%) translate3d(${x}px,${Math.min(34,a*12)}px,${z}px) rotateY(${rot}deg) scale(${scale})`;c.classList.toggle('is-active',i===active);});count.textContent=`${active+1} / ${cards.length}`;prev.disabled=active===0;next.disabled=active===cards.length-1;};
+const go=n=>{active=Math.max(0,Math.min(cards.length-1,n));render();};prev.addEventListener('click',()=>go(active-1));next.addEventListener('click',()=>go(active+1));stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(active-1)}if(e.key==='ArrowRight'){e.preventDefault();go(active+1)}});cards.forEach((c,i)=>c.addEventListener('click',e=>{if(i!==active){e.preventDefault();go(i)}}));shell.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;drag=true;startX=e.clientX;accum=0;shell.setPointerCapture?.(e.pointerId)});shell.addEventListener('pointermove',e=>{if(!drag)return;accum=e.clientX-startX});const end=e=>{if(!drag)return;drag=false;try{shell.releasePointerCapture?.(e.pointerId)}catch(_){ }if(Math.abs(accum)>38)go(active+(accum<0?1:-1));};shell.addEventListener('pointerup',end);shell.addEventListener('pointercancel',end);shell.addEventListener('wheel',e=>{const dir=Math.sign(Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX);if(!dir||wheelLock)return;const can=(dir>0&&active<cards.length-1)||(dir<0&&active>0);if(!can)return;e.preventDefault();wheelLock=true;go(active+dir);setTimeout(()=>wheelLock=false,360)},{passive:false});window.addEventListener('resize',render,{passive:true});render();}
+function apply(){if(!document.body.classList.contains('reference-home'))return;ensureStyle();cleanupOld();placeSections();setupFlow();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,900)},{once:true});
 })();
