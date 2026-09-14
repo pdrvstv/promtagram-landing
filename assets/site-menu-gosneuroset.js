@@ -33,11 +33,12 @@ function gosneurosetScreen(){
   if(cases.previousElementSibling!==section)cases.parentNode.insertBefore(section,cases);
   document.querySelectorAll('.reference-home .achievement-grid [data-top1000]').forEach(card=>card.remove());
 }
+function closeNav(nav){nav.classList.remove('open');const b=document.querySelector('.menu');if(b){b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Открыть меню');}}
 function syncMenuLinks(){
   const nav=document.querySelector('.reference-home #navigation');
   if(!nav||nav.dataset.gosLink==='1')return;
   const cases=[...nav.querySelectorAll('a')].find(a=>a.getAttribute('href')==='/#cases'||a.getAttribute('href')==='#cases');
-  if(cases){const a=document.createElement('a');a.href='/#gosneuroset';a.textContent='Госнейросеть';cases.insertAdjacentElement('beforebegin',a);}
+  if(cases){const a=document.createElement('a');a.href='/#gosneuroset';a.textContent='Госнейросеть';a.addEventListener('click',()=>closeNav(nav));cases.insertAdjacentElement('beforebegin',a);}
   nav.dataset.gosLink='1';
 }
 function apply(){if(!document.body.classList.contains('reference-home'))return;squareMenu();gosneurosetScreen();syncMenuLinks();}
