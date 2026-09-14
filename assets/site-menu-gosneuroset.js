@@ -27,30 +27,69 @@ function syncMenuLinks(){
    mission?mission.insertAdjacentElement('beforebegin',a):nav.appendChild(a);
  }
 }
-function normalizeRecognition(){
- const sections=[...document.querySelectorAll('.reference-home section.ptg-recognition,.reference-home section#recognition,.reference-home section#gosneuroset')];
- const unique=[...new Set(sections)];if(!unique.length)return;
- const keep=unique[0];keep.id='recognition';keep.classList.add('ptg-recognition');unique.slice(1).forEach(s=>s.remove());
+function hardDedupeRecognition(){
+ const all=[...new Set([...document.querySelectorAll('.reference-home section#recognition,.reference-home section#gosneuroset,.reference-home section.ptg-recognition')])];
+ if(all.length){const keep=all.find(s=>s.id==='recognition')||all[0];keep.id='recognition';keep.classList.add('ptg-recognition');all.forEach(s=>{if(s!==keep)s.remove();});}
+ document.querySelectorAll('.reference-home [data-top1000],.reference-home .certificate-strip').forEach(el=>el.remove());
+ document.querySelectorAll('.reference-home #mission article').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.remove();});
+ document.querySelectorAll('.reference-home .ptg-stats .ptg-stat').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.innerHTML='<strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i>';});
+ return document.querySelector('.reference-home #recognition');
+}
+function placeRecognitionAndPhotobank(){
+ const achievements=document.querySelector('.reference-home #achievements');
+ const recognition=hardDedupeRecognition();
+ const cloud=document.querySelector('.reference-home .ptg-proof-cloud');
+ if(!achievements||!recognition||!cloud)return null;
+ let photobank=document.querySelector('.reference-home #photobank');
+ if(!photobank){
+   photobank=document.createElement('section');photobank.id='photobank';photobank.className='section ptg-photobank-section';
+   const wrap=document.createElement('div');wrap.className='wrap ptg-photobank-wrap';photobank.appendChild(wrap);wrap.appendChild(cloud);
+ }
+ if(achievements.nextElementSibling!==recognition)achievements.insertAdjacentElement('afterend',recognition);
+ if(recognition.nextElementSibling!==photobank)recognition.insertAdjacentElement('afterend',photobank);
+ return photobank;
 }
 function setupCoverFlow(){
- const track=document.querySelector('.reference-home .ptg-photo-mosaic');if(!track)return;
- track.classList.add('ptg-coverflow');track.setAttribute('tabindex','0');
+ const photobank=placeRecognitionAndPhotobank();if(!photobank)return;
+ const track=photobank.querySelector('.ptg-photo-mosaic');if(!track)return;
  const cards=[...track.querySelectorAll('.ptg-photo')];if(!cards.length)return;
- let raf=0,drag=false,startX=0,startScroll=0,moved=false;
- const update=()=>{raf=0;const r=track.getBoundingClientRect(),center=r.left+r.width/2,unit=Math.max(180,cards[0].getBoundingClientRect().width*.72);let best=Infinity,active=null;cards.forEach((card,i)=>{const cr=card.getBoundingClientRect(),d=(cr.left+cr.width/2-center)/unit,ad=Math.abs(d);const clamped=Math.max(-3,Math.min(3,d));card.style.setProperty('--cf-rot',`${(-clamped*17).toFixed(2)}deg`);card.style.setProperty('--cf-scale',`${Math.max(.72,1-ad*.12).toFixed(3)}`);card.style.setProperty('--cf-y',`${Math.min(34,ad*14).toFixed(1)}px`);card.style.setProperty('--cf-opacity',`${Math.max(.48,1-ad*.17).toFixed(3)}`);card.style.zIndex=String(100-Math.round(ad*10));if(ad<best){best=ad;active=card;}});cards.forEach(c=>c.classList.toggle('is-active',c===active));};
- const queue=()=>{if(!raf)raf=requestAnimationFrame(update);};
- if(track.dataset.coverflow!=='1'){
-   track.dataset.coverflow='1';track.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue,{passive:true});
-   track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;drag=true;moved=false;startX=e.clientX;startScroll=track.scrollLeft;track.setPointerCapture?.(e.pointerId);track.classList.add('is-dragging');});
-   track.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-startX;if(Math.abs(dx)>4)moved=true;track.scrollLeft=startScroll-dx;});
-   const end=e=>{if(!drag)return;drag=false;track.classList.remove('is-dragging');try{track.releasePointerCapture?.(e.pointerId);}catch(_){}queue();};track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);
-   track.addEventListener('click',e=>{const card=e.target.closest('.ptg-photo');if(!card)return;if(moved){e.preventDefault();return;}if(!card.classList.contains('is-active')){e.preventDefault();card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}});
-   track.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const idx=Math.max(0,cards.findIndex(c=>c.classList.contains('is-active'))),next=Math.max(0,Math.min(cards.length-1,idx+(e.key==='ArrowRight'?1:-1)));cards[next].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});});
-   track.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>=Math.abs(e.deltaY)||e.shiftKey){e.preventDefault();track.scrollLeft+=(e.deltaX||e.deltaY);queue();}},{passive:false});
+ track.classList.remove('ptg-coverflow');track.classList.add('ptg-itunes-coverflow');track.setAttribute('tabindex','0');track.setAttribute('role','region');track.setAttribute('aria-label','Фотобанк Promtagram — перелистывание обложек');
+ const cloud=photobank.querySelector('.ptg-proof-cloud');
+ let controls=cloud.querySelector('.ptg-coverflow-controls');
+ if(!controls){controls=document.createElement('div');controls.className='ptg-coverflow-controls';controls.innerHTML='<button type="button" class="ptg-cf-prev" aria-label="Предыдущая фотография">←</button><div class="ptg-cf-status" aria-live="polite"></div><button type="button" class="ptg-cf-next" aria-label="Следующая фотография">→</button>';track.insertAdjacentElement('afterend',controls);}
+ let position=Number(track.dataset.position||Math.floor((cards.length-1)/2));let dragging=false,startX=0,startPosition=position,lastPointer=0,wheelTimer=0;
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const labelFor=card=>((card.getAttribute('aria-label')||card.querySelector('img')?.alt||'').trim());
+ function render(immediate=false){
+   position=clamp(position,0,cards.length-1);const w=track.getBoundingClientRect().width||window.innerWidth;const cardW=clamp(w*.29,210,360);const step=cardW*.54;
+   cards.forEach((card,i)=>{
+     const d=i-position,ad=Math.abs(d),side=d<0?-1:d>0?1:0;
+     const x=side===0?0:side*(step+(Math.max(0,ad-1)*cardW*.23));
+     const rot=side===0?0:side*-58;const scale=Math.max(.68,1-ad*.105);const z=-Math.min(360,ad*105);const y=Math.min(32,ad*9);
+     card.style.transition=immediate?'none':'';card.style.width=`${cardW}px`;card.style.transform=`translate3d(calc(-50% + ${x.toFixed(1)}px),calc(-50% + ${y.toFixed(1)}px),${z.toFixed(1)}px) rotateY(${rot}deg) scale(${scale.toFixed(3)})`;
+     card.style.opacity=String(Math.max(.28,1-ad*.17));card.style.zIndex=String(100-Math.round(ad*10));card.style.pointerEvents=ad>3.6?'none':'auto';card.classList.toggle('is-active',ad<.5);
+   });
+   const active=cards[Math.round(position)];if(active){controls.querySelector('.ptg-cf-status').textContent=`${String(Math.round(position)+1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')} — ${labelFor(active)}`;}
+   track.dataset.position=String(position);
+   if(immediate)requestAnimationFrame(()=>cards.forEach(c=>c.style.transition=''));
  }
- queue();
+ function snap(){position=Math.round(position);render();}
+ function go(delta){position=clamp(Math.round(position)+delta,0,cards.length-1);render();}
+ if(track.dataset.itunesFlow!=='1'){
+   track.dataset.itunesFlow='1';
+   controls.querySelector('.ptg-cf-prev').addEventListener('click',()=>go(-1));controls.querySelector('.ptg-cf-next').addEventListener('click',()=>go(1));
+   cards.forEach((card,i)=>card.addEventListener('click',e=>{if(Math.abs(position-i)>.45){e.preventDefault();position=i;render();}}));
+   track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;dragging=true;startX=e.clientX;lastPointer=e.clientX;startPosition=position;track.classList.add('is-dragging');track.setPointerCapture?.(e.pointerId);});
+   track.addEventListener('pointermove',e=>{if(!dragging)return;lastPointer=e.clientX;const cardW=parseFloat(cards[0].style.width)||280;position=clamp(startPosition-(e.clientX-startX)/(cardW*.46),0,cards.length-1);render(true);});
+   const end=e=>{if(!dragging)return;dragging=false;track.classList.remove('is-dragging');try{track.releasePointerCapture?.(e.pointerId);}catch(_){}snap();};track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);
+   track.addEventListener('wheel',e=>{const delta=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(!delta)return;const dir=Math.sign(delta);const atStart=position<=.01&&dir<0,atEnd=position>=cards.length-1-.01&&dir>0;if(atStart||atEnd)return;e.preventDefault();position=clamp(position+delta*.0028,0,cards.length-1);render(true);clearTimeout(wheelTimer);wheelTimer=setTimeout(snap,120);},{passive:false});
+   track.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}if(e.key==='ArrowRight'){e.preventDefault();go(1);}if(e.key==='Home'){e.preventDefault();position=0;render();}if(e.key==='End'){e.preventDefault();position=cards.length-1;render();}});
+   window.addEventListener('resize',()=>render(true),{passive:true});
+ }
+ render(true);
 }
-function apply(){if(!document.body.classList.contains('reference-home'))return;squareMenu();normalizeRecognition();syncMenuLinks();setupCoverFlow();}
+function observeLateDuplicates(){if(document.documentElement.dataset.ptgRecognitionWatch==='1')return;document.documentElement.dataset.ptgRecognitionWatch='1';const obs=new MutationObserver(()=>{hardDedupeRecognition();placeRecognitionAndPhotobank();});obs.observe(document.body,{childList:true,subtree:true});setTimeout(()=>obs.disconnect(),5000);}
+function apply(){if(!document.body.classList.contains('reference-home'))return;squareMenu();hardDedupeRecognition();syncMenuLinks();placeRecognitionAndPhotobank();setupCoverFlow();observeLateDuplicates();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
-window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,900);},{once:true});
+window.addEventListener('load',()=>{apply();setTimeout(apply,220);setTimeout(apply,900);},{once:true});
 })();
