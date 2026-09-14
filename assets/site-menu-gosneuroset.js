@@ -1,5 +1,4 @@
 (()=>{'use strict';
-const STYLE='/assets/coverflow-v3.css?v=20260915-2205';
 const icon=p=>`<svg viewBox="0 0 48 48" aria-hidden="true">${p}</svg>`;
 const menuItems=[
 {n:'01',title:'Решения',meta:'Господдержка и финансирование',href:'#solutions',icon:icon('<path d="M10 12h28v24H10z"/><path d="M15 18h18M15 24h12M15 30h8"/>')},
@@ -11,19 +10,102 @@ const menuItems=[
 {n:'07',title:'Публикации',meta:'Экспертные материалы',href:'#media',icon:icon('<path d="M11 9h26v30H11z"/><path d="M16 15h16M16 21h16M16 27h10M16 33h7"/>')},
 {n:'08',title:'Миссия',meta:'Общественный контур',href:'#mission',icon:icon('<path d="M24 39s-14-8-14-19a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 11-14 19-14 19Z"/><path d="M24 15v12M18 21h12"/>')}
 ];
-const photos=[
-['1OR3j0hqvj-UyQdZJe8dMTFrkUw6UjUz3','Лекция и работа с аудиторией'],['12odWb1jDPV_iS3aZS15fxNFIL77dSvvE','Анонс лекции Владимира Короля'],['1m6_53ioKvQ8T8OFy9xWh9HX9fz6z4uJ6','Каспийский медиафорум'],['1spgWNkdYIkfS6XizUBqvDhZDTmTDyyMF','Программа о нейросетях для НКО'],['14Zky33oG2lL4OPeylv9cBK-0KlyAAsGE','Профессиональное мероприятие'],['1RNQwDNuSFtr1zVBbVv7ZyTMMXqzlSYs5','Публичные материалы Promtagram'],['1KP0CeRm5H6M3KppbKKv1CmLujaNZeu7I','Профессиональный контур Promtagram'],['1kWHCwEGSxXiU7GKbQ94_9VjEmf2EQ_Z_','Работа с государственной повесткой']];
-const thumb=id=>`https://drive.google.com/thumbnail?id=${id}&sz=w1400`;
-function ensureStyle(){if(document.querySelector('link[href*="coverflow-v3.css"]'))return;const l=document.createElement('link');l.rel='stylesheet';l.href=STYLE;document.head.appendChild(l);}
-function squareMenu(){if(document.querySelector('.ptg-square-menu'))return;const hero=document.querySelector('.reference-home .opening-scene');if(!hero)return;const s=document.createElement('section');s.className='ptg-square-menu section';s.id='site-map';s.innerHTML=`<div class="wrap"><div class="ptg-square-menu-head"><div><div class="ptg-menu-kicker">НАВИГАЦИЯ PROMTAGRAM</div><h2>Весь сайт.<br>На одном экране.</h2></div><p>Коммерческий, технологический и общественный контуры Promtagram — восемь прямых маршрутов по сайту.</p></div><nav class="ptg-square-grid" aria-label="Основные разделы сайта">${menuItems.map((x,i)=>`<a class="ptg-menu-tile" data-menu-color="${i+1}" href="${x.href}"><span class="ptg-menu-num">${x.n}</span><span class="ptg-page-icon"><span class="ptg-page-face">${x.icon}</span></span><span class="ptg-menu-copy"><strong>${x.title}</strong><small>${x.meta}</small></span><span class="ptg-menu-arrow" aria-hidden="true">↗</span></a>`).join('')}</nav></div>`;hero.insertAdjacentElement('afterend',s);}
-function cleanupOld(){document.querySelectorAll('.reference-home .ptg-proof-cloud,.reference-home .ptg-photo-mosaic,.reference-home [data-top1000],.reference-home .certificate-strip').forEach(n=>n.remove());}
-function dedupeRecognition(){const list=[...document.querySelectorAll('.reference-home section#recognition,.reference-home section#gosneuroset,.reference-home section.ptg-recognition')];if(!list.length)return null;const keep=list[0];keep.id='recognition';keep.classList.add('ptg-recognition');list.slice(1).forEach(n=>n.remove());return keep;}
-function ensurePhotobank(){let s=document.querySelector('.reference-home #photobank');if(s)return s;s=document.createElement('section');s.id='photobank';s.className='section ptg-photobank';s.innerHTML=`<div class="wrap"><div class="ptg-photobank-head"><div><div class="ptg-photobank-kicker">ФОТОБАНК / АРХИВ</div><h2>Promtagram<br>в работе.</h2></div><p>Листайте как обложки альбомов: центральный кадр активен, соседние уходят в перспективу. Колесо мыши, свайп, drag или стрелки.</p></div></div><div class="ptg-coverflow-shell"><div class="ptg-coverflow-floor"></div><div class="ptg-coverflow-stage" tabindex="0" aria-label="Фотобанк Promtagram в формате Cover Flow">${photos.map(([id,label],i)=>`<a class="ptg-cf-card" href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener noreferrer" data-index="${i}" aria-label="${label}"><span class="ptg-cf-cover"><img src="${thumb(id)}" alt="${label}" loading="lazy"><span class="ptg-cf-caption">${String(i+1).padStart(2,'0')} / ${label}</span></span></a>`).join('')}</div><div class="ptg-coverflow-hint">листайте обложки</div><div class="ptg-coverflow-controls"><button type="button" data-cf-prev aria-label="Предыдущая фотография">←</button><span class="ptg-coverflow-count" aria-live="polite">1 / ${photos.length}</span><button type="button" data-cf-next aria-label="Следующая фотография">→</button></div></div><div class="wrap ptg-photobank-footer"><a href="https://drive.google.com/drive/folders/1WpJ2cv6BjcWu0bj7n_F9Ysb0toy1OEBW" target="_blank" rel="noopener noreferrer">Открыть весь фотобанк ↗</a></div>`;return s;}
-function placeSections(){const achievements=document.querySelector('.reference-home #achievements'),recognition=dedupeRecognition(),photobank=ensurePhotobank(),ecosystem=document.querySelector('.reference-home #ecosystem');if(!recognition||!photobank)return;if(achievements){achievements.insertAdjacentElement('afterend',recognition);recognition.insertAdjacentElement('afterend',photobank);}else if(ecosystem){ecosystem.parentNode.insertBefore(recognition,ecosystem);recognition.insertAdjacentElement('afterend',photobank);}}
-function setupFlow(){const stage=document.querySelector('#photobank .ptg-coverflow-stage');if(!stage||stage.dataset.ready==='1')return;stage.dataset.ready='1';const cards=[...stage.querySelectorAll('.ptg-cf-card')],shell=stage.closest('.ptg-coverflow-shell'),count=shell.querySelector('.ptg-coverflow-count'),prev=shell.querySelector('[data-cf-prev]'),next=shell.querySelector('[data-cf-next]');let active=Math.min(2,cards.length-1),drag=false,startX=0,accum=0,wheelLock=false;
-const render=()=>{const w=Math.max(320,shell.clientWidth),step=Math.min(245,Math.max(118,w*.165));cards.forEach((c,i)=>{const d=i-active,a=Math.abs(d),sg=d<0?-1:1;let x=d*step;if(a>1)x+=sg*(a-1)*24;const rot=d===0?0:(d<0?58:-58),z=d===0?130:-Math.min(460,a*120),scale=d===0?1:Math.max(.61,.88-a*.08),op=d===0?1:Math.max(.14,.76-a*.16);c.style.setProperty('--cf-zindex',String(100-a));c.style.setProperty('--cf-opacity',op.toFixed(2));c.style.setProperty('--cf-sat',d===0?'1.02':'.76');c.style.setProperty('--cf-bright',d===0?'1':'.84');c.style.transform=`translate(-50%,-50%) translate3d(${x}px,${Math.min(36,a*12)}px,${z}px) rotateY(${rot}deg) scale(${scale})`;c.classList.toggle('is-active',i===active);});count.textContent=`${active+1} / ${cards.length}`;prev.disabled=active===0;next.disabled=active===cards.length-1;};
-const go=n=>{active=Math.max(0,Math.min(cards.length-1,n));render();};prev.addEventListener('click',()=>go(active-1));next.addEventListener('click',()=>go(active+1));stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(active-1)}if(e.key==='ArrowRight'){e.preventDefault();go(active+1)}});cards.forEach((c,i)=>c.addEventListener('click',e=>{if(i!==active){e.preventDefault();go(i)}}));shell.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;drag=true;startX=e.clientX;accum=0;shell.setPointerCapture?.(e.pointerId)});shell.addEventListener('pointermove',e=>{if(drag)accum=e.clientX-startX});const end=e=>{if(!drag)return;drag=false;try{shell.releasePointerCapture?.(e.pointerId)}catch(_){ }if(Math.abs(accum)>38)go(active+(accum<0?1:-1));};shell.addEventListener('pointerup',end);shell.addEventListener('pointercancel',end);shell.addEventListener('wheel',e=>{const dir=Math.sign(Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX);if(!dir||wheelLock)return;const can=(dir>0&&active<cards.length-1)||(dir<0&&active>0);if(!can)return;e.preventDefault();wheelLock=true;go(active+dir);setTimeout(()=>wheelLock=false,360)},{passive:false});window.addEventListener('resize',render,{passive:true});render();}
-function syncTopNav(){const nav=document.querySelector('.reference-home #navigation');if(!nav)return;nav.querySelectorAll('a[href="/#gosneuroset"],a[href="#gosneuroset"]').forEach(a=>a.href='/#recognition');}
-function apply(){if(!document.body.classList.contains('reference-home'))return;ensureStyle();squareMenu();cleanupOld();placeSections();setupFlow();syncTopNav();}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,900)},{once:true});
+
+function squareMenu(){
+  if(document.querySelector('.ptg-square-menu'))return;
+  const hero=document.querySelector('.reference-home .opening-scene');
+  if(!hero)return;
+  const section=document.createElement('section');
+  section.className='ptg-square-menu section';
+  section.id='site-map';
+  section.innerHTML=`<div class="wrap"><div class="ptg-square-menu-head"><div><div class="ptg-menu-kicker">НАВИГАЦИЯ PROMTAGRAM</div><h2>Весь сайт.<br>На одном экране.</h2></div><p>Коммерческий, технологический и общественный контуры Promtagram — восемь прямых маршрутов по сайту.</p></div><nav class="ptg-square-grid" aria-label="Основные разделы сайта">${menuItems.map((x,i)=>`<a class="ptg-menu-tile" data-menu-color="${i+1}" href="${x.href}"><span class="ptg-menu-num">${x.n}</span><span class="ptg-page-icon"><span class="ptg-page-face">${x.icon}</span></span><span class="ptg-menu-copy"><strong>${x.title}</strong><small>${x.meta}</small></span><span class="ptg-menu-arrow" aria-hidden="true">↗</span></a>`).join('')}</nav></div>`;
+  hero.insertAdjacentElement('afterend',section);
+}
+
+function setupCoverFlow(){
+  const stage=document.querySelector('#photobank .ptg-coverflow-stage');
+  if(!stage||stage.dataset.ready==='1')return;
+  const shell=stage.closest('.ptg-coverflow-shell');
+  if(!shell)return;
+  const cards=[...stage.querySelectorAll('.ptg-cf-card')];
+  const count=shell.querySelector('.ptg-coverflow-count');
+  const prev=shell.querySelector('[data-cf-prev]');
+  const next=shell.querySelector('[data-cf-next]');
+  if(!cards.length||!count||!prev||!next)return;
+  stage.dataset.ready='1';
+  let active=Math.min(2,cards.length-1),drag=false,startX=0,deltaX=0,wheelLock=false;
+
+  const render=()=>{
+    const width=Math.max(320,shell.clientWidth);
+    const step=Math.min(250,Math.max(116,width*.165));
+    cards.forEach((card,i)=>{
+      const d=i-active,a=Math.abs(d),side=d<0?-1:1;
+      let x=d*step;
+      if(a>1)x+=side*(a-1)*22;
+      const rot=d===0?0:(d<0?58:-58);
+      const z=d===0?150:-Math.min(500,a*125);
+      const y=Math.min(38,a*12);
+      const scale=d===0?1:Math.max(.60,.89-a*.08);
+      const opacity=d===0?1:Math.max(.12,.78-a*.16);
+      card.style.setProperty('--cf-zindex',String(100-a));
+      card.style.setProperty('--cf-opacity',opacity.toFixed(2));
+      card.style.setProperty('--cf-sat',d===0?'1.02':'.76');
+      card.style.setProperty('--cf-bright',d===0?'1':'.84');
+      card.style.transform=`translate(-50%,-50%) translate3d(${x}px,${y}px,${z}px) rotateY(${rot}deg) scale(${scale})`;
+      card.classList.toggle('is-active',i===active);
+      card.setAttribute('aria-current',i===active?'true':'false');
+    });
+    count.textContent=`${active+1} / ${cards.length}`;
+    prev.disabled=active===0;
+    next.disabled=active===cards.length-1;
+  };
+  const go=n=>{active=Math.max(0,Math.min(cards.length-1,n));render();};
+
+  prev.addEventListener('click',()=>go(active-1));
+  next.addEventListener('click',()=>go(active+1));
+  stage.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();go(active-1);}
+    if(e.key==='ArrowRight'){e.preventDefault();go(active+1);}
+  });
+  cards.forEach((card,i)=>card.addEventListener('click',e=>{if(i!==active){e.preventDefault();go(i);}}));
+  shell.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'&&e.button!==0)return;
+    drag=true;startX=e.clientX;deltaX=0;
+    shell.setPointerCapture?.(e.pointerId);
+  });
+  shell.addEventListener('pointermove',e=>{if(drag)deltaX=e.clientX-startX;});
+  const end=e=>{
+    if(!drag)return;
+    drag=false;
+    try{shell.releasePointerCapture?.(e.pointerId);}catch(_){ }
+    if(Math.abs(deltaX)>38)go(active+(deltaX<0?1:-1));
+  };
+  shell.addEventListener('pointerup',end);
+  shell.addEventListener('pointercancel',end);
+  shell.addEventListener('wheel',e=>{
+    const raw=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+    const dir=Math.sign(raw);
+    if(!dir||wheelLock)return;
+    const can=(dir>0&&active<cards.length-1)||(dir<0&&active>0);
+    if(!can)return;
+    e.preventDefault();wheelLock=true;go(active+dir);
+    setTimeout(()=>wheelLock=false,320);
+  },{passive:false});
+  window.addEventListener('resize',render,{passive:true});
+  render();
+}
+
+function syncTopNav(){
+  const nav=document.querySelector('.reference-home #navigation');
+  if(!nav)return;
+  nav.querySelectorAll('a[href="/#gosneuroset"],a[href="#gosneuroset"]').forEach(a=>a.href='/#recognition');
+}
+
+function boot(){
+  if(!document.body.classList.contains('reference-home'))return;
+  squareMenu();
+  setupCoverFlow();
+  syncTopNav();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
