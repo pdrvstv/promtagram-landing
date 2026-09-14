@@ -1,16 +1,81 @@
 (()=>{'use strict';
 const el=(sel,root=document)=>root.querySelector(sel);
+
 function updateStats(){
   const grid=el('.ptg-stats .ptg-stat-grid');
   if(!grid)return;
   grid.innerHTML=`
     <div class="ptg-stat" style="--fill:72%"><strong>2,65 млрд ₽</strong><span>совокупный объём проектов и финансовых запросов в строках, где сумма указана</span><i></i></div>
     <div class="ptg-stat" style="--fill:68%"><strong>≈150</strong><span>кейсов и бизнес-ситуаций реализовано и изучено в рабочей базе</span><i></i></div>
-    <div class="ptg-stat" style="--fill:58%"><strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i></div>
+    <div class="ptg-stat" style="--fill:58%"><strong>TOP‑1000</strong><span>проект «Госнейросеть» — форум «Сильные идеи для нового времени», 2025</span><i></i></div>
     <div class="ptg-stat" style="--fill:48%"><strong>НКО + гранты</strong><span>обучение, проектирование, грантовая методология и социальные инициативы</span><i></i></div>`;
   const note=el('.ptg-stats .ptg-stats-note');
   if(note)note.innerHTML='Внутренние рабочие метрики Promtagram. 2,65 млрд ₽ — сумма строк, где денежная потребность или объём проекта указан в базе; это <b>не</b> означает фактически привлечённые средства. ≈150 включает реализованные аналитические и проектные работы, а также изученные бизнес‑ситуации; показатель <b>не равен</b> 150 одобренным кредитам, субсидиям или грантам.';
 }
+
+function recognition(){
+  if(el('#recognition'))return;
+  const stats=el('.ptg-stats');
+  if(!stats)return;
+  const sec=document.createElement('section');
+  sec.id='recognition';
+  sec.className='section ptg-recognition';
+  sec.innerHTML=`<div class="wrap">
+    <div class="section-heading"><div><div class="eyebrow">ДОКУМЕНТЫ И ПРИЗНАНИЕ</div><h2>«Госнейросеть» —<br><em>TOP‑1000.</em></h2></div><p>Разделяем официальный документ участия в форуме и подтверждение статуса проекта — без смешения источников.</p></div>
+    <div class="ptg-recognition-grid">
+      <article class="ptg-document-card">
+        <div class="ptg-doc-top"><span>ОФИЦИАЛЬНЫЙ ДОКУМЕНТ ФОРУМА</span><b>2025</b></div>
+        <div class="ptg-doc-seal">СИ</div>
+        <h3>Благодарность за участие в V форуме<br>«Сильные идеи для нового времени»</h3>
+        <p>Документ выдан на имя В. И. Короля за поддержку и активное участие в V форуме, прошедшем 2–3 июля 2025 года в Москве.</p>
+        <div class="ptg-doc-orgs">Агентство стратегических инициатив · Фонд Росконгресс · ВЭБ.РФ</div>
+        <small>Оригинал PDF хранится в доказательном контуре Promtagram. Публичную ссылку на рабочий Drive-файл не размещаем из-за текущих прав доступа.</small>
+      </article>
+      <article class="ptg-top1000-card">
+        <span class="ptg-proof-label">ПРОЕКТ PROMTAGRAM</span>
+        <strong>TOP‑1000</strong>
+        <h3>«Госнейросеть»</h3>
+        <p>Концепция применения ИИ для навигации по государственным и общественным институтам вошла в TOP‑1000 проектов форума «Сильные идеи для нового времени».</p>
+        <div class="ptg-proof-links"><a href="/achievements/gosneuroset-top1000/">Карточка достижения ↗</a><a href="https://asi.ru/news/205008/" target="_blank" rel="noopener noreferrer">Контекст АСИ: отбор 1000 решений ↗</a><a href="https://spark.ru/startup/promtagram/blog/266642/kak-ustroena-laboratoriya-ii-promtagram-chem-zanimaemsya-na-chem-zarabativaem-i-pochemu-mi-postoyanno-ischem-sotrudnikov" target="_blank" rel="noopener noreferrer">Публичная хроника Promtagram ↗</a></div>
+        <p class="ptg-proof-note">Важно: благодарность подтверждает участие в форуме, но сама по себе не является сертификатом TOP‑1000. Статус TOP‑1000 показываем отдельно и не выдаём внутренний памятный макет за официальный документ АСИ.</p>
+      </article>
+    </div>
+  </div>`;
+  stats.insertAdjacentElement('afterend',sec);
+}
+
+function mission(){
+  if(el('#mission'))return;
+  const faq=el('#faq');
+  const media=el('#media');
+  const anchor=faq||media;
+  if(!anchor)return;
+  const sec=document.createElement('section');
+  sec.id='mission';
+  sec.className='section ptg-mission';
+  sec.innerHTML=`<div class="wrap">
+    <div class="ptg-mission-head"><div><div class="eyebrow">НАША МИССИЯ</div><h2>Строить не отдельные решения.<br><em>Строить институты.</em></h2></div><p>Коммерческая работа Promtagram финансирует развитие методологии, а некоммерческий контур позволяет применять её там, где важен общественный результат: в НКО, образовании, грантовых проектах и социальных инициативах.</p></div>
+    <div class="ptg-mission-grid">
+      <article><span>01 / СОЦИАЛЬНАЯ AI‑ИНФРАСТРУКТУРА</span><h3>«Госнейросеть»</h3><p>Проект о том, как ИИ может упрощать взаимодействие человека с институтами, навигацию по правилам, мерам поддержки и государственным сервисам.</p><a href="/achievements/gosneuroset-top1000/">TOP‑1000 проекта ↗</a></article>
+      <article><span>02 / НКО И ОБРАЗОВАНИЕ</span><h3>ИИ для некоммерческих организаций</h3><p>Практическое обучение НКО работе с документами, регламентами, аналитикой и грантовыми заявками с применением ИИ.</p><a href="https://leader-id.ru/events/565889" target="_blank" rel="noopener noreferrer">Программа на Leader‑ID ↗</a></article>
+      <article><span>03 / ГРАНТОВАЯ АРХИТЕКТУРА</span><h3>«Академия СВО» × АНО «МАЯКСТАВ»</h3><p>Рабочий социальный проект по реадаптации и социализации ветеранов. Внутри контура Promtagram тестировался ИИ‑грантрайтер и подготовка материалов для заявки в Фонд президентских грантов.</p><a href="https://президентскиегранты.рф/" target="_blank" rel="noopener noreferrer">Фонд президентских грантов ↗</a><small>Не заявляем получение гранта: на сайте фиксируется работа над проектом и заявкой.</small></article>
+      <article><span>04 / КУЛЬТУРА И ГОРОД</span><h3>«Астрахань глазами нейросетей»</h3><p>Персональная выставка нейроарта Владимира Короля на базе ЦГБС. В рабочей хронике Promtagram зафиксировано размещение проекта на ресурсе «Национальные проекты России».</p><small>Прямой архивный URL публикации сейчас восстанавливается; не подменяем его общей ссылкой.</small></article>
+      <article><span>05 / ПРОСВЕЩЕНИЕ</span><h3>Открытые программы по ИИ</h3><p>Тренинги и методические материалы для бизнеса, НКО и специалистов — с фокусом на практическое применение, проверку документов и системное мышление.</p><a href="https://leader-id.ru/users/446753" target="_blank" rel="noopener noreferrer">Публичный профиль и мероприятия ↗</a></article>
+      <article><span>06 / ПРИНЦИП</span><h3>Технология как инфраструктура</h3><p>Для нас ИИ — не цель и не украшение проекта. Это способ снижать транзакционные издержки, делать правила понятнее и помогать инициативе быстрее превращаться в оформленный проект.</p></article>
+    </div>
+    <div class="ptg-founder-letter">
+      <div class="ptg-letter-meta">ПИСЬМО ОСНОВАТЕЛЯ / ВЛАДИМИР КОРОЛЬ</div>
+      <h3>Сильная экономика строится институционально.</h3>
+      <p>Для меня сильная экономика — это не набор разовых льгот, субсидий или отдельных успешных сделок. Она появляется там, где работают институты: предприниматель понимает правила и может инвестировать, НКО умеет превращать общественную инициативу в устойчивый проект, специалист получает доступ к знаниям, а государственные механизмы становятся понятнее и точнее.</p>
+      <p>Мы хотим строить именно такую среду — соединять бизнес, общественные инициативы, образование, технологии и систему государственной поддержки так, чтобы полезные проекты не терялись между ведомствами, требованиями и дефицитом компетенций.</p>
+      <p>В рамках нашей работы над социальной архитектурой России это и только это должно оставаться первоочередной задачей: создавать и усиливать институты, которые делают экономику производительнее, общество субъектнее, а возможности развития — доступнее для тех, кто готов брать на себя ответственность и создавать результат.</p>
+      <p>Promtagram будет использовать искусственный интеллект как инфраструктуру этой работы: для анализа, навигации, проверки, обучения и масштабирования. Не вместо человека и не вместо институтов — а для того, чтобы они работали быстрее, прозрачнее и сильнее.</p>
+      <div class="ptg-letter-sign"><span>Владимир Король<br>основатель Promtagram</span><strong>Строим Сильную Страну</strong></div>
+    </div>
+  </div>`;
+  anchor.insertAdjacentElement('beforebegin',sec);
+}
+
 function navigation(){
   const nav=el('#navigation');
   if(nav&&!nav.querySelector('a[href="/#mission"]')){
@@ -19,11 +84,9 @@ function navigation(){
     if(about)about.insertAdjacentElement('afterend',a);else nav.appendChild(a);
   }
 }
-function cleanupLegacy(){
-  document.querySelectorAll('.reference-home [data-top1000],.reference-home .certificate-strip').forEach(n=>n.remove());
-  document.querySelectorAll('.reference-home #mission article').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.remove();});
-}
-function boot(){updateStats();navigation();cleanupLegacy();}
+
+function boot(){updateStats();recognition();mission();navigation();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 window.addEventListener('load',boot,{once:true});
+setTimeout(boot,300);
 })();
