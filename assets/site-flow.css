@@ -1,0 +1,28 @@
+/* Promtagram — visual continuity layer, 2026-09-15 */
+:root{--ptg-flow-line:rgba(67,82,96,.16);--ptg-flow-node:rgba(67,82,96,.28)}
+html{scroll-behavior:smooth}
+body{position:relative}
+body::after{content:"";position:fixed;z-index:60;left:-15vw;top:37vh;width:130vw;height:240px;background:url('/assets/ai-state-watermark.svg?v=20260915') center/1500px 300px repeat-x;transform:rotate(-7deg);transform-origin:center;opacity:.035;pointer-events:none;mix-blend-mode:multiply;filter:grayscale(1);}
+.top{z-index:100!important}
+main,footer{position:relative}
+main>section{position:relative;isolation:isolate}
+
+/* unified visual seam between screens */
+.ptg-flow-divider{position:relative;height:34px;margin:-17px 0;z-index:30;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.ptg-flow-divider::before{content:"";position:absolute;left:6vw;right:6vw;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--ptg-flow-line) 18%,rgba(67,82,96,.24) 50%,var(--ptg-flow-line) 82%,transparent 100%)}
+.ptg-flow-divider::after{content:"";width:9px;height:9px;background:#fff;border:1px solid var(--ptg-flow-node);transform:rotate(45deg);box-shadow:0 0 0 8px rgba(255,255,255,.76),0 0 28px rgba(67,82,96,.08)}
+.ptg-flow-divider[data-tone="dark"]::after{background:#111820;box-shadow:0 0 0 8px rgba(17,24,32,.72)}
+.ptg-flow-divider[data-tone="dark"]::before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.10) 18%,rgba(255,255,255,.24) 50%,rgba(255,255,255,.10) 82%,transparent)}
+
+/* section entrance: subtle, never blocks content when JS is unavailable */
+.ptg-motion-ready main>section{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.ptg-motion-ready main>section.ptg-pending{opacity:.001;transform:translateY(18px)}
+.ptg-motion-ready main>section.ptg-in-view{opacity:1;transform:none}
+
+/* keep proof block singular: one dedicated TOP-1000 screen */
+.reference-home .achievement-grid [data-top1000],
+.reference-home .certificate-strip{display:none!important}
+
+/* watermark should stay almost subliminal on content-heavy/mobile layouts */
+@media(max-width:900px){body::after{left:-38vw;width:176vw;height:180px;background-size:1120px 224px;top:42vh;opacity:.025}.ptg-flow-divider{height:24px;margin:-12px 0}.ptg-flow-divider::before{left:3vw;right:3vw}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ptg-motion-ready main>section{transition:none!important}.ptg-motion-ready main>section.ptg-pending{opacity:1;transform:none}}
