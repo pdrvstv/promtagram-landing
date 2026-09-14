@@ -37,3 +37,7 @@ const mediaVolgaLayer = document.createElement('script');
 mediaVolgaLayer.src = '/assets/media-volga-fix.js?v=20260914a';
 mediaVolgaLayer.async = false;
 document.head.appendChild(mediaVolgaLayer);
+const mediaCompactLayer = document.createElement('script');
+mediaCompactLayer.src = '/assets/media-compact-fix.js?v=20260914a';
+mediaCompactLayer.async = false;
+document.head.appendChild(mediaCompactLayer);
