@@ -1,4 +1,20 @@
 ---
 ---
-{% include site-base.html %}
+{% capture page_html %}{% include site-base.html %}{% endcapture %}
+
+{%- comment -%}Hard-remove the retired photobank from the built homepage, while keeping legacy source material available for rollback.{%- endcomment -%}
+{% if page_html contains '<section id="photobank"' %}
+  {% assign before_photobank = page_html | split: '<section id="photobank"' | first %}
+  {% assign photobank_tail = page_html | split: '<section id="photobank"' | last %}
+  {% assign after_photobank = photobank_tail | split: '<section class="ecosystem-section section" id="ecosystem"' | last %}
+  {% capture page_html %}{{ before_photobank }}<section class="ecosystem-section section" id="ecosystem"{{ after_photobank }}{% endcapture %}
+{% endif %}
+
+{% assign page_html = page_html | replace: '<a href="/#photobank">Фотобанк</a>', '' %}
+{% assign page_html = page_html | replace: '<div class="ptg-stat" style="--fill:58%"><strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i></div>', '<div class="ptg-stat"><strong>6</strong><span>AI-агентов — специализированных ролей в рабочем контуре анализа и подготовки проектов</span></div>' %}
+{% assign page_html = page_html | replace: '<div class="ptg-stat" style="--fill:48%"><strong>НКО + гранты</strong><span>обучение, проектирование, грантовая методология и социальные инициативы</span><i></i></div>', '<div class="ptg-stat"><strong>+100</strong><span>сотрудников НКО и АКИ прошли обучающий тренинг по мета-контекстуальному промт-инжинирингу для проектной работы</span></div>' %}
+{% assign page_html = page_html | replace: '<div class="eyebrow">ПРАКТИКА PROMTAGRAM</div><h2>Реальные задачи.<br>Предметный разбор.</h2>', '<div class="eyebrow">06 / ПРАКТИКА PROMTAGRAM</div><h2>НАШИ КЕЙСЫ<br>И РЕЗУЛЬТАТЫ</h2>' %}
+{% assign page_html = page_html | replace: '<div class="eyebrow">06 / ПУБЛИКАЦИИ</div>', '<div class="eyebrow">11 / ПУБЛИКАЦИИ</div>' %}
+
+{{ page_html }}
 <script defer src="/assets/homepage-vnext-20260915.js?v=20260915-vnext-1"></script>
