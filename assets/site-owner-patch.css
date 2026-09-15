@@ -1,25 +1,44 @@
-/* Owner-requested production patch — 2026-09-14 */
+/* Owner-requested stable UI overrides — 2026-09-15 */
 .reference-home .ptg-ai-owner .ptg-agent{display:flex;align-items:center;gap:8px;min-height:38px}
 .reference-home .ptg-ai-owner .ptg-agent i{display:grid;place-items:center;flex:0 0 25px;width:25px;height:25px;border-radius:8px;background:rgba(105,207,255,.12);border:1px solid rgba(105,207,255,.28);color:#8ee0ff;font-style:normal;font-size:14px;font-weight:800}
 .reference-home .ptg-manager{position:relative;background:#fff!important}
 .reference-home .ptg-manager-mark{width:54px;height:54px;margin:16px 0 12px;display:grid;place-items:center;border-radius:50%;background:#082e43;color:#fff;font-size:18px;font-weight:900;letter-spacing:.04em;box-shadow:0 8px 22px rgba(5,40,59,.16)}
 .reference-home .ptg-manager h3{margin-top:0}
-.reference-home .ptg-stats-note a{color:#83d8fa}
 
-.reference-home #achievements{overflow:hidden}
-.ptg-proof-cloud{margin-top:54px;padding-top:36px;border-top:1px solid #d7e4ea}
-.ptg-proof-cloud-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:36px;align-items:end;margin-bottom:26px}
-.ptg-proof-cloud-head span{display:block;margin-bottom:10px;color:#078dc4;font-size:11px;font-weight:800;letter-spacing:.12em}
-.ptg-proof-cloud-head h3{margin:0;color:#08283c;font-size:clamp(34px,4vw,58px);line-height:.98;letter-spacing:-.045em}
-.ptg-proof-cloud-head p{margin:0;color:#617784;line-height:1.55}
-.ptg-photo-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:92px;gap:12px}
-.ptg-photo{position:relative;overflow:hidden;border-radius:16px;background:#dce9ef;box-shadow:0 1px 0 rgba(8,40,60,.08);min-height:0}
-.ptg-photo.square{grid-column:span 3;grid-row:span 3}.ptg-photo.wide{grid-column:span 6;grid-row:span 3}.ptg-photo.tall{grid-column:span 3;grid-row:span 4}
-.ptg-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease,filter .35s ease}
-.ptg-photo:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(180deg,transparent,rgba(4,29,44,.82));pointer-events:none}
-.ptg-photo span{position:absolute;z-index:2;left:14px;right:14px;bottom:12px;color:#fff;font-size:11px;line-height:1.25;font-weight:800;letter-spacing:.035em;text-shadow:0 1px 4px rgba(0,0,0,.35)}
-.ptg-photo:hover img{transform:scale(1.025);filter:saturate(1.04)}
-.ptg-archive-link{display:inline-flex;margin-top:22px;color:#078bc1;text-decoration:none;font-weight:800;border-bottom:1px solid #bcd7e3;padding-bottom:3px}
+/* 02 / Promtagram в цифрах: figure first, explanation second */
+body.reference-home .ptg-stats .ptg-stat-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;border-top:1px solid #cddde5!important;border-bottom:1px solid #cddde5!important}
+body.reference-home .ptg-stats .ptg-stat{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;min-height:300px!important;padding:34px 26px 30px!important;border:0!important;border-right:1px solid #d9e5eb!important;background:transparent!important;box-shadow:none!important}
+body.reference-home .ptg-stats .ptg-stat:last-child{border-right:0!important}
+body.reference-home .ptg-stats .ptg-stat strong{display:block!important;margin:0!important;font-size:clamp(48px,5.8vw,88px)!important;line-height:.9!important;letter-spacing:-.065em!important;font-weight:850!important;color:#08283c!important;white-space:normal!important}
+body.reference-home .ptg-stats .ptg-stat span{display:block!important;margin-top:auto!important;padding-top:38px!important;font-size:13px!important;line-height:1.48!important;letter-spacing:0!important;text-transform:none!important;font-weight:500!important;color:#607785!important;max-width:28ch!important}
+body.reference-home .ptg-stats .ptg-stat i{display:none!important}
+body.reference-home .ptg-stats .ptg-stats-note{font-size:11px!important;line-height:1.55!important;color:#728792!important;max-width:1100px!important}
 
-@media(max-width:980px){.ptg-proof-cloud-head{grid-template-columns:1fr;gap:16px}.ptg-photo-mosaic{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:86px}.ptg-photo.square{grid-column:span 3}.ptg-photo.wide{grid-column:span 6}.ptg-photo.tall{grid-column:span 3}}
-@media(max-width:640px){.ptg-proof-cloud{margin-top:38px;padding-top:28px}.ptg-proof-cloud-head h3{font-size:38px}.ptg-photo-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:120px;gap:9px}.ptg-photo.square,.ptg-photo.tall{grid-column:span 1;grid-row:span 2}.ptg-photo.wide{grid-column:span 2;grid-row:span 2}.ptg-photo span{left:10px;right:10px;bottom:9px;font-size:9px}}
+/* Second-screen icons: thin gel-pen linework, no app-button chrome */
+body.reference-home .ptg-square-menu .ptg-page-icon{width:76px;height:76px;perspective:560px}
+body.reference-home .ptg-square-menu .ptg-page-face{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#087fad!important;transform-origin:left center}
+body.reference-home .ptg-square-menu .ptg-page-face:before,body.reference-home .ptg-square-menu .ptg-page-face:after{display:none!important}
+body.reference-home .ptg-square-menu .ptg-page-face svg{width:52px!important;height:52px!important;stroke-width:1.25!important;stroke-linecap:round!important;stroke-linejoin:round!important;filter:none!important}
+body.reference-home .ptg-square-menu .ptg-menu-tile:hover .ptg-page-face,body.reference-home .ptg-square-menu .ptg-menu-tile:focus-visible .ptg-page-face{background:transparent!important;border-color:transparent!important;box-shadow:none!important;transform:rotateY(-25deg) rotateZ(-2deg)!important}
+body.reference-home .ptg-square-menu .ptg-menu-tile:hover .ptg-page-face svg,body.reference-home .ptg-square-menu .ptg-menu-tile:focus-visible .ptg-page-face svg{transform:translate(3px,-3px) rotate(-3deg)!important}
+
+/* Cases: CSS-only album strip. No DOM reorder, no Cover Flow engine. */
+body.reference-home #cases.ptg-album-carousel .case-carousel{overflow-x:auto!important;overflow-y:visible!important;scroll-snap-type:x mandatory!important;scroll-padding-inline:max(24px,calc((100vw - min(1180px,calc(100vw - 48px)))/2))!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-inline:contain!important;padding:14px 0 30px!important;scrollbar-width:none!important}
+body.reference-home #cases.ptg-album-carousel .case-carousel::-webkit-scrollbar{display:none!important}
+body.reference-home #cases.ptg-album-carousel .case-track.case-grid-3x3{display:flex!important;grid-template-columns:none!important;grid-template-rows:none!important;gap:20px!important;width:max-content!important;min-width:100%!important;transform:none!important;overflow:visible!important;padding:0 max(24px,calc((100vw - min(1180px,calc(100vw - 48px)))/2))!important}
+body.reference-home #cases.ptg-album-carousel .case-track.case-grid-3x3>.case-cover{flex:0 0 clamp(285px,31vw,410px)!important;width:clamp(285px,31vw,410px)!important;aspect-ratio:.9/1!important;scroll-snap-align:center!important;scroll-snap-stop:always!important;transform:none!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important;border-radius:18px!important;box-shadow:0 12px 32px rgba(7,48,70,.08)!important}
+body.reference-home #cases.ptg-album-carousel .case-track.case-grid-3x3>.case-cover:hover,body.reference-home #cases.ptg-album-carousel .case-track.case-grid-3x3>.case-cover:focus-within{transform:translateY(-7px) scale(1.015)!important;box-shadow:0 24px 48px rgba(7,48,70,.15)!important;border-color:#9dbfce!important}
+body.reference-home #cases.ptg-album-carousel .carousel-controls{display:none!important}
+
+/* Publications: same album language, separate content */
+body.reference-home.architecture #media.ptg-album-carousel .media-grid{display:flex!important;grid-template-columns:none!important;gap:20px!important;overflow-x:auto!important;overflow-y:visible!important;scroll-snap-type:x mandatory!important;scroll-padding-inline:24px!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-inline:contain!important;padding:12px 24px 32px!important;margin-inline:-24px!important;scrollbar-width:none!important;align-items:stretch!important}
+body.reference-home.architecture #media.ptg-album-carousel .media-grid::-webkit-scrollbar{display:none!important}
+body.reference-home.architecture #media.ptg-album-carousel .article{flex:0 0 clamp(285px,31vw,410px)!important;width:clamp(285px,31vw,410px)!important;min-height:330px!important;scroll-snap-align:center!important;scroll-snap-stop:always!important;border-radius:18px!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important;box-shadow:0 12px 32px rgba(7,48,70,.07)!important}
+body.reference-home.architecture #media.ptg-album-carousel .article:hover,body.reference-home.architecture #media.ptg-album-carousel .article:focus-visible{transform:translateY(-7px) scale(1.012)!important;box-shadow:0 24px 48px rgba(7,48,70,.14)!important;border-color:#a2c0ce!important;outline:none!important}
+
+/* Removed photo archive must stay removed even if an older cached script races once. */
+body.reference-home #photobank,body.reference-home .ptg-proof-cloud{display:none!important}
+
+@media(max-width:980px){body.reference-home .ptg-stats .ptg-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}body.reference-home .ptg-stats .ptg-stat:nth-child(2){border-right:0!important}body.reference-home .ptg-stats .ptg-stat:nth-child(-n+2){border-bottom:1px solid #d9e5eb!important}}
+@media(max-width:640px){body.reference-home .ptg-stats .ptg-stat{min-height:230px!important;padding:26px 18px 22px!important}body.reference-home .ptg-stats .ptg-stat strong{font-size:clamp(42px,13vw,62px)!important}body.reference-home .ptg-stats .ptg-stat span{padding-top:26px!important;font-size:11px!important}body.reference-home .ptg-square-menu .ptg-page-icon{width:58px;height:58px}body.reference-home .ptg-square-menu .ptg-page-face svg{width:39px!important;height:39px!important}body.reference-home #cases.ptg-album-carousel .case-track.case-grid-3x3>.case-cover,body.reference-home.architecture #media.ptg-album-carousel .article{flex-basis:82vw!important;width:82vw!important}}
+@media(prefers-reduced-motion:reduce){body.reference-home #cases.ptg-album-carousel .case-cover,body.reference-home.architecture #media.ptg-album-carousel .article{transition:none!important;transform:none!important}}
