@@ -27,8 +27,7 @@ let ticking=false;
 function render(){ticking=false;const vh=window.innerHeight||800;document.querySelectorAll('.reference-home main>section.ptg-stage').forEach(section=>{const r=section.getBoundingClientRect();const enter=clamp((vh-r.top)/(vh*.46),0,1);section.style.setProperty('--ptg-edge',`${Math.round(enter*100)}%`);section.style.setProperty('--ptg-lift',`${((1-enter)*16).toFixed(1)}px`);section.style.setProperty('--ptg-alpha',(.90+(enter*.10)).toFixed(3));});}
 function queue(){if(ticking)return;ticking=true;requestAnimationFrame(render);}
 function removeCaption(){const needle='Это история лаборатории Promtagram';document.querySelectorAll('p,figcaption,small,div,span').forEach(el=>{const t=(el.textContent||'').replace(/\s+/g,' ').trim();if(t.includes(needle)&&t.includes('отказался от госслужбы'))el.remove();});}
-function patchStats(){document.querySelectorAll('.reference-home .ptg-stats .ptg-stat').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.innerHTML='<strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i>';});}
-function apply(){cleanupLegacy();enforceSingleRecognition();patchStats();removeCaption();markStages();queue();}
+function apply(){cleanupLegacy();enforceSingleRecognition();removeCaption();markStages();queue();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
 window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,1000);},{once:true});
 window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue,{passive:true});
