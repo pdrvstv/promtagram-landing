@@ -1,1 +1,86 @@
-/* placeholder */
+/* Promtagram homepage vNext — 2026-09-15
+   Focus: pen-line menu icons, metric hierarchy, reusable editorial Cover Flow. */
+
+.reference-home .ptg-square-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.reference-home .ptg-menu-tile{background:#f7fafc!important;border-color:#d9e4ea!important;box-shadow:none!important;}
+.reference-home .ptg-menu-tile::after{background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.76) 62%,#fff 100%)!important;}
+.reference-home .ptg-page-face{opacity:.88!important;color:#123e55!important;}
+.reference-home .ptg-page-face svg{width:66%!important;height:66%!important;fill:none!important;stroke:currentColor!important;stroke-width:1.25!important;stroke-linecap:round!important;stroke-linejoin:round!important;filter:none!important;transform:rotate(-.35deg);}
+.reference-home .ptg-page-face svg .ghost{opacity:.28;transform:translate(.45px,.35px);}
+.reference-home .ptg-menu-tile:hover .ptg-page-face,.reference-home .ptg-menu-tile:focus-visible .ptg-page-face{opacity:1!important;transform:scale(1.012)!important;}
+.reference-home .ptg-menu-tile:hover .ptg-page-face svg,.reference-home .ptg-menu-tile:focus-visible .ptg-page-face svg{transform:scale(1.025) rotate(-.7deg)!important;}
+.reference-home .ptg-menu-copy small{letter-spacing:.02em!important;}
+
+/* Photobank is retired from the homepage. This rule also prevents a flash if legacy markup is present before JS cleanup. */
+.reference-home #photobank,.reference-home .ptg-photobank,.reference-home .ptg-photobank-section{display:none!important;}
+
+/* 02 / PROMTAGRAM В ЦИФРАХ */
+.reference-home .ptg-stats{padding:86px 0 92px;background:#fff;border-top:1px solid #d9e4ea;border-bottom:1px solid #d9e4ea;}
+.reference-home .ptg-stats-head{grid-template-columns:minmax(0,1.05fr) minmax(280px,.7fr);gap:44px;margin-bottom:54px;}
+.reference-home .ptg-stats-head h2{font-size:clamp(44px,6vw,76px);line-height:.94;letter-spacing:-.052em;}
+.reference-home .ptg-stat-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important;align-items:start;}
+.reference-home .ptg-stat{display:block!important;min-width:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;}
+.reference-home .ptg-stat strong{display:block!important;margin:0 0 14px!important;color:#08283c!important;font-size:clamp(48px,5.9vw,86px)!important;line-height:.86!important;letter-spacing:-.065em!important;font-weight:760!important;white-space:normal!important;}
+.reference-home .ptg-stat span{display:block!important;max-width:28ch;color:#617784!important;font-size:12px!important;line-height:1.48!important;letter-spacing:.015em!important;}
+.reference-home .ptg-stat i{display:none!important;}
+.reference-home .ptg-stats-note{max-width:1000px;margin:48px 0 0;color:#6a7f8a;font-size:12px;line-height:1.55;}
+
+/* Shared Cover Flow engine for cases + publications. */
+.reference-home .ptg-vnext-flow{position:relative;}
+.reference-home .ptg-vnext-stage{position:relative!important;display:block!important;width:100%!important;height:clamp(500px,54vw,650px)!important;margin:20px 0 0!important;padding:0!important;overflow:visible!important;perspective:1500px;perspective-origin:50% 46%;transform-style:preserve-3d;touch-action:pan-y;cursor:grab;outline:none;scroll-snap-type:none!important;}
+.reference-home .ptg-vnext-stage.is-dragging{cursor:grabbing;user-select:none;}
+.reference-home .ptg-vnext-stage>.ptg-vnext-card{position:absolute!important;left:50%!important;top:50%!important;width:clamp(255px,29vw,390px)!important;height:clamp(390px,43vw,540px)!important;min-width:0!important;max-width:none!important;margin:0!important;overflow:hidden!important;border:1px solid rgba(8,40,60,.11)!important;border-radius:9px!important;background:#fff!important;box-shadow:0 26px 58px rgba(5,35,52,.16)!important;transform-origin:center center!important;transform-style:preserve-3d!important;transition:transform .42s cubic-bezier(.2,.78,.2,1),opacity .32s ease,filter .32s ease,box-shadow .32s ease!important;will-change:transform,opacity;z-index:var(--ptg-flow-z,1);opacity:var(--ptg-flow-opacity,1);filter:saturate(var(--ptg-flow-sat,1)) brightness(var(--ptg-flow-bright,1));text-decoration:none!important;color:#08283c!important;}
+.reference-home .ptg-vnext-stage>.ptg-vnext-card.is-active{box-shadow:0 38px 82px rgba(5,35,52,.25)!important;}
+.reference-home .ptg-vnext-stage>.ptg-vnext-card:focus-visible{outline:2px solid rgba(7,143,201,.62)!important;outline-offset:5px!important;}
+.reference-home #cases .ptg-vnext-card{padding:0!important;}
+.reference-home #cases .ptg-vnext-card .case-cover-copy{display:flex!important;flex-direction:column!important;height:100%!important;padding:28px!important;}
+.reference-home #cases .ptg-vnext-card .case-amount{font-size:clamp(30px,3vw,44px)!important;line-height:.92!important;letter-spacing:-.045em!important;color:#0b3a54!important;}
+.reference-home #cases .ptg-vnext-card .case-amount small{display:block!important;margin-top:8px!important;font-size:10px!important;line-height:1.3!important;letter-spacing:.055em!important;text-transform:uppercase!important;color:#7a8c96!important;}
+.reference-home #cases .ptg-vnext-card h3{margin:28px 0 14px!important;font-size:clamp(23px,2.3vw,32px)!important;line-height:1.03!important;letter-spacing:-.035em!important;}
+.reference-home #cases .ptg-vnext-card p{margin:0!important;color:#617784!important;font-size:14px!important;line-height:1.48!important;}
+.reference-home #cases .ptg-vnext-card a{margin-top:auto!important;padding-top:18px!important;color:#078bc1!important;font-weight:800!important;text-decoration:none!important;}
+.reference-home #media .ptg-vnext-card{display:flex!important;flex-direction:column!important;padding:24px!important;}
+.reference-home #media .ptg-vnext-card .journal-art{width:calc(100% + 48px)!important;height:190px!important;margin:-24px -24px 22px!important;object-fit:cover!important;}
+.reference-home #media .ptg-vnext-card .source{font-size:10px!important;line-height:1.3!important;font-weight:800!important;letter-spacing:.05em!important;text-transform:uppercase!important;color:#6e8592!important;}
+.reference-home #media .ptg-vnext-card h3{margin:18px 0 12px!important;font-size:clamp(24px,2.4vw,34px)!important;line-height:1.02!important;letter-spacing:-.04em!important;}
+.reference-home #media .ptg-vnext-card p{margin:0!important;color:#617784!important;font-size:14px!important;line-height:1.48!important;}
+.reference-home #media .ptg-vnext-card .article-link{margin-top:auto!important;padding-top:18px!important;color:#078bc1!important;font-weight:800!important;}
+.reference-home .ptg-vnext-controls{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;gap:16px;align-items:center;width:min(720px,94%);margin:-8px auto 0;position:relative;z-index:20;}
+.reference-home .ptg-vnext-controls button{width:52px;height:52px;border:1px solid #cadbe4;border-radius:50%;background:#fff;color:#0b405d;font-size:21px;cursor:pointer;box-shadow:0 8px 20px rgba(6,45,67,.07);}
+.reference-home .ptg-vnext-controls button:disabled{opacity:.34;cursor:default;}
+.reference-home .ptg-vnext-controls button:focus-visible{outline:2px solid rgba(7,143,201,.5);outline-offset:3px;}
+.reference-home .ptg-vnext-status{text-align:center;color:#637b88;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.reference-home #cases .case-carousel.case-grid-mode{display:block!important;}
+.reference-home #cases .case-track.case-grid-3x3{display:block!important;grid-template-columns:none!important;}
+.reference-home #media .media-grid{display:block!important;grid-template-columns:none!important;}
+
+@media(max-width:1050px){
+  .reference-home .ptg-square-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .reference-home .ptg-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:42px 26px!important;}
+  .reference-home .ptg-vnext-stage{height:560px!important;}
+}
+@media(max-width:760px){
+  .reference-home .ptg-square-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .reference-home .ptg-page-face svg{width:74%!important;height:74%!important;}
+  .reference-home .ptg-stats{padding:64px 0 70px;}
+  .reference-home .ptg-stats-head{grid-template-columns:1fr;gap:18px;margin-bottom:42px;}
+  .reference-home .ptg-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:36px 18px!important;}
+  .reference-home .ptg-stat strong{font-size:clamp(42px,13vw,64px)!important;}
+  .reference-home .ptg-stat span{font-size:10.5px!important;}
+  .reference-home .ptg-vnext-stage{height:500px!important;perspective:1180px;}
+  .reference-home .ptg-vnext-stage>.ptg-vnext-card{width:min(76vw,330px)!important;height:440px!important;}
+  .reference-home .ptg-vnext-controls{grid-template-columns:46px minmax(0,1fr) 46px;gap:10px;}
+  .reference-home .ptg-vnext-controls button{width:46px;height:46px;}
+}
+@media(max-width:480px){
+  .reference-home .ptg-stat-grid{grid-template-columns:1fr!important;gap:32px!important;}
+  .reference-home .ptg-stat strong{font-size:60px!important;}
+  .reference-home .ptg-stat span{max-width:34ch;font-size:11px!important;}
+  .reference-home .ptg-vnext-stage{height:470px!important;}
+  .reference-home .ptg-vnext-stage>.ptg-vnext-card{width:min(80vw,305px)!important;height:420px!important;}
+  .reference-home #cases .ptg-vnext-card .case-cover-copy,.reference-home #media .ptg-vnext-card{padding:22px!important;}
+  .reference-home #media .ptg-vnext-card .journal-art{width:calc(100% + 44px)!important;margin:-22px -22px 18px!important;height:155px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .reference-home .ptg-vnext-stage>.ptg-vnext-card{transition:none!important;}
+}
