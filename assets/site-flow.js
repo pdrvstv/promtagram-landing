@@ -1,13 +1,6 @@
 (()=>{'use strict';
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 function cleanupLegacy(){document.querySelectorAll('.ptg-flow-divider').forEach(el=>el.remove());document.querySelectorAll('.reference-home [data-top1000],.reference-home .certificate-strip').forEach(el=>el.remove());}
-function removePhotobank(){
-  document.querySelectorAll('.reference-home #photobank,.reference-home section.ptg-photobank').forEach(el=>el.remove());
-  document.querySelectorAll('.reference-home a[href="#photobank"],.reference-home a[href="/#photobank"]').forEach(a=>{
-    const tile=a.closest('.ptg-menu-tile');
-    (tile||a).remove();
-  });
-}
 function enforceSingleRecognition(){
   const candidates=[...document.querySelectorAll('.reference-home section.ptg-recognition,.reference-home section#recognition,.reference-home section#gosneuroset')];
   const unique=[...new Set(candidates)];
@@ -35,11 +28,11 @@ function render(){ticking=false;const vh=window.innerHeight||800;document.queryS
 function queue(){if(ticking)return;ticking=true;requestAnimationFrame(render);}
 function removeCaption(){const needle='Это история лаборатории Promtagram';document.querySelectorAll('p,figcaption,small,div,span').forEach(el=>{const t=(el.textContent||'').replace(/\s+/g,' ').trim();if(t.includes(needle)&&t.includes('отказался от госслужбы'))el.remove();});}
 function patchStats(){document.querySelectorAll('.reference-home .ptg-stats .ptg-stat').forEach(card=>{if((card.textContent||'').includes('Госнейросеть'))card.innerHTML='<strong>6 AI‑агентов</strong><span>специализированных ролей в рабочем контуре анализа и подготовки проекта</span><i></i>';});}
-function apply(){cleanupLegacy();removePhotobank();enforceSingleRecognition();patchStats();removeCaption();markStages();queue();}
+function apply(){cleanupLegacy();enforceSingleRecognition();patchStats();removeCaption();markStages();queue();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
 window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,1000);},{once:true});
 window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue,{passive:true});
-let guardTimer=null;const observer=new MutationObserver(()=>{clearTimeout(guardTimer);guardTimer=setTimeout(()=>{removePhotobank();enforceSingleRecognition();cleanupLegacy();removeCaption();},25);});
+let guardTimer=null;const observer=new MutationObserver(()=>{clearTimeout(guardTimer);guardTimer=setTimeout(()=>{enforceSingleRecognition();cleanupLegacy();removeCaption();},25);});
 if(document.documentElement)observer.observe(document.documentElement,{subtree:true,childList:true});
 setTimeout(()=>observer.disconnect(),3500);
 })();
