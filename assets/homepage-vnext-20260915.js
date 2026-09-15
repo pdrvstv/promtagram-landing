@@ -16,8 +16,8 @@ function removePhotobank(){
 }
 
 function patchStats(){
-  const section=document.querySelector('.reference-home .ptg-stats');if(!section)return;
-  const grid=section.querySelector('.ptg-stat-grid');if(!grid)return;
+  const section=document.querySelector('.reference-home .ptg-stats');if(!section||section.dataset.vnextStats==='1')return;
+  const grid=section.querySelector('.ptg-stat-grid');if(!grid)return;section.dataset.vnextStats='1';
   grid.innerHTML=`
     <div class="ptg-stat"><strong>2,65 млрд ₽</strong><span>совокупный объём проектов и финансовых запросов в строках рабочей базы, где указана сумма</span></div>
     <div class="ptg-stat"><strong>≈150</strong><span>кейсов и бизнес-ситуаций реализовано и изучено в рабочей базе</span></div>
@@ -38,7 +38,7 @@ const sketchIcons={
 };
 
 function patchMenu(){
-  const menu=document.querySelector('.reference-home .ptg-square-menu');if(!menu)return;
+  const menu=document.querySelector('.reference-home .ptg-square-menu');if(!menu||menu.dataset.vnextMenu==='1')return;menu.dataset.vnextMenu='1';
   const copy=menu.querySelector('.ptg-square-menu-head p');if(copy)copy.textContent='Коммерческий, технологический и общественный контуры Promtagram — семь прямых маршрутов по сайту.';
   const tiles=[...menu.querySelectorAll('.ptg-menu-tile')];
   tiles.forEach(tile=>{
@@ -110,5 +110,5 @@ function apply(){
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
 window.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,900);},{once:true});
-const guard=new MutationObserver(()=>{removePhotobank();patchMenu();});guard.observe(document.documentElement,{subtree:true,childList:true});setTimeout(()=>guard.disconnect(),4500);
+const guard=new MutationObserver(()=>removePhotobank());guard.observe(document.documentElement,{subtree:true,childList:true});setTimeout(()=>guard.disconnect(),4500);
 })();
