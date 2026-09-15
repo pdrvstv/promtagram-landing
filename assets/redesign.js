@@ -25,12 +25,12 @@ function addStyle(href,key){if(document.querySelector(`link[href*="${key}"]`))re
 function addScript(src,key){if(document.querySelector(`script[src*="${key}"]`))return;const s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s);}
 addStyle('/assets/site-cases-3x3.css?v=20260914a','site-cases-3x3.css');
 addStyle('/assets/site-vnext.css?v=20260914-1758','site-vnext.css');
-addStyle('/assets/site-owner-patch.css?v=20260914-2','site-owner-patch.css');
+addStyle('/assets/site-owner-patch.css?v=20260915-0400','site-owner-patch.css');
 addStyle('/assets/site-menu-gosneuroset.css?v=20260914-1','site-menu-gosneuroset.css');
 addScript('/assets/media-proof.js?v=20260914c','media-proof.js');
 addScript('/assets/site-cases-3x3.js?v=20260914a','site-cases-3x3.js');
 addScript('/assets/media-volga-fix.js?v=20260914a','media-volga-fix.js');
 addScript('/assets/media-compact-fix.js?v=20260914a','media-compact-fix.js');
 addScript('/assets/site-vnext.js?v=20260914-1758','site-vnext.js');
-addScript('/assets/site-owner-patch.js?v=20260914-2','site-owner-patch.js');
+addScript('/assets/site-owner-patch.js?v=20260915-0400','site-owner-patch.js');
 addScript('/assets/site-menu-gosneuroset.js?v=20260914-1','site-menu-gosneuroset.js');
