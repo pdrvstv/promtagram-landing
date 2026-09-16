@@ -33,7 +33,7 @@
   .reference-home .opening-scene{height:auto!important;min-height:100svh!important}
   .reference-home .ptg-static-cover-v6-desktop{display:none}
   .reference-home .ptg-static-cover-v6-mobile{display:block;position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#fbfdff 0%,#f4f8fd 50%,#eaf3fb 100%)}
-  .reference-home .ptg-static-cover-v6-mobile::before{content:"";position:absolute;inset:34% -55% -4% 4%;background:url('/assets/hero-development-network-v5.webp') 63% 58%/210% auto no-repeat;opacity:.98;filter:contrast(1.02) saturate(.98);z-index:0}
+  .reference-home .ptg-static-cover-v6-mobile::before{content:"";position:absolute;inset:34% -55% -4% 4%;background:url('/assets/hero-approved-reference-v7.webp') 63% 58%/210% auto no-repeat;opacity:.98;filter:contrast(1.02) saturate(.98);z-index:0}
   .reference-home .ptg-static-cover-v6-mobile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,253,255,.99) 0%,rgba(251,253,255,.95) 37%,rgba(247,251,255,.65) 55%,rgba(236,245,253,.06) 79%,rgba(234,243,251,.02) 100%);z-index:1;pointer-events:none}
   .reference-home .ptg-static-cover-v6-mobile-inner{position:relative;z-index:2;min-height:100svh;padding:18px 18px 24px;display:flex;flex-direction:column}
   .reference-home .ptg-static-cover-v6-mobile-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -57,4 +57,15 @@
   .reference-home .ptg-static-cover-v6-mobile-actions{width:100%}
   .reference-home .ptg-static-cover-v6-mobile-actions a{width:100%}
   .reference-home .ptg-static-cover-v6-mobile-labels{padding-top:225px}
+}
+
+/* v7: keep mobile content in flow so short screens and larger text can scroll. */
+@media(max-width:800px){
+ .reference-home .ptg-static-cover-v6{position:relative;inset:auto}
+ .reference-home .ptg-static-cover-v6-mobile{position:relative;inset:auto}
+ .reference-home .ptg-static-cover-v6-mobile-inner{box-sizing:border-box}
+ .reference-home .ptg-static-cover-v6-mobile-top{flex-wrap:wrap}
+ .reference-home .ptg-static-cover-v6-mobile-kicker{font-size:14px;letter-spacing:.12em}
+ .reference-home .ptg-static-cover-v6-mobile-contact{font-size:14px;min-height:44px}
+ .reference-home .ptg-static-cover-v6-mobile-labels{font-size:14px}
 }
