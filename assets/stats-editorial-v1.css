@@ -1,0 +1,70 @@
+/* Promtagram stats cards — centered editorial layout, 2026-09-16.
+   Scope: only the four metric cards inside .ptg-stats. */
+.reference-home .ptg-stats .ptg-stat{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  min-height:250px;
+  padding:34px 26px!important;
+}
+.reference-home .ptg-stats .ptg-stat strong{
+  display:block!important;
+  width:100%;
+  margin:0!important;
+  text-align:center!important;
+  font-size:clamp(46px,5.2vw,78px)!important;
+  line-height:.98!important;
+  letter-spacing:-.055em!important;
+  font-weight:600!important;
+  white-space:normal!important;
+  text-wrap:balance;
+}
+.reference-home .ptg-stats .ptg-stat span{
+  display:block!important;
+  width:min(100%,30ch);
+  margin:22px auto 0!important;
+  text-align:center!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+  letter-spacing:.085em!important;
+  text-transform:uppercase;
+  text-wrap:balance;
+}
+.reference-home .ptg-stats .ptg-stat i{
+  display:none!important;
+}
+@media(max-width:760px){
+  .reference-home .ptg-stats .ptg-stat{
+    min-height:255px;
+    padding:28px 18px!important;
+  }
+  .reference-home .ptg-stats .ptg-stat strong{
+    font-size:clamp(42px,11vw,64px)!important;
+    line-height:.96!important;
+  }
+  .reference-home .ptg-stats .ptg-stat span{
+    width:min(100%,25ch);
+    margin-top:18px!important;
+    font-size:10.5px!important;
+    line-height:1.48!important;
+    letter-spacing:.075em!important;
+  }
+}
+@media(max-width:480px){
+  .reference-home .ptg-stats .ptg-stat{
+    min-height:245px;
+    padding:24px 14px!important;
+  }
+  .reference-home .ptg-stats .ptg-stat strong{
+    font-size:clamp(38px,11.5vw,56px)!important;
+  }
+  .reference-home .ptg-stats .ptg-stat span{
+    width:100%;
+    margin-top:16px!important;
+    font-size:9.5px!important;
+    line-height:1.46!important;
+    letter-spacing:.065em!important;
+  }
+}
