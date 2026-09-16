@@ -1,0 +1,71 @@
+/* Promtagram homepage hero — exact visual reference. Only the opening screen is replaced. */
+.reference-home .top{display:none!important}
+.reference-home .opening-scene.ptg-hero-matrix-exact{
+  position:relative;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  background:#f6f9fe!important;
+  overflow:hidden!important;
+}
+.reference-home .opening-scene.ptg-hero-matrix-exact .scene-background,
+.reference-home .opening-scene.ptg-hero-matrix-exact .scene-shade,
+.reference-home .opening-scene.ptg-hero-matrix-exact > .wrap{display:none!important}
+.reference-home .ptg-hero-matrix-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:1672/941;
+  background:#f6f9fe;
+}
+.reference-home .ptg-hero-matrix-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  object-position:center top;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.reference-home .ptg-hero-hotspot{
+  position:absolute;
+  z-index:4;
+  display:block;
+  background:transparent;
+  border:0;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.reference-home .ptg-hero-hotspot:focus-visible{
+  outline:2px solid #1f5bcc;
+  outline-offset:3px;
+  border-radius:10px;
+}
+.reference-home .ptg-hero-sr{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+/* Click areas follow the artwork and scale proportionally with it. */
+.reference-home .ptg-hs-logo{left:5.2%;top:3.2%;width:20.5%;height:8.5%}
+.reference-home .ptg-hs-about{left:35.5%;top:3.1%;width:8.5%;height:7.5%}
+.reference-home .ptg-hs-solutions{left:44.3%;top:3.1%;width:10.2%;height:7.5%}
+.reference-home .ptg-hs-cases{left:54.2%;top:3.1%;width:7.2%;height:7.5%}
+.reference-home .ptg-hs-contact{left:61.2%;top:3.1%;width:8.8%;height:7.5%}
+.reference-home .ptg-hs-contact-top{left:81.0%;top:3.0%;width:12.0%;height:7.4%}
+.reference-home .ptg-hs-apply{left:5.3%;top:77.0%;width:19.4%;height:8.5%}
+.reference-home .ptg-hs-more{left:26.1%;top:77.0%;width:12.8%;height:8.5%}
+@media(max-width:760px){
+  .reference-home .ptg-hero-matrix-frame{aspect-ratio:1672/941}
+  .reference-home .ptg-hero-hotspot{min-width:24px;min-height:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reference-home .ptg-hero-matrix-image{scroll-behavior:auto}
+}
