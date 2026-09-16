@@ -1,0 +1,88 @@
+/* Promtagram — professional recognition screen and homepage refinements, v1. */
+.reference-home .ptg-static-cover-v6-canvas{container-type:inline-size}
+.reference-home .ptg-static-cover-v8-tagline{
+  position:absolute;
+  z-index:4;
+  left:5.65%;
+  top:63.2%;
+  width:39.5%;
+  min-height:10.8%;
+  display:flex;
+  align-items:flex-start;
+  padding-top:1.1%;
+  color:#29487d;
+  background:linear-gradient(90deg,#f9fcff 0%,#f8fbfe 83%,rgba(248,251,254,0) 100%);
+  font:400 clamp(18px,2.03cqi,34px)/1.28 Arial,Helvetica,sans-serif;
+  letter-spacing:-.035em;
+  white-space:nowrap;
+}
+
+.reference-home .ptg-market-proof{
+  position:relative;
+  overflow:hidden;
+  padding:96px 0;
+  color:#eaf6ff;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(26,128,181,.18),transparent 32%),
+    radial-gradient(circle at 92% 88%,rgba(66,174,221,.13),transparent 30%),
+    #061d2d;
+}
+.reference-home .ptg-market-proof::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.17;
+  background-image:linear-gradient(rgba(121,202,236,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(121,202,236,.22) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(90deg,transparent,#000 28%,#000 72%,transparent);
+}
+.reference-home .ptg-market-proof .wrap{position:relative;z-index:1}
+.reference-home .ptg-market-proof .eyebrow{color:#7bd7fb}
+.reference-home .ptg-market-proof-head{display:grid;grid-template-columns:1.15fr .75fr;gap:72px;align-items:end;margin-bottom:50px}
+.reference-home .ptg-market-proof h2{margin:0;color:#fff;font-size:clamp(44px,5.2vw,76px);line-height:.98;letter-spacing:-.055em}
+.reference-home .ptg-market-proof h2 em{color:#78d7fb}
+.reference-home .ptg-market-proof-head>p{margin:0;color:#a9c4d3;font-size:17px;line-height:1.65}
+.reference-home .ptg-market-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.reference-home .ptg-market-card{position:relative;min-height:570px;padding:34px;border:1px solid rgba(143,210,238,.22);border-radius:26px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.reference-home .ptg-neirolab-card{background:linear-gradient(150deg,rgba(20,70,96,.94),rgba(7,34,50,.98))}
+.reference-home .ptg-techbroker-card{background:linear-gradient(150deg,#f7fbfd,#e9f3f8);color:#09283b}
+.reference-home .ptg-market-card-meta{display:flex;justify-content:space-between;gap:18px;color:#8acbe7;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.reference-home .ptg-techbroker-card .ptg-market-card-meta{color:#4b7186}
+.reference-home .ptg-market-mark{width:82px;height:82px;margin:66px 0 32px;border:1px solid rgba(124,218,255,.42);border-radius:22px;display:grid;place-items:center;color:#8fe2ff;font-size:27px;font-weight:900;letter-spacing:-.06em;box-shadow:0 18px 52px rgba(0,0,0,.2)}
+.reference-home .ptg-market-card h3{margin:0 0 18px;max-width:600px;color:inherit;font-size:clamp(31px,3vw,46px);line-height:1.03;letter-spacing:-.045em}
+.reference-home .ptg-market-card p{margin:0;color:#a9c6d4;font-size:16px;line-height:1.62}
+.reference-home .ptg-techbroker-card p{color:#526f7e}
+.reference-home .ptg-market-proofline{margin-top:auto;padding-top:28px;border-top:1px solid rgba(143,210,238,.2);display:flex;flex-wrap:wrap;gap:9px;color:#bad7e4;font-size:12px}
+.reference-home .ptg-market-proofline span{padding:8px 11px;border:1px solid rgba(143,210,238,.2);border-radius:999px}
+.reference-home .ptg-market-cta{margin-top:24px;color:#8fe2ff;font-size:14px;font-weight:800}
+.reference-home .ptg-mail-window{margin:58px 0 34px;border:1px solid #c9dce6;border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 24px 70px rgba(28,70,92,.13);overflow:hidden}
+.reference-home .ptg-mail-bar{height:42px;padding:0 16px;display:flex;align-items:center;gap:7px;background:#e5f0f5;border-bottom:1px solid #cedfe7}
+.reference-home .ptg-mail-bar i{width:8px;height:8px;border-radius:50%;background:#8eacba}
+.reference-home .ptg-mail-body{padding:24px}
+.reference-home .ptg-mail-row{display:grid;grid-template-columns:92px 1fr;gap:15px;padding:7px 0;color:#5d7785;font-size:12px;border-bottom:1px solid #e4edf1}
+.reference-home .ptg-mail-row b{color:#163b4f;font-weight:800}
+.reference-home .ptg-mail-quote{margin:22px 0 0!important;padding:19px;border-left:3px solid #1595c8;background:#eef7fa;color:#214a5e!important;font-size:15px!important}
+.reference-home .ptg-mail-note{display:block;margin-top:13px;color:#6d8794;font-size:11px;line-height:1.5}
+.reference-home .ptg-techbroker-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:25px}
+.reference-home .ptg-techbroker-links a{padding-bottom:3px;border-bottom:1px solid #9fbfcc;color:#087eae;text-decoration:none;font-size:13px;font-weight:800}
+.reference-home #lead .ptg-auto-screen-label{position:relative;z-index:3;margin-bottom:24px;color:#8ddcf8}
+
+.ptg-stats-pastel .ptg-stat-number,
+.ptg-stats-pastel .ptg-stat-unit{color:#0b2140!important}
+.ptg-stats-pastel .ptg-stats-note-box{grid-template-columns:60px 1px 1fr!important}
+
+@media(max-width:900px){
+  .reference-home .ptg-market-proof-head,.reference-home .ptg-market-proof-grid{grid-template-columns:1fr}
+  .reference-home .ptg-market-proof-head{gap:22px}
+  .reference-home .ptg-market-card{min-height:520px}
+}
+@media(max-width:800px){.reference-home .ptg-static-cover-v8-tagline{display:none}}
+@media(max-width:600px){
+  .reference-home .ptg-market-proof{padding:64px 0}
+  .reference-home .ptg-market-card{min-height:0;padding:25px;border-radius:20px}
+  .reference-home .ptg-market-card-meta{flex-direction:column;gap:7px}
+  .reference-home .ptg-market-mark{margin:40px 0 25px}
+  .reference-home .ptg-mail-window{margin:38px 0 25px}
+  .reference-home .ptg-mail-row{grid-template-columns:1fr;gap:4px}
+}

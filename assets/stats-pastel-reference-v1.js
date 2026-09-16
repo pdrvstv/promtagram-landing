@@ -19,7 +19,6 @@ function render(){
        <p class="ptg-stats-lead">Рабочая база Promtagram: проекты, финансовые запросы, аналитические и проектные ситуации. Цифры сопровождаем пояснением, чтобы не смешивать объём проанализированных задач с фактически полученным финансированием.</p>
      </div>
      <aside class="ptg-stats-aside" aria-hidden="true">
-       <div class="ptg-stats-script">Больше возможностей для важных дел</div>
        <div class="ptg-stats-side-note">Данные<br>создают<br>возможности</div>
      </aside>
    </div>
@@ -57,9 +56,7 @@ function render(){
      <div class="ptg-stats-info">i</div>
      <div class="ptg-stats-note-rule"></div>
      <p class="ptg-stats-note-text">Внутренние рабочие метрики Promtagram. 2,65 млрд ₽ — сумма строк, где денежная потребность или объём проекта указан в базе; это <strong>не</strong> означает фактически привлечённые средства. ≈150 включает реализованные аналитические и проектные работы, а также изученные бизнес‑ситуации; показатель <strong>не равен</strong> 150 одобренным кредитам, субсидиям или грантам.</p>
-     <div class="ptg-stats-note-motto">${svg.leaf}<span>Смысл<br>в делах<br>людей</span></div>
    </div>
-   <div class="ptg-stats-footer">Идеи сегодня — больше возможностей завтра</div>
  </div>`;
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render,{once:true}); else render();
