@@ -1,0 +1,5 @@
+/* Retire the standalone Photobank screen without affecting the archive itself. */
+.reference-home #photobank,
+.reference-home section.ptg-photobank {
+  display: none !important;
+}
