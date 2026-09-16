@@ -1,0 +1,188 @@
+/* Promtagram homepage hero — light editorial composition with embossed RF coat of arms. Only the opening screen and homepage header are affected. */
+.reference-home .top{
+  background:rgba(248,251,255,.96)!important;
+  color:#0b2d63!important;
+  border-bottom:1px solid rgba(41,83,135,.10);
+  backdrop-filter:blur(14px);
+}
+.reference-home .top .brand,
+.reference-home .top .brand span,
+.reference-home .top .navlinks a,
+.reference-home .top .menu{color:#0b2d63!important}
+.reference-home .top .brand small{color:#6e84a0!important}
+.reference-home .top .nav-cta{
+  color:#0b2d63!important;
+  border:1px solid #2c63ba!important;
+  background:transparent!important;
+  border-radius:12px!important;
+}
+.reference-home .opening-scene.ptg-hero-russia{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:calc(100svh - 78px);
+  background:
+    radial-gradient(circle at 77% 46%,rgba(198,219,244,.26),transparent 37%),
+    linear-gradient(112deg,#fbfdff 0%,#f8fbff 47%,#edf5ff 100%);
+  color:#082a60;
+}
+.reference-home .ptg-hero-russia::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  background:
+    linear-gradient(126deg,transparent 0 65%,rgba(129,165,206,.10) 65.2% 65.6%,transparent 65.8%),
+    linear-gradient(168deg,transparent 0 75%,rgba(129,165,206,.08) 75.2% 75.6%,transparent 75.8%);
+  pointer-events:none;
+}
+.reference-home .ptg-hero-russia .opening-content{
+  position:relative;
+  min-height:calc(100svh - 78px);
+  padding:9.5vh 0 5vh;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+.reference-home .ptg-hero-russia-kicker{
+  position:relative;
+  z-index:3;
+  margin:0 0 34px;
+  font-size:13px;
+  line-height:1.2;
+  font-weight:650;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:#1f57a8;
+}
+.reference-home .ptg-hero-russia h1{
+  position:relative;
+  z-index:3;
+  margin:0;
+  width:min(690px,58vw);
+  max-width:none;
+  font-size:clamp(58px,6.2vw,96px)!important;
+  line-height:.99!important;
+  font-weight:720!important;
+  letter-spacing:-.065em!important;
+  color:#08265a!important;
+}
+.reference-home .ptg-hero-russia h1 span{display:block;color:#08265a}
+.reference-home .ptg-hero-russia-copy{
+  position:relative;
+  z-index:3;
+  margin:34px 0 0!important;
+  max-width:610px!important;
+  font-size:clamp(21px,1.65vw,27px)!important;
+  line-height:1.42!important;
+  color:#48627f!important;
+}
+.reference-home .ptg-hero-russia-actions{
+  position:relative;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-top:38px;
+}
+.reference-home .ptg-hero-russia-actions .button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:42px;
+  min-width:278px;
+  min-height:66px;
+  padding:18px 26px!important;
+  border-radius:10px!important;
+  border:1px solid #08265a!important;
+  background:#08265a!important;
+  color:#fff!important;
+  box-shadow:0 18px 40px rgba(7,39,90,.13);
+}
+.reference-home .ptg-hero-russia-actions .ptg-hero-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:66px;
+  padding:18px 30px;
+  border-radius:10px;
+  border:1px solid #2e62b5;
+  color:#23549a;
+  background:rgba(255,255,255,.56);
+}
+.reference-home .ptg-hero-russia-emblem{
+  position:absolute;
+  z-index:0;
+  width:min(50vw,760px);
+  aspect-ratio:466/551;
+  right:-1.8vw;
+  top:5.5vh;
+  background:url("https://upload.wikimedia.org/wikipedia/commons/f/f2/Coat_of_Arms_of_the_Russian_Federation.svg") center/contain no-repeat;
+  opacity:.22;
+  transform:rotate(-8deg) scale(1.03);
+  transform-origin:52% 48%;
+  filter:grayscale(1) saturate(0) brightness(1.15) contrast(.64) drop-shadow(-5px -5px 3px rgba(255,255,255,.96)) drop-shadow(7px 9px 8px rgba(67,101,143,.22));
+  pointer-events:none;
+}
+.reference-home .ptg-hero-russia-emblem::after{
+  content:"";
+  position:absolute;
+  inset:-6%;
+  border-radius:46%;
+  background:radial-gradient(circle,rgba(255,255,255,0) 38%,rgba(248,252,255,.92) 79%);
+}
+.reference-home .ptg-hero-russia-rail{
+  position:absolute;
+  z-index:3;
+  right:0;
+  top:50%;
+  transform:translateY(-45%);
+  display:grid;
+  gap:13px;
+  padding:14px 0 14px 26px;
+  border-left:1px solid rgba(41,83,135,.25);
+  font-size:17px;
+  line-height:1.15;
+  color:#5f7da6;
+}
+.reference-home .ptg-hero-russia-bottom{
+  position:relative;
+  z-index:4;
+  margin-top:auto;
+  padding-top:50px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#7088a6;
+}
+.reference-home .ptg-hero-russia-bottom a{color:#345f99}
+
+@media(max-width:1100px){
+  .reference-home .ptg-hero-russia h1{width:min(690px,64vw);font-size:clamp(54px,7vw,82px)!important}
+  .reference-home .ptg-hero-russia-emblem{width:56vw;right:-8vw;opacity:.19}
+  .reference-home .ptg-hero-russia-rail{right:2vw;font-size:15px}
+}
+@media(max-width:800px){
+  .reference-home .top{background:#f9fcff!important}
+  .reference-home .ptg-hero-russia .opening-content{padding-top:8vh;min-height:760px}
+  .reference-home .ptg-hero-russia h1{width:82vw;font-size:clamp(50px,10vw,72px)!important}
+  .reference-home .ptg-hero-russia-copy{max-width:520px!important;font-size:20px!important}
+  .reference-home .ptg-hero-russia-emblem{width:72vw;right:-22vw;top:23vh;opacity:.14}
+  .reference-home .ptg-hero-russia-rail{display:none}
+}
+@media(max-width:540px){
+  .reference-home .opening-scene.ptg-hero-russia{min-height:760px}
+  .reference-home .ptg-hero-russia .opening-content{min-height:760px;padding:48px 0 28px}
+  .reference-home .ptg-hero-russia-kicker{font-size:10px;line-height:1.5;letter-spacing:.2em;margin-bottom:24px;max-width:310px}
+  .reference-home .ptg-hero-russia h1{width:100%;font-size:clamp(43px,13.6vw,61px)!important;line-height:1.01!important}
+  .reference-home .ptg-hero-russia-copy{font-size:18px!important;line-height:1.5!important;margin-top:24px!important;max-width:330px!important}
+  .reference-home .ptg-hero-russia-actions{margin-top:30px;flex-direction:column;align-items:stretch;width:min(100%,330px);gap:11px}
+  .reference-home .ptg-hero-russia-actions .button,.reference-home .ptg-hero-russia-actions .ptg-hero-secondary{width:100%;min-width:0;min-height:56px;padding:15px 19px!important}
+  .reference-home .ptg-hero-russia-emblem{width:104vw;right:-45vw;top:33vh;opacity:.12;transform:rotate(-9deg)}
+  .reference-home .ptg-hero-russia-bottom{font-size:9px;letter-spacing:.12em;padding-top:72px}
+}
