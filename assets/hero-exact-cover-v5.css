@@ -1,0 +1,243 @@
+/* Exact approved Promtagram cover v5. Only the first homepage screen is replaced. */
+.reference-home.ptg-cover-v5-ready .top{display:none!important}
+.reference-home .opening-scene.ptg-cover-v5{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:100svh!important;
+  min-height:100svh!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#f5f9fd!important;
+}
+.reference-home .opening-scene.ptg-cover-v5::before,
+.reference-home .opening-scene.ptg-cover-v5::after{display:none!important}
+.reference-home .ptg-cover-v5-frame{position:relative;width:100%;height:100%}
+
+/* Desktop/tablet landscape: pixel-accurate approved artwork, no stretching. */
+.reference-home .ptg-cover-v5-desktop{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f5f9fd;
+}
+.reference-home .ptg-cover-v5-canvas{
+  position:relative;
+  width:min(100vw,calc(100svh * 1.7768331562));
+  aspect-ratio:1672 / 941;
+  max-height:100svh;
+  flex:0 0 auto;
+  line-height:0;
+}
+.reference-home .ptg-cover-v5-canvas>img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  image-rendering:auto;
+  border:0;
+}
+.reference-home .ptg-cover-v5-hotspot{
+  position:absolute;
+  z-index:4;
+  display:block;
+  background:transparent;
+  border:0;
+  border-radius:12px;
+  color:transparent;
+  font-size:0;
+  text-decoration:none;
+}
+.reference-home .ptg-cover-v5-hotspot:focus-visible{outline:2px solid #1246df;outline-offset:2px}
+.ptg-cover-v5-hotspot--brand{left:5.0%;top:2.8%;width:20.5%;height:9.2%}
+.ptg-cover-v5-hotspot--about{left:35.0%;top:3.0%;width:7.8%;height:8.0%}
+.ptg-cover-v5-hotspot--solutions{left:43.2%;top:3.0%;width:9.6%;height:8.0%}
+.ptg-cover-v5-hotspot--cases{left:53.5%;top:3.0%;width:5.6%;height:8.0%}
+.ptg-cover-v5-hotspot--contacts{left:59.6%;top:3.0%;width:7.8%;height:8.0%}
+.ptg-cover-v5-hotspot--contact{left:81.5%;top:2.4%;width:13.0%;height:8.6%}
+.ptg-cover-v5-hotspot--lead{left:5.1%;top:77.1%;width:19.8%;height:9.4%}
+.ptg-cover-v5-hotspot--more{left:26.5%;top:77.1%;width:13.2%;height:9.4%}
+.reference-home .ptg-cover-v5-mobile{display:none}
+
+/* Mobile: same cover language, rebuilt for portrait without shrinking the artwork into unreadable text. */
+@media (max-width:800px){
+  .reference-home .opening-scene.ptg-cover-v5{
+    display:block!important;
+    height:auto!important;
+    min-height:100svh!important;
+    align-items:stretch!important;
+  }
+  .reference-home .ptg-cover-v5-desktop{display:none}
+  .reference-home .ptg-cover-v5-mobile{
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:100svh;
+    overflow:hidden;
+    background:linear-gradient(180deg,#fbfdff 0%,#f4f8fd 50%,#eaf2fa 100%);
+  }
+  .reference-home .ptg-cover-v5-mobile-art{
+    position:absolute;
+    z-index:0;
+    left:-128vw;
+    top:39%;
+    width:250vw;
+    pointer-events:none;
+  }
+  .reference-home .ptg-cover-v5-mobile-art img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:none;
+    opacity:.98;
+    filter:saturate(.98) contrast(1.01);
+  }
+  .reference-home .ptg-cover-v5-mobile::after{
+    content:"";
+    position:absolute;
+    z-index:1;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(251,253,255,.98) 0%,rgba(251,253,255,.96) 35%,rgba(248,251,255,.70) 52%,rgba(238,245,252,.08) 76%,rgba(234,242,250,.04) 100%),
+      linear-gradient(90deg,rgba(248,251,255,.90) 0%,rgba(248,251,255,.45) 54%,rgba(248,251,255,0) 100%);
+  }
+  .reference-home .ptg-cover-v5-mobile-inner{
+    position:relative;
+    z-index:2;
+    min-height:100svh;
+    padding:18px 18px 24px;
+    display:flex;
+    flex-direction:column;
+  }
+  .reference-home .ptg-cover-v5-mobile-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .reference-home .ptg-cover-v5-mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#081545;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:.22em;
+    white-space:nowrap;
+  }
+  .reference-home .ptg-cover-v5-mobile-brand img{
+    width:42px;
+    height:42px;
+    object-fit:cover;
+    border-radius:8px;
+  }
+  .reference-home .ptg-cover-v5-mobile-contact{
+    min-height:40px;
+    padding:0 15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #0e48df;
+    border-radius:10px;
+    color:#0e48df;
+    background:rgba(255,255,255,.62);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+  }
+  .reference-home .ptg-cover-v5-copy{
+    padding-top:clamp(52px,14vw,88px);
+    max-width:390px;
+  }
+  .reference-home .ptg-cover-v5-kicker{
+    max-width:340px;
+    margin-bottom:22px;
+    color:#0d43d8;
+    font-size:10px;
+    line-height:1.45;
+    letter-spacing:.20em;
+    font-weight:700;
+  }
+  .reference-home .ptg-cover-v5-copy h1{
+    margin:0;
+    color:#07123f;
+    font-size:clamp(43px,12.3vw,66px);
+    line-height:.96;
+    letter-spacing:-.052em;
+    font-weight:800;
+  }
+  .reference-home .ptg-cover-v5-copy p{
+    max-width:335px;
+    margin:25px 0 0;
+    color:#243f76;
+    font-size:clamp(17px,4.8vw,21px);
+    line-height:1.32;
+  }
+  .reference-home .ptg-cover-v5-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:29px;
+  }
+  .reference-home .ptg-cover-v5-primary,
+  .reference-home .ptg-cover-v5-secondary{
+    min-height:50px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    padding:0 20px;
+    border-radius:10px;
+    font-size:15px;
+    line-height:1;
+    font-weight:650;
+    text-decoration:none;
+  }
+  .reference-home .ptg-cover-v5-primary{
+    color:#fff;
+    background:#07184a;
+    box-shadow:0 12px 28px rgba(7,24,74,.16);
+  }
+  .reference-home .ptg-cover-v5-secondary{
+    color:#1246df;
+    background:rgba(255,255,255,.76);
+    border:1px solid rgba(18,70,223,.62);
+    backdrop-filter:blur(10px);
+  }
+  .reference-home .ptg-cover-v5-mobile-labels{
+    margin-top:auto;
+    padding-top:270px;
+    color:#365d9a;
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+  }
+}
+
+@media (max-width:430px){
+  .reference-home .ptg-cover-v5-mobile-brand{font-size:15px;letter-spacing:.18em}
+  .reference-home .ptg-cover-v5-mobile-contact{padding:0 12px;font-size:13px}
+  .reference-home .ptg-cover-v5-copy{padding-top:44px}
+  .reference-home .ptg-cover-v5-copy h1{font-size:clamp(40px,12vw,54px)}
+  .reference-home .ptg-cover-v5-actions{width:100%}
+  .reference-home .ptg-cover-v5-primary,
+  .reference-home .ptg-cover-v5-secondary{width:100%}
+  .reference-home .ptg-cover-v5-mobile-art{top:43%;left:-138vw;width:270vw}
+  .reference-home .ptg-cover-v5-mobile-labels{padding-top:245px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .reference-home .opening-scene.ptg-cover-v5 *{scroll-behavior:auto!important}
+}
