@@ -1,0 +1,118 @@
+/* Promtagram stats cards v2 — numeric-first hierarchy, 2026-09-16.
+   Scope: only the four metric cards inside .ptg-stats. */
+.reference-home .ptg-stats .ptg-stat{
+  --ptg-metric-size:clamp(46px,5.2vw,78px);
+  --ptg-caption-size:12px;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  min-height:250px;
+  padding:34px 26px!important;
+}
+.reference-home .ptg-stats .ptg-stat strong{
+  display:flex!important;
+  width:100%;
+  margin:0!important;
+  align-items:baseline;
+  justify-content:center;
+  gap:8px;
+  text-align:center!important;
+  font-size:0!important;
+  line-height:1!important;
+  font-weight:600!important;
+  white-space:normal!important;
+}
+.reference-home .ptg-stats .ptg-stat strong::before,
+.reference-home .ptg-stats .ptg-stat strong::after{
+  display:block;
+}
+/* 01 — decimal value large; unit line same size as description */
+.reference-home .ptg-stats .ptg-stat:nth-child(1) strong,
+.reference-home .ptg-stats .ptg-stat:nth-child(3) strong{
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.reference-home .ptg-stats .ptg-stat:nth-child(1) strong::before{content:"2,65"}
+.reference-home .ptg-stats .ptg-stat:nth-child(1) strong::after{content:"млрд ₽"}
+/* 02 — approximation sign small; digits large */
+.reference-home .ptg-stats .ptg-stat:nth-child(2) strong::before{content:"≈"}
+.reference-home .ptg-stats .ptg-stat:nth-child(2) strong::after{content:"150"}
+/* 03 — only digit large; label line same size as description */
+.reference-home .ptg-stats .ptg-stat:nth-child(3) strong::before{content:"6"}
+.reference-home .ptg-stats .ptg-stat:nth-child(3) strong::after{content:"AI‑агентов"}
+/* 04 — plus sign small; digits large */
+.reference-home .ptg-stats .ptg-stat:nth-child(4) strong::before{content:"+"}
+.reference-home .ptg-stats .ptg-stat:nth-child(4) strong::after{content:"100"}
+/* Large numeric glyphs */
+.reference-home .ptg-stats .ptg-stat:nth-child(1) strong::before,
+.reference-home .ptg-stats .ptg-stat:nth-child(2) strong::after,
+.reference-home .ptg-stats .ptg-stat:nth-child(3) strong::before,
+.reference-home .ptg-stats .ptg-stat:nth-child(4) strong::after{
+  font-size:var(--ptg-metric-size);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:600;
+}
+/* Everything except the digits: same scale as the explanatory text below */
+.reference-home .ptg-stats .ptg-stat:nth-child(1) strong::after,
+.reference-home .ptg-stats .ptg-stat:nth-child(2) strong::before,
+.reference-home .ptg-stats .ptg-stat:nth-child(3) strong::after,
+.reference-home .ptg-stats .ptg-stat:nth-child(4) strong::before{
+  font-size:var(--ptg-caption-size);
+  line-height:1.5;
+  letter-spacing:.085em;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.reference-home .ptg-stats .ptg-stat span{
+  display:block!important;
+  width:min(100%,30ch);
+  margin:20px auto 0!important;
+  text-align:center!important;
+  font-size:var(--ptg-caption-size)!important;
+  line-height:1.5!important;
+  letter-spacing:.085em!important;
+  text-transform:uppercase;
+  text-wrap:balance;
+}
+.reference-home .ptg-stats .ptg-stat i{display:none!important}
+@media(max-width:760px){
+  .reference-home .ptg-stats .ptg-stat{
+    --ptg-metric-size:clamp(42px,11vw,64px);
+    --ptg-caption-size:10.5px;
+    min-height:255px;
+    padding:28px 18px!important;
+  }
+  .reference-home .ptg-stats .ptg-stat strong{gap:6px}
+  .reference-home .ptg-stats .ptg-stat:nth-child(1) strong,
+  .reference-home .ptg-stats .ptg-stat:nth-child(3) strong{gap:6px}
+  .reference-home .ptg-stats .ptg-stat span{
+    width:min(100%,25ch);
+    margin-top:18px!important;
+    line-height:1.48!important;
+    letter-spacing:.075em!important;
+  }
+}
+@media(max-width:480px){
+  .reference-home .ptg-stats .ptg-stat{
+    --ptg-metric-size:clamp(38px,11.5vw,56px);
+    --ptg-caption-size:9.5px;
+    min-height:245px;
+    padding:24px 14px!important;
+  }
+  .reference-home .ptg-stats .ptg-stat span{
+    width:100%;
+    margin-top:16px!important;
+    line-height:1.46!important;
+    letter-spacing:.065em!important;
+  }
+  .reference-home .ptg-stats .ptg-stat:nth-child(1) strong::after,
+  .reference-home .ptg-stats .ptg-stat:nth-child(2) strong::before,
+  .reference-home .ptg-stats .ptg-stat:nth-child(3) strong::after,
+  .reference-home .ptg-stats .ptg-stat:nth-child(4) strong::before{
+    letter-spacing:.065em;
+  }
+}
