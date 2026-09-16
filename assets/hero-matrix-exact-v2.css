@@ -1,0 +1,63 @@
+/* Exact Promtagram matrix hero v2. Scoped to homepage opening scene only. */
+.reference-home.ptg-hero-v2-ready .top{display:none!important}
+.reference-home .opening-scene.ptg-hero-exact-v2{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  background:#f4f9fb!important;
+}
+.reference-home .opening-scene.ptg-hero-exact-v2::before,
+.reference-home .opening-scene.ptg-hero-exact-v2::after{display:none!important}
+.reference-home .opening-scene.ptg-hero-exact-v2 .ptg-hero-exact-v2-frame{
+  position:relative;
+  width:100%;
+  margin:0;
+  padding:0;
+  line-height:0;
+  background:#f4f9fb;
+}
+.reference-home .opening-scene.ptg-hero-exact-v2 .ptg-hero-exact-v2-image{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.reference-home .opening-scene.ptg-hero-exact-v2 .ptg-hero-hotspot{
+  position:absolute;
+  z-index:4;
+  display:block;
+  background:transparent;
+  border:0;
+  text-decoration:none;
+  color:transparent;
+  line-height:1;
+  font-size:0;
+  border-radius:12px;
+}
+.reference-home .opening-scene.ptg-hero-exact-v2 .ptg-hero-hotspot:focus-visible{
+  outline:2px solid #244ca2;
+  outline-offset:2px;
+}
+/* Coordinates follow the approved 1366×769 artwork. */
+.ptg-hero-hotspot--brand{left:5.1%;top:3.1%;width:20.5%;height:9.5%}
+.ptg-hero-hotspot--about{left:35.9%;top:3.0%;width:7.0%;height:8.0%}
+.ptg-hero-hotspot--solutions{left:44.1%;top:3.0%;width:9.0%;height:8.0%}
+.ptg-hero-hotspot--cases{left:54.2%;top:3.0%;width:5.3%;height:8.0%}
+.ptg-hero-hotspot--contacts{left:60.4%;top:3.0%;width:7.0%;height:8.0%}
+.ptg-hero-hotspot--contact{left:81.9%;top:2.3%;width:13.0%;height:8.7%}
+.ptg-hero-hotspot--lead{left:5.2%;top:77.8%;width:20.1%;height:9.5%}
+.ptg-hero-hotspot--more{left:26.2%;top:77.8%;width:13.5%;height:9.5%}
+@media (max-width:700px){
+  .reference-home .opening-scene.ptg-hero-exact-v2 .ptg-hero-hotspot{border-radius:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  .reference-home .opening-scene.ptg-hero-exact-v2 *{scroll-behavior:auto!important}
+}
