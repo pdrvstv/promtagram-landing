@@ -1,0 +1,5 @@
+/* Hide only the photobank embedded inside the 09 / ДОКАЗАТЕЛЬСТВА section.
+   The standalone #photobank screen remains untouched. */
+.reference-home #achievements .ptg-proof-cloud {
+  display: none !important;
+}
