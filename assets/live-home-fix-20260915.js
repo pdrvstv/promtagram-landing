@@ -6,8 +6,8 @@ function enforce(){
   let recognition=recognitions[0]||null;
   recognitions.slice(1).forEach(n=>n.remove());
   const photobank=document.querySelector('#photobank');
-  if(recognition&&photobank&&recognition.nextElementSibling!==photobank){
-    photobank.parentNode.insertBefore(recognition,photobank);
+  if(recognition&&photobank&&recognition.nextElementSibling!==(document.querySelector('#market-recognition')||photobank)){
+    photobank.parentNode.insertBefore(recognition,document.querySelector('#market-recognition')||photobank);
   }
   document.querySelectorAll('[data-top1000],.certificate-strip').forEach(n=>n.remove());
   document.querySelectorAll('#mission article,.ptg-mission article').forEach(card=>{

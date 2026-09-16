@@ -14,7 +14,7 @@
     ['#practice','11','ПРЕДМЕТНЫЙ РЕЗУЛЬТАТ'],
     ['#achievements','12','ДОКАЗАТЕЛЬСТВА'],
     ['#recognition','13','ДОКУМЕНТЫ И ПРИЗНАНИЕ'],
-    ['#market-recognition','14','ОТРАСЛЕВОЕ ПРИЗНАНИЕ'],
+    ['#market-recognition','14','ПАРТНЁРСТВО'],
     ['#photobank','15','ФОТОБАНК / АРХИВ'],
     ['#ecosystem','16','СИСТЕМА ГОСПОДДЕРЖКИ'],
     ['#media','17','ПУБЛИКАЦИИ'],
@@ -32,7 +32,8 @@
       const host=section.querySelector('.wrap,.closing-content')||section;
       host.prepend(label);
     }
-    label.textContent=`${number} / ${title}`;
+    const next=`${number} / ${title}`;
+    if(label.textContent!==next)label.textContent=next;
   }
 
   function apply(){
@@ -47,9 +48,22 @@
       canvas.appendChild(tagline);
     }
 
-    screens.forEach(([selector,number,title])=>setLabel(document.querySelector(selector),number,title));
+    let number=1;
+    document.querySelectorAll('main > section').forEach(section=>{
+      if(section.id==='site-map'||section.classList.contains('opening-scene')||getComputedStyle(section).display==='none')return;
+      const item=screens.find(([selector])=>section.matches(selector));
+      if(item)setLabel(section,String(++number).padStart(2,'0'),item[2]);
+    });
+    document.querySelectorAll('.ptg-menu-tile').forEach(link=>{
+      const target=document.querySelector(link.getAttribute('href'));
+      const label=target?.querySelector('.eyebrow,.ptg-stats-eyebrow,.ptg-photobank-kicker');
+      const num=link.querySelector('.ptg-menu-num');
+      if(num&&label)num.textContent=label.textContent.split(' / ')[0];
+    });
   }
 
+  window.ptgRenumberScreens=apply;
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply,{once:true});
   else apply();
+  window.addEventListener("load",()=>{apply();setTimeout(apply,1200);},{once:true});
 })();

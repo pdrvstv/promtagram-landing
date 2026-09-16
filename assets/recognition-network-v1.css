@@ -86,3 +86,8 @@
   .reference-home .ptg-mail-window{margin:38px 0 25px}
   .reference-home .ptg-mail-row{grid-template-columns:1fr;gap:4px}
 }
+
+/* Complete coverage of the previous raster caption; wrap the new caption. */
+.reference-home .ptg-static-cover-v8-tagline{left:5.4%;top:63%;width:37.5%;height:10.5%;min-height:0;padding:1% .3%;box-sizing:border-box;background:#f6faff;white-space:normal;font-size:2.03cqi;line-height:1.28}
+.reference-home .ptg-stats-script,.reference-home .ptg-stats-note-motto,.reference-home .ptg-stats-footer{display:none!important}
+@media(max-width:600px){.ptg-stats-pastel .ptg-stats-note-box{grid-template-columns:1fr!important}.ptg-stats-pastel .ptg-stats-note-rule{display:none}}
