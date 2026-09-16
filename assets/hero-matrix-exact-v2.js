@@ -1,9 +1,6 @@
 (()=>{
   'use strict';
-  const PARTS=[
-    '/assets/hero-exact-v2/part-0.txt?v=20260916-2318',
-    '/assets/hero-exact-v2/part-1.txt?v=20260916-2318'
-  ];
+  const HERO_IMAGE='https://drive.google.com/thumbnail?id=1kEQyuf0TgboeWsZ0ArNJFfI5CXPtvrj-&sz=w2000';
   const hotspots=[
     ['brand','/','Promtagram — на главную'],
     ['about','/#founder','О проекте'],
@@ -15,12 +12,6 @@
     ['more','/#solutions','Узнать больше']
   ];
 
-  async function loadPart(url){
-    const response=await fetch(url,{cache:'no-store',credentials:'same-origin'});
-    if(!response.ok) throw new Error(`Hero part ${response.status}: ${url}`);
-    return (await response.text()).replace(/\s+/g,'');
-  }
-
   function loadImage(src){
     return new Promise((resolve,reject)=>{
       const image=new Image();
@@ -28,6 +19,7 @@
       image.className='ptg-hero-exact-v2-image';
       image.decoding='async';
       image.fetchPriority='high';
+      image.referrerPolicy='no-referrer';
       image.onload=()=>resolve(image);
       image.onerror=()=>reject(new Error('Hero image did not decode'));
       image.src=src;
@@ -41,11 +33,7 @@
     if(!hero || hero.dataset.ptgHeroV2==='1') return;
 
     try{
-      const parts=await Promise.all(PARTS.map(loadPart));
-      const base64=parts.join('');
-      if(!base64.startsWith('/9j/')) throw new Error('Hero asset is not JPEG base64');
-
-      const image=await loadImage('data:image/jpeg;base64,'+base64);
+      const image=await loadImage(HERO_IMAGE);
       if(!image.naturalWidth || !image.naturalHeight) throw new Error('Hero image has zero dimensions');
 
       const frame=document.createElement('div');
@@ -65,14 +53,11 @@
       hero.dataset.ptgHeroV2='1';
       document.body.classList.add('ptg-hero-v2-ready');
     }catch(error){
-      console.error('[Promtagram] exact hero v2 was not activated; original hero preserved.',error);
+      console.error('[Promtagram] exact hero was not activated; original hero preserved.',error);
     }
   }
 
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',apply,{once:true});
-  }else{
-    apply();
-  }
-  window.addEventListener('load',()=>{ if(!document.body.classList.contains('ptg-hero-v2-ready')) apply(); },{once:true});
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply,{once:true});
+  else apply();
+  window.addEventListener('load',()=>{if(!document.body.classList.contains('ptg-hero-v2-ready')) apply();},{once:true});
 })();
