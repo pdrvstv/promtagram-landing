@@ -29,6 +29,43 @@
 .ptg-static-cover-v6-hotspot--more{left:26.5%;top:77.1%;width:13.2%;height:9.4%}
 .reference-home .ptg-static-cover-v6-mobile{display:none}
 
+@media(min-width:801px){
+  .reference-home .opening-scene{
+    height:100vh!important;
+    height:100dvh!important;
+    min-height:100vh!important;
+    min-height:100dvh!important;
+  }
+  .reference-home .ptg-static-cover-v6-desktop{
+    overflow:hidden!important;
+    isolation:isolate!important;
+  }
+  .reference-home .ptg-static-cover-v6-desktop::before{
+    content:"";
+    position:absolute;
+    z-index:0;
+    inset:-6%;
+    background:url('/assets/hero-approved-reference-v7.webp') center/cover no-repeat;
+    filter:blur(34px) saturate(.92) contrast(.98);
+    transform:scale(1.04);
+    opacity:.52;
+    pointer-events:none;
+  }
+  .reference-home .ptg-static-cover-v6-desktop::after{
+    content:"";
+    position:absolute;
+    z-index:1;
+    inset:0;
+    background:linear-gradient(90deg,rgba(244,248,253,.30),rgba(244,248,253,.04) 18%,rgba(244,248,253,.04) 82%,rgba(244,248,253,.30));
+    pointer-events:none;
+  }
+  .reference-home .ptg-static-cover-v6-canvas{
+    z-index:2!important;
+    width:min(100vw,calc(100dvh * 1.7768331562))!important;
+    max-height:100dvh!important;
+  }
+}
+
 @media(max-width:800px){
   .reference-home{overflow-x:hidden}
   .reference-home .opening-scene{
