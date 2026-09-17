@@ -1,0 +1,56 @@
+/* Scoped homepage update: partnership, complete navigation and founder alignment. */
+.reference-home #partnership .ptg-market-card{min-height:560px;padding:36px;gap:24px}
+.reference-home #partnership .ptg-market-card-meta{font-size:12px;line-height:1.5;letter-spacing:.08em}
+.reference-home #partnership h3{font-size:clamp(32px,3.1vw,48px);margin:0;line-height:1.08}
+.reference-home #partnership .partnership-category{color:#9ad8ed;font-size:14px;margin-top:20px}
+.partnership-category span{padding:0 14px;opacity:.5}
+.partnership-profile{border-top:1px solid #3b6278;padding-top:24px;display:grid;gap:9px;margin-top:auto}
+.partnership-profile span{font-size:14px;color:#a9c6d4}.partnership-profile strong{font-size:30px;letter-spacing:-.03em}
+.reference-home #partnership .partnership-button{display:flex;justify-content:space-between;align-items:center;gap:16px;border:1px solid #4c839b;border-radius:12px;padding:17px 20px;font-size:16px;font-weight:700;color:#c8efff;text-decoration:none;margin-top:auto}
+.reference-home #partnership .ptg-techbroker-card .partnership-button{border-color:#b7cfdb;color:#074969}
+.reference-home #partnership .partnership-button:hover{background:#087eae;color:white}
+.reference-home #partnership a:focus-visible{outline:3px solid #099de6;outline-offset:5px}
+.reference-home #partnership .ptg-mail-window{margin:0;box-shadow:none}
+.reference-home #partnership .ptg-mail-bar{font-size:14px;color:#426377}
+.reference-home #partnership .ptg-mail-row{grid-template-columns:70px minmax(0,1fr);font-size:14px;overflow-wrap:anywhere}
+.reference-home #partnership .ptg-mail-row a{color:#085b82}
+.reference-home #partnership .ptg-mail-note{font-size:12px}
+.reference-home #founder .founder-layout{align-items:stretch}
+.reference-home #founder .founder-visual{display:flex;flex-direction:column;min-width:0;position:relative}
+.reference-home #founder .portrait{margin:0;flex:1;min-height:300px;position:relative;overflow:hidden;border-radius:12px}
+.reference-home #founder .portrait img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:57% center}
+.reference-home #founder .portrait figcaption{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(0,21,37,.85));color:white;font-size:12px}
+.founder-contacts{margin-top:16px;border-top:1px solid #c4d7e4;padding-top:4px}
+.founder-contacts>div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #dfebf2}
+.founder-contacts span{font-size:14px;color:#526f7e}.founder-contacts a{font-size:16px;font-weight:700;color:#064c77;overflow-wrap:anywhere;text-decoration:none}
+.founder-contacts a:hover{text-decoration:underline}
+.reference-home #site-map .ptg-square-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.reference-home #site-map .ptg-menu-tile{aspect-ratio:auto;min-height:130px;padding:18px;background:#f0f6fa;border-radius:12px}
+.reference-home #site-map .ptg-page-icon,.reference-home #site-map .ptg-menu-tile::after{display:none}
+.reference-home #site-map .ptg-menu-num{font-size:14px;color:#087eae}
+.reference-home #site-map .ptg-menu-copy{margin-top:18px;padding-right:12px}
+.reference-home #site-map .ptg-menu-copy strong{font-size:19px;line-height:1.2}
+.reference-home #site-map .ptg-menu-copy small{display:none}
+.reference-home .top .nav{position:relative}
+.reference-home .top .menu{display:block;margin-left:16px;font:inherit;color:white;background:transparent;border:1px solid #50728a;border-radius:8px;padding:12px 18px;cursor:pointer}
+.reference-home .top .navlinks{display:none;position:absolute;top:100%;left:0;right:0;margin:0;padding:24px;background:#001b2d;max-height:75vh;overflow:auto;border-radius:0 0 16px 16px;z-index:100;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.reference-home .top .navlinks.open{display:grid}
+.reference-home .top .navlinks a{font-size:14px;padding:12px;line-height:1.4;white-space:normal}
+.reference-home .top .navlinks a span{color:#7bd7fb;margin-right:6px}
+.reference-home .top .nav-cta{margin-left:auto}
+@media(max-width:1100px){.reference-home #site-map .ptg-square-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:800px){
+.reference-home #founder .portrait{flex:none;min-height:0;aspect-ratio:1.15}
+.reference-home #site-map .ptg-square-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.reference-home .top .navlinks{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:540px){
+.reference-home #partnership .ptg-market-card{padding:24px;min-height:0;gap:22px}
+.reference-home #partnership .ptg-mail-body{padding:16px}
+.reference-home #partnership .ptg-mail-row{grid-template-columns:1fr;gap:4px}
+.reference-home #site-map .ptg-square-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reference-home #site-map .ptg-menu-tile{padding:15px;min-height:120px}
+.reference-home #site-map .ptg-menu-copy strong{font-size:16px}
+.founder-contacts>div{grid-template-columns:1fr;gap:5px}
+.reference-home .top .menu{margin-left:auto}
+}
