@@ -1,28 +1,6 @@
 (()=>{
   'use strict';
 
-  const screens=[
-    ['.ptg-stats','02','PROMTAGRAM В ЦИФРАХ'],
-    ['#solutions','03','ПЯТЬ НАПРАВЛЕНИЙ'],
-    ['.ref-structure','04','ФИНАНСОВОЕ СТРУКТУРИРОВАНИЕ'],
-    ['#system','05','AI-СИСТЕМА'],
-    ['.ref-process','06','ПОСЛЕДОВАТЕЛЬНОСТЬ РАБОТЫ'],
-    ['#founder','07','ОСНОВАТЕЛЬ PROMTAGRAM'],
-    ['#cases','08','ПРАКТИКА PROMTAGRAM'],
-    ['#instruments','09','ОРИЕНТИРЫ ПО ИНСТРУМЕНТАМ'],
-    ['#calculator','10','ЭКОНОМИКА ПРОЕКТА'],
-    ['#practice','11','ПРЕДМЕТНЫЙ РЕЗУЛЬТАТ'],
-    ['#achievements','12','ДОКАЗАТЕЛЬСТВА'],
-    ['#recognition','13','ДОКУМЕНТЫ И ПРИЗНАНИЕ'],
-    ['#market-recognition','14','ПАРТНЁРСТВО'],
-    ['#photobank','15','ФОТОБАНК / АРХИВ'],
-    ['#ecosystem','16','СИСТЕМА ГОСПОДДЕРЖКИ'],
-    ['#media','17','ПУБЛИКАЦИИ'],
-    ['#mission','18','НАША МИССИЯ'],
-    ['#faq','19','ВОПРОСЫ И ОТВЕТЫ'],
-    ['#lead','20','СЛЕДУЮЩИЙ ШАГ']
-  ];
-
   function setLabel(section,number,title){
     if(!section)return;
     let label=section.querySelector('.ptg-stats-eyebrow,.ptg-photobank-kicker,.eyebrow,.scene-kicker');
@@ -48,18 +26,31 @@
       canvas.appendChild(tagline);
     }
 
-    let number=1;
-    document.querySelectorAll('main > section').forEach(section=>{
-      if(section.id==='site-map'||section.classList.contains('opening-scene')||getComputedStyle(section).display==='none')return;
-      const item=screens.find(([selector])=>section.matches(selector));
-      if(item)setLabel(section,String(++number).padStart(2,'0'),item[2]);
-    });
-    document.querySelectorAll('.ptg-menu-tile').forEach(link=>{
-      const target=document.querySelector(link.getAttribute('href'));
-      const label=target?.querySelector('.eyebrow,.ptg-stats-eyebrow,.ptg-photobank-kicker');
-      const num=link.querySelector('.ptg-menu-num');
-      if(num&&label)num.textContent=label.textContent.split(' / ')[0];
-    });
+    const aliases=[['.opening-scene','cover'],['.ptg-stats','stats'],['.ref-structure','financial-structure'],['.ref-process','process']];
+    aliases.forEach(([selector,id])=>{const el=document.querySelector(selector);if(el)el.id=id;});
+    const pages=window.ptgHomePages||[];
+    const main=document.querySelector('main');
+    const nodes=pages.filter(p=>p.href!=='#cover').map(p=>document.querySelector(p.href)).filter(Boolean);
+    // Only move nodes whose next section is wrong; repeat calls do not churn the DOM.
+    for(let i=nodes.length-2;i>=0;i--){
+      let next=nodes[i].nextElementSibling;
+      while(next&&next.tagName!=='SECTION')next=next.nextElementSibling;
+      if(next!==nodes[i+1])main.insertBefore(nodes[i],nodes[i+1]);
+    }
+    pages.filter(p=>p.href!=='#cover').forEach(p=>setLabel(document.querySelector(p.href),p.n,p.meta));
+    const nav=document.querySelector('#navigation');
+    if(nav&&!nav.dataset.complete){
+      nav.innerHTML='<a href="/#site-map">Все разделы</a>'+pages.map(p=>`<a href="/${p.href}"><span>${p.n}</span> ${p.title}</a>`).join('');
+      nav.dataset.complete='true';
+      nav.addEventListener('click',event=>{
+        if(!event.target.closest('a'))return;
+        nav.classList.remove('open');
+        const button=document.querySelector('.menu');
+        button?.setAttribute('aria-expanded','false');
+        button?.setAttribute('aria-label','Открыть меню');
+      });
+    }
+
   }
 
   window.ptgRenumberScreens=apply;
