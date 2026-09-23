@@ -1,12 +1,17 @@
 ---
 ---
 {% capture homepage %}{% include site-base.html %}{% endcapture %}
+{% capture native_header %}{% include site-header-native.html %}{% endcapture %}
+{% assign header_parts = homepage | split: '<header class="top">' %}
+{% assign header_body = header_parts[1] | split: '</header>' | first %}
+{% capture previous_header %}<header class="top">{{ header_body }}</header>{% endcapture %}
+{% assign homepage = homepage | replace: previous_header, native_header %}
 {% capture native_hero %}{% include hero-native.html %}{% endcapture %}
 {% assign opening_parts = homepage | split: '<section class="opening-scene">' %}
 {% assign opening_body = opening_parts[1] | split: '</section>' | first %}
 {% capture previous_opening %}<section class="opening-scene">{{ opening_body }}</section>{% endcapture %}
 {% assign homepage = homepage | replace: previous_opening, native_hero %}
-{% capture native_hero_head %}<link rel="stylesheet" href="/assets/hero-native.css?v=20260923-1"></head>{% endcapture %}
+{% capture native_hero_head %}<link rel="stylesheet" href="/assets/hero-native.css?v=20260923-2"><script defer src="/assets/site-header-native.js?v=20260923-2"></script></head>{% endcapture %}
 {% assign homepage = homepage | replace: '</head>', native_hero_head %}
 {{ homepage }}
 <script defer src="/assets/live-home-fix-20260915.js?v=20260917-v9"></script>
