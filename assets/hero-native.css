@@ -1,11 +1,30 @@
 /* Native homepage hero. One content tree at every viewport; no screenshot hotspots. */
-.reference-home > .top { display: none !important; }
+html { scroll-padding-top: calc(var(--ptg-header-height, 100px) + 16px); }
+.reference-home { --ptg-header-height: 80px; }
+.ptg-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(245, 250, 255, .97);
+  border-bottom: 1px solid #ccdceb;
+  box-shadow: 0 4px 18px #19385b0a;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.ptg-site-header, .ptg-site-header * { box-sizing: border-box; }
+.ptg-site-header a { text-decoration: none; }
+.ptg-site-header a:focus-visible { outline: 3px solid #1748df; outline-offset: 4px; }
+.ptg-site-header .ptg-hero-header { width: min(100% - 8vw, 1600px); margin: 0 auto; padding: 14px 0; }
+.ptg-site-header .ptg-hero-brand img { width: 44px; height: 44px; }
+.ptg-site-header .ptg-hero-contact { min-height: 44px; }
+.reference-home .skip { z-index: 1100; }
 .reference-home .opening-scene.ptg-native-hero {
   position: relative;
   isolation: isolate;
   width: 100%;
   height: auto;
-  min-height: 100svh;
+  min-height: calc(100svh - var(--ptg-header-height, 80px));
   margin: 0;
   padding: 0;
   overflow: clip;
@@ -17,10 +36,10 @@
 .ptg-native-hero a:focus-visible { outline: 3px solid #1748df; outline-offset: 6px; }
 .ptg-hero-shell {
   width: min(100% - 8vw, 1600px);
-  min-height: 100svh;
+  min-height: calc(100svh - var(--ptg-header-height, 80px));
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
 }
 .ptg-hero-header { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 26px 0; }
 .ptg-hero-brand { display: inline-flex; align-items: center; gap: 13px; color: #08123c; font-size: 20px; font-weight: 800; letter-spacing: .16em; }
@@ -43,16 +62,17 @@
 .ptg-hero-secondary { border: 1px solid #3459b5; color: #163b96; background: #ffffff70; }
 .ptg-hero-secondary:hover, .ptg-hero-contact:hover { background: #e1ecff; }
 .ptg-hero-visual { min-width: 0; width: 100%; }
-/* Show only the illustration area of the existing approved asset (724,120)-(1495,905).
-   Its original proportions are preserved; all lettering and controls live in HTML. */
-.ptg-hero-art { position: relative; width: 100%; aspect-ratio: 771 / 785; overflow: hidden; mask-image: radial-gradient(ellipse 65% 67% at 50% 50%, #000 50%, transparent 78%); }
-.ptg-hero-art img { display: block; position: absolute; width: 216.8612%; max-width: none; height: auto; left: -93.903%; top: -15.2866%; }
+/* Standalone complete illustration: no crop, negative offsets, or fading mask. */
+.ptg-hero-art { width: 100%; }
+.ptg-hero-art img { display: block; position: static; width: 100%; max-width: 100%; height: auto; object-fit: contain; }
 .ptg-hero-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 24px 0 28px; border-top: 1px solid #ccdceb; color: #405b80; }
 .ptg-hero-footer p { margin: 0; font-size: 14px; line-height: 1.7; }
 .ptg-hero-footer p span { margin: 0 12px; color: #809abd; }
 .ptg-hero-footer a { display: inline-flex; gap: 32px; color: #183b8a; font-size: 14px; padding: 10px 0; }
 @media (min-width: 1101px) and (min-height: 650px) { .ptg-hero-visual { max-width: min(100%, 74svh); justify-self: end; } }
 @media (max-width: 1100px) {
+  .reference-home { --ptg-header-height: 140px; }
+  .ptg-site-header .ptg-hero-header { padding: 12px 0; }
   .ptg-hero-header { flex-wrap: wrap; gap: 16px; padding: 20px 0; }
   .ptg-hero-nav { order: 3; width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; border-top: 1px solid #d8e4f1; padding-top: 8px; }
   .ptg-hero-body { gap: 10px; }
@@ -61,7 +81,8 @@
   .ptg-hero-actions a { padding: 14px 18px; font-size: 16px; }
 }
 @media (max-width: 700px) {
-  .ptg-hero-shell { width: calc(100% - 40px); }
+  .ptg-hero-shell, .ptg-site-header .ptg-hero-header { width: calc(100% - 40px); }
+  .ptg-site-header .ptg-hero-brand img { width: 36px; height: 36px; }
   .ptg-hero-header { gap: 14px; padding-top: 18px; }
   .ptg-hero-brand { gap: 8px; font-size: 14px; letter-spacing: .11em; }
   .ptg-hero-brand img { width: 36px; height: 36px; border-radius: 7px; }
@@ -75,7 +96,7 @@
   .ptg-hero-actions { margin-top: 26px; gap: 10px; }
   .ptg-hero-actions a { flex: 1 1 auto; min-height: 54px; padding: 14px; }
   .ptg-hero-primary { gap: 18px; }
-  .ptg-hero-visual { max-width: 360px; width: 80%; margin: -2px auto 0; }
+  .ptg-hero-visual { max-width: 480px; width: 100%; margin: 8px auto 0; }
   .ptg-hero-footer { padding: 16px 0 22px; gap: 10px; }
   .ptg-hero-footer p span { margin: 0 5px; }
 }
