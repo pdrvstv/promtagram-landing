@@ -1,0 +1,82 @@
+/* Native homepage hero. One content tree at every viewport; no screenshot hotspots. */
+.reference-home > .top { display: none !important; }
+.reference-home .opening-scene.ptg-native-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: auto;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  overflow: clip;
+  color: #08123c;
+  background: radial-gradient(ellipse at 88% 58%, #dfeefa 0, transparent 58%), #f5faff;
+}
+.ptg-native-hero, .ptg-native-hero * { box-sizing: border-box; }
+.ptg-native-hero a { text-decoration: none; }
+.ptg-native-hero a:focus-visible { outline: 3px solid #1748df; outline-offset: 6px; }
+.ptg-hero-shell {
+  width: min(100% - 8vw, 1600px);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.ptg-hero-header { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 26px 0; }
+.ptg-hero-brand { display: inline-flex; align-items: center; gap: 13px; color: #08123c; font-size: 20px; font-weight: 800; letter-spacing: .16em; }
+.ptg-hero-brand img { display: block; width: 52px; height: 52px; object-fit: contain; border-radius: 10px; }
+.ptg-hero-nav { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 40px); }
+.ptg-hero-nav a { color: #152d69; font-size: 16px; padding: 12px 0; }
+.ptg-hero-nav a:hover { color: #1748df; text-decoration: underline; text-underline-offset: 6px; }
+.ptg-hero-contact { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 10px 28px; border: 1px solid #2149ba; border-radius: 10px; color: #153fa8; font-size: 16px; }
+.ptg-hero-body { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; padding: 36px 0; }
+.ptg-hero-copy { position: relative; z-index: 1; min-width: 0; }
+.ptg-hero-kicker { margin: 0 0 28px; max-width: 580px; color: #1645ba; font-size: 14px; line-height: 1.6; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.reference-home .ptg-native-hero h1 { max-width: none; margin: 0; color: #071139; font-size: clamp(44px, 5.3vw, 88px); line-height: 1.04; font-weight: 750; letter-spacing: -.055em; overflow-wrap: normal; }
+.ptg-native-hero h1 > span { display: block; margin-bottom: .06em; }
+.ptg-hero-description { max-width: 580px; margin: 28px 0 0; color: #405b80; font-size: clamp(20px, 2vw, 30px); line-height: 1.4; }
+.ptg-hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px; }
+.ptg-hero-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; padding: 16px 26px; border-radius: 10px; font-size: 17px; font-weight: 600; line-height: 1.4; transition: background-color .18s, box-shadow .18s; }
+.ptg-hero-primary { gap: 34px; background: #08153e; border: 1px solid #08153e; color: white; }
+.ptg-hero-primary span { font-size: 25px; line-height: 1; }
+.ptg-hero-primary:hover { background: #163981; box-shadow: 0 8px 24px #122e6320; }
+.ptg-hero-secondary { border: 1px solid #3459b5; color: #163b96; background: #ffffff70; }
+.ptg-hero-secondary:hover, .ptg-hero-contact:hover { background: #e1ecff; }
+.ptg-hero-visual { min-width: 0; width: 100%; }
+/* Show only the illustration area of the existing approved asset (724,120)-(1495,905).
+   Its original proportions are preserved; all lettering and controls live in HTML. */
+.ptg-hero-art { position: relative; width: 100%; aspect-ratio: 771 / 785; overflow: hidden; mask-image: radial-gradient(ellipse 65% 67% at 50% 50%, #000 50%, transparent 78%); }
+.ptg-hero-art img { display: block; position: absolute; width: 216.8612%; max-width: none; height: auto; left: -93.903%; top: -15.2866%; }
+.ptg-hero-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 24px 0 28px; border-top: 1px solid #ccdceb; color: #405b80; }
+.ptg-hero-footer p { margin: 0; font-size: 14px; line-height: 1.7; }
+.ptg-hero-footer p span { margin: 0 12px; color: #809abd; }
+.ptg-hero-footer a { display: inline-flex; gap: 32px; color: #183b8a; font-size: 14px; padding: 10px 0; }
+@media (min-width: 1101px) and (min-height: 650px) { .ptg-hero-visual { max-width: min(100%, 74svh); justify-self: end; } }
+@media (max-width: 1100px) {
+  .ptg-hero-header { flex-wrap: wrap; gap: 16px; padding: 20px 0; }
+  .ptg-hero-nav { order: 3; width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; border-top: 1px solid #d8e4f1; padding-top: 8px; }
+  .ptg-hero-body { gap: 10px; }
+  .reference-home .ptg-native-hero h1 { font-size: clamp(38px, 5.5vw, 60px); }
+  .ptg-hero-actions { gap: 10px; }
+  .ptg-hero-actions a { padding: 14px 18px; font-size: 16px; }
+}
+@media (max-width: 700px) {
+  .ptg-hero-shell { width: calc(100% - 40px); }
+  .ptg-hero-header { gap: 14px; padding-top: 18px; }
+  .ptg-hero-brand { gap: 8px; font-size: 14px; letter-spacing: .11em; }
+  .ptg-hero-brand img { width: 36px; height: 36px; border-radius: 7px; }
+  .ptg-hero-contact { min-height: 44px; font-size: 14px; padding: 8px 14px; }
+  .ptg-hero-nav { gap: 4px 12px; }
+  .ptg-hero-nav a { font-size: 14px; min-height: 44px; }
+  .ptg-hero-body { grid-template-columns: minmax(0, 1fr); padding: 24px 0 0; gap: 0; }
+  .ptg-hero-kicker { max-width: 360px; margin-bottom: 20px; font-size: 12px; letter-spacing: .12em; }
+  .reference-home .ptg-native-hero h1 { font-size: clamp(38px, 10.4vw, 64px); }
+  .ptg-hero-description { margin-top: 22px; font-size: 20px; }
+  .ptg-hero-actions { margin-top: 26px; gap: 10px; }
+  .ptg-hero-actions a { flex: 1 1 auto; min-height: 54px; padding: 14px; }
+  .ptg-hero-primary { gap: 18px; }
+  .ptg-hero-visual { max-width: 360px; width: 80%; margin: -2px auto 0; }
+  .ptg-hero-footer { padding: 16px 0 22px; gap: 10px; }
+  .ptg-hero-footer p span { margin: 0 5px; }
+}
+@media (prefers-reduced-motion: reduce) { .ptg-hero-actions a { transition: none; } }
