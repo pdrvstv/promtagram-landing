@@ -95,3 +95,20 @@ Before opening or merging a pull request:
 ## Status rule
 
 A PR may be marked `READY` only after visual QA, Evidence QA, consent-flow test and closure of the operator/localisation/data-route BLOCKERS. HOLD must never be promoted to READY automatically.
+
+
+## Static editorial article release scope (owner authorization 2026-10-25)
+
+The site-wide RF personal-data / marketing evidence HOLD remains in force for existing forms, intake, unverified site claims and compliance-sensitive landing content. Do **not** change those controls or mark the entire site as legally READY.
+
+The owner explicitly authorized **independent, automated publication of new, static, human-useful editorial content** in `/articles/<slug>/`. The following *narrow exception* to the general PR HOLD applies only when **all** conditions are met:
+
+1. The PR changes only an individual `articles/<slug>/index.html`, the existing `articles/index.html` listing, and append-only article `<loc>` entries in `sitemap.xml`, with optional article-only QA workflow updates. The initial adoption of this policy is a separate documentation-only PR.
+2. The article is genuinely static: no forms, iframe intake, analytics, inline executable JavaScript, advertising scripts, third-party trackers, submission endpoints, cookies, or collection of personal data. Existing `/leasing/` or other service pages must never be modified by an article PR, and links must not introduce a new form or automated transfer of visitor data.
+3. Independent editor SEO-M5 has actually reviewed the precise ARTICLE_ID draft and current primary source evidence; high-stakes claims (legal/financial/tax) show date, jurisdiction and limits; no unverified Promtagram KPIs/case outcomes; mathematical examples are labeled illustrations.
+4. Verify unique slug and intent, canonical URL, the `<title>`/description/H1 and JSON-LD, both sitemap and index, mobile layout, accessibility, links and HTML safety. No protected files are changed other than an append-only article entry in `sitemap.xml`.
+5. A separate branch and PR carry exact diff evidence. All article CI checks and any other required repo checks pass; the PR is mergeable, protected branch settings are respected, and the merge uses an expected commit SHA. **Never directly push to main.**
+6. Following merge, verify the actual public article URL, canonical, listing and sitemap. Only then write `PUBLISHED_VERIFIED`; search indexation requires actual Google/Yandex evidence. Errors cause a scoped revert PR and `BLOCKED`.
+7. If a PR includes **any** personal-data intake, compliance form, legal policy changes, DNS/CNAME/robots, unverified claims on other pages, third-party embeds, or broad template changes, this exception is void and the normal complete RF compliance/evidence HOLD applies. An article-only release never establishes consent compliance for pre-existing forms or sitewide legal READY.
+
+Thus, for a qualifying article-only PR, editorial + article-specific legal QA, scoped visual/mobile QA, passing CI and live release verification satisfy the release gate; the unrelated intake-related checklist items do not represent a reason to mislabel or automatically promote the separate site-wide HOLD. `SEO-M5` may approve/merge these qualifying PRs under this standing owner authorization without per-article requests, with auditable before/after and rollback. If categorization is uncertain, fail closed.
