@@ -32,5 +32,5 @@ addScript('/assets/site-cases-3x3.js?v=20260914a','site-cases-3x3.js');
 addScript('/assets/media-volga-fix.js?v=20260914a','media-volga-fix.js');
 addScript('/assets/media-compact-fix.js?v=20260914a','media-compact-fix.js');
 addScript('/assets/site-vnext.js?v=20260914-1758','site-vnext.js');
-addScript('/assets/site-owner-patch.js?v=20260914-2','site-owner-patch.js');
+addScript('/assets/site-owner-patch.js?v=20260917-partnership','site-owner-patch.js');
 addScript('/assets/site-menu-gosneuroset.js?v=20260914-1','site-menu-gosneuroset.js');
