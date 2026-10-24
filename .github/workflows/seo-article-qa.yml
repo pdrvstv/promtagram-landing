@@ -1,0 +1,67 @@
+name: SEO article QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "articles/**"
+      - "sitemap.xml"
+      - ".github/workflows/seo-article-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-seo-articles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check article files, canonical URLs and sitemap
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, re, subprocess, sys, xml.etree.ElementTree as ET
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.title=False; self.h1=0; self.canonical=[]; self.desc=[]; self.ld=[]
+              def handle_starttag(self, tag, attrs):
+                  d=dict(attrs)
+                  if tag=='h1': self.h1+=1
+                  if tag=='link' and d.get('rel')=='canonical': self.canonical.append(d.get('href',''))
+                  if tag=='meta' and d.get('name')=='description': self.desc.append(d.get('content',''))
+                  if tag=='form': raise AssertionError('Forms are not allowed in SEO articles')
+                  if tag=='script' and d.get('type') not in ('application/ld+json',): raise AssertionError('Executable JS is not allowed')
+                  if tag=='script' and d.get('type')=='application/ld+json': self.ld.append(True)
+          files=subprocess.check_output(['git','diff','--name-only','origin/main...HEAD'],text=True).splitlines()
+          allowed={'sitemap.xml','.github/workflows/seo-article-qa.yml','articles/index.html'}
+          for p in files:
+              assert p in allowed or re.fullmatch(r'articles/[a-z0-9-]+/index.html',p), 'Unauthorized file: '+p
+          assert files, 'No files changed'
+          root=ET.parse('sitemap.xml').getroot()
+          urls=[e.text for e in root.iter() if e.tag.endswith('loc')]
+          assert len(urls)==len(set(urls)), 'Duplicate sitemap locs'
+          assert 'https://promtagram.ru/articles/' in urls
+          listing=Path('articles/index.html').read_text(encoding='utf-8')
+          checked=0
+          for name in files:
+              if re.fullmatch(r'articles/[a-z0-9-]+/index.html',name):
+                  body=Path(name).read_text(encoding='utf-8')
+                  page=Page(); page.feed(body)
+                  slug=name.split('/')[1]
+                  url='https://promtagram.ru/articles/'+slug+'/'
+                  assert '<title>' in body and '</title>' in body
+                  assert page.h1==1 and page.canonical==[url] and page.desc and page.ld, 'Missing SEO tags: '+name
+                  assert url in urls, 'Missing sitemap URL: '+url
+                  assert '/articles/'+slug+'/' in listing, 'Missing article listing entry: '+slug
+                  match=re.search(r'<script type="application/ld\+json">(.+?)</script>',body,re.S)
+                  assert match and json.loads(match.group(1)).get('@type')=='Article', 'Invalid Article JSON-LD'
+                  assert len(body)>2500, 'Incomplete article'
+                  checked+=1
+          print('SEO QA PASS:',checked,'changed article pages;',len(urls),'sitemap URLs')
+          PY
