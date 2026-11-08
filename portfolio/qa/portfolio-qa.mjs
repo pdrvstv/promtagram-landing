@@ -1,4 +1,5 @@
-import { chromium, devices } from 'playwright';
+import { chromium } from 'playwright';
+import AxeBuilder from '@axe-core/playwright';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,7 +24,7 @@ fs.mkdirSync('portfolio/qa/screenshots',{recursive:true});
 try{
 for(const width of [320,375,768,1440]){
  for(const url of urls){
- const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
+ const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1,hasTouch:width<=375,isMobile:width<=375});
  const errs=[];
  page.on('pageerror',e=>errs.push('JS: '+e.message));
  page.on('console',m=>{if(m.type()==='error')errs.push('console: '+m.text())});
@@ -71,12 +72,16 @@ for(const width of [320,375,768,1440]){
  }else{
   const images=page.locator('img.image-view');
   if(await images.count()){
-   await images.first().click();
+   if(width<=375) await images.first().tap(); else await images.first().click();
    const opened=await page.locator('.modal[open]').count();
    if(opened!==1)errs.push('Modal failed to open');
    await page.keyboard.press('Escape');
    if(await page.locator('.modal[open]').count())errs.push('Modal failed to close via Escape');
   }
+ }
+ if(width===375 || width===1440){
+   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+   if(axe.violations.length)errs.push('Accessibility: '+axe.violations.map(v=>v.id+' ('+v.nodes.length+' nodes)').join(', '));
  }
  results.push({width,url,metrics,errors:errs});
  errors.push(...errs.map(e=>width+' '+url+' '+e));
