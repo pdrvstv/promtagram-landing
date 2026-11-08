@@ -82,7 +82,7 @@ for(const width of [320,375,768,1440]){
  }
  if(width===375 || width===1440){
    const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
-   if(axe.violations.length)errs.push('Accessibility: '+axe.violations.map(v=>v.id+' ('+v.nodes.length+' nodes)').join(', '));
+   if(axe.violations.length)errs.push('Accessibility: '+axe.violations.map(v=>v.id+' '+v.nodes.map(n=>n.target.join(' ')+' '+n.failureSummary).join(' | ')).join(', '));
  }
  results.push({width,url,metrics,errors:errs});
  errors.push(...errs.map(e=>width+' '+url+' '+e));
