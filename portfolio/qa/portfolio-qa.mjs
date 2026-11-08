@@ -30,6 +30,13 @@ for(const width of [320,375,768,1440]){
  page.on('response',r=>{if(r.status()>=400)errs.push('HTTP '+r.status()+' '+r.url())});
  const response=await page.goto('http://127.0.0.1:8765'+url,{waitUntil:'networkidle',timeout:30000});
  if(response.status()!==200)errs.push('Page '+response.status());
+ // Force eager loading during QA: screenshot tools do not scroll naturally.
+ await page.evaluate(() => { document.querySelectorAll('img[src]').forEach(img => { img.loading = 'eager'; }); });
+ try {
+   await page.waitForFunction(() => Array.from(document.querySelectorAll('img[src]')).every(img => img.complete), null, {timeout:15000});
+ } catch (_err) {
+   errs.push('Timed out waiting for gallery images');
+ }
  const metrics=await page.evaluate(()=>{
    const images=Array.from(document.querySelectorAll('img[src]'));
    const broken=images.filter(i=>!i.complete || i.naturalWidth===0).map(i=>i.getAttribute('src'));
@@ -41,7 +48,7 @@ for(const width of [320,375,768,1440]){
  if(metrics.scrollWidth>metrics.clientWidth+1)errs.push('Horizontal overflow '+metrics.scrollWidth+'/'+metrics.clientWidth);
  if(!metrics.h1||metrics.mainCount!==1||metrics.tiles===0)errs.push('Missing semantic content');
  if(metrics.brokenImages.length)errs.push('Broken images '+metrics.brokenImages.join(','));
- if(width===375)await page.screenshot({path:'portfolio/qa/screenshots/'+url.replaceAll('/','_').replace(/^_/,'')+'.png',fullPage:true});
+ if(width===375 || (width===1440 && url==='/portfolio/'))await page.screenshot({path:'portfolio/qa/screenshots/'+url.replaceAll('/','_').replace(/^_/,'')+'.png',fullPage:true});
  if(url==='/portfolio/'){
   const tags=page.locator('[data-filter]');
   const active=await tags.count();
