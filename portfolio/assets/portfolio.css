@@ -112,7 +112,7 @@ footer{background:#191919}
   .hero h1{font-size:clamp(43px,11.2vw,65px);letter-spacing:-.075em;overflow-wrap:anywhere;hyphens:auto}
   .hero p{font-size:16px;line-height:1.5}
   .eyebrow{font-size:10px;letter-spacing:.18em}
-  .stamp{opacity:.4;top:10px;right:0;width:55px;height:55px;font-size:7px}
+  .stamp{opacity:1;top:10px;right:0;width:55px;height:55px;font-size:9px}
   .hero-actions{gap:10px}
   .hero-actions .button{min-height:44px}
   .section-title{font-size:clamp(37px,10vw,56px);overflow-wrap:anywhere}
