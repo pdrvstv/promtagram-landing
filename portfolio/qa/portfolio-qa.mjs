@@ -48,7 +48,15 @@ for(const width of [320,375,768,1440]){
  if(metrics.scrollWidth>metrics.clientWidth+1)errs.push('Horizontal overflow '+metrics.scrollWidth+'/'+metrics.clientWidth);
  if(!metrics.h1||metrics.mainCount!==1||metrics.tiles===0)errs.push('Missing semantic content');
  if(metrics.brokenImages.length)errs.push('Broken images '+metrics.brokenImages.join(','));
- if(width===375 || (width===1440 && url==='/portfolio/'))await page.screenshot({path:'portfolio/qa/screenshots/'+url.replaceAll('/','_').replace(/^_/,'')+'.png',fullPage:true});
+ if(width===375 || (width===1440 && url==='/portfolio/')){
+   for(const image of await page.locator('img[src]').all()){
+     await image.scrollIntoViewIfNeeded();
+     await page.waitForTimeout(70);
+   }
+   await page.evaluate(() => window.scrollTo(0, 0));
+   await page.waitForTimeout(150);
+   await page.screenshot({path:'portfolio/qa/screenshots/'+url.replaceAll('/','_').replace(/^_/,'')+'.png',fullPage:true});
+ }
  if(url==='/portfolio/'){
   const tags=page.locator('[data-filter]');
   const active=await tags.count();
