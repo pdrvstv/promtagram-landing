@@ -24,7 +24,8 @@ fs.mkdirSync('portfolio/qa/screenshots',{recursive:true});
 try{
 for(const width of [320,375,768,1440]){
  for(const url of urls){
- const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1,hasTouch:width<=375,isMobile:width<=375});
+ const context=await browser.newContext({viewport:{width,height:900},deviceScaleFactor:1,hasTouch:width<=375,isMobile:width<=375});
+ const page=await context.newPage();
  const errs=[];
  page.on('pageerror',e=>errs.push('JS: '+e.message));
  page.on('console',m=>{if(m.type()==='error')errs.push('console: '+m.text())});
@@ -85,7 +86,7 @@ for(const width of [320,375,768,1440]){
  }
  results.push({width,url,metrics,errors:errs});
  errors.push(...errs.map(e=>width+' '+url+' '+e));
- await page.close();
+ await context.close();
  }
 }
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
